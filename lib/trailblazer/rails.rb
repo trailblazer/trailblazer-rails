@@ -6,7 +6,7 @@ module Trailblazer
   end
 end
 
-# Pass model_name on to operation's contract when `Model` is included.
+# Automatically set model_name on operation's contract when `Op::Model` is included.
 require "trailblazer/operation/model"
 require "trailblazer/operation/model/active_model"
 Trailblazer::Operation::Model::DSL.module_eval do

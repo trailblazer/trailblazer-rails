@@ -1,5 +1,10 @@
 # Trailblazer::Rails
 
+## Form::model_name
+
+Automatically sets `model` on operation's contract when `Operation::Model` is included in operation.
+
+
 ## Planned
 
 * Adds autoloading, etc.

@@ -1,6 +1,6 @@
 module Trailblazer
   module Operation::Model
-    # Set the `::model` on the contract by passing on the operation's model constant.
+    # Automatically set model_name on operation's contract.
     module ActiveModel
       def contract(&block)
         super
