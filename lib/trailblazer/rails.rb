@@ -6,6 +6,8 @@ module Trailblazer
   end
 end
 
+require "trailblazer/rails/railtie"
+
 # Automatically set model_name on operation's contract when `Op::Model` is included.
 require "trailblazer/operation/model"
 require "trailblazer/operation/model/active_model"

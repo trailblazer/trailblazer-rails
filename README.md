@@ -1,5 +1,10 @@
 # Trailblazer::Rails
 
+## Railtie
+
+
+This will go through `app/concepts/`, find all the `crud.rb` files, autoload their corresponding namespace (e.g. `Thing`, which is a model) and then load the `crud.rb` file.
+
 ## Form::model_name
 
 Automatically sets `model` on operation's contract when `Operation::Model` is included in operation.
