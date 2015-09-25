@@ -1,6 +1,7 @@
 require 'sidekiq/worker'
 require 'active_support/core_ext/hash/indifferent_access'
 
+#setup in initialize: when Op.run() with Worker, the policy will be run "delayed" and not with the actual permission set. this will result in many crashing sidekiq workers.
 
 class Trailblazer::Operation
   # only kicks in when Operation::run, #run will still do it real-time
