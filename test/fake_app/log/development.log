@@ -59493,3 +59493,2302 @@ Processing by SongsController#create_with_params as HTML
   Parameters: {"song"=>{"title"=>"You're Going Down", "length"=>"120"}}
 Redirected to http://test.host/songs/8
 Completed 302 Found in 5ms
+DEPRECATION WARNING: You did not specify a value for the configuration option `active_support.test_order`. In Rails 5, the default value of this option will change from `:sorted` to `:random`.
+To disable this warning and keep the current behavior, you can add the following line to your `config/environments/test.rb`:
+
+  Rails.application.configure do
+    config.active_support.test_order = :sorted
+  end
+
+Alternatively, you can opt into the future behavior by setting this option to `:random`. (called from test_order at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-4.2.4/lib/active_support/test_case.rb:42)
+------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create
+------------------------------------------
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from block in <class:ConfiguredTest> at /Users/captainhagbard/Sites/rails/trailblazer-rails/test/endpoint_test.rb:32)
+
+
+Started POST "/rails_endpoint/configured_test/bands" for 127.0.0.1 at 2015-09-25 15:53:15 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"All"}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 11ms (Views: 5.9ms)
+------------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create:_JSON
+------------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands.json" for 127.0.0.1 at 2015-09-25 15:53:15 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as JSON
+  Parameters: {"name"=>"NOFX"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.2ms)
+------------------------------
+ControllerFormTest: test_#form
+------------------------------
+Processing by BandsController#new as HTML
+  Rendered inline template (7.9ms)
+Completed 200 OK in 20ms (Views: 8.3ms)
+-------------------------------------------
+ControllerFormTest: test_#form_with_builder
+-------------------------------------------
+Processing by BandsController#new as HTML
+  Parameters: {"admin"=>true}
+  Rendered inline template (1.5ms)
+Completed 200 OK in 3ms (Views: 1.7ms)
+------------------------------------------
+ControllerCollectionTest: test_#collection
+------------------------------------------
+Processing by BandsController#index as HTML
+  Rendered views/bands/index.html.erb (0.6ms)
+Completed 200 OK in 5ms (Views: 4.7ms)
+
+
+Started POST "/songs/create_with_namespace" for 127.0.0.1 at 2015-09-25 15:53:15 +0200
+Processing by SongsController#create_with_namespace as JSON
+  Parameters: {"title"=>"Teenager Liebe"}
+Completed 201 Created in 10ms (Views: 2.2ms)
+-----------------------------------------
+ActiveRecordPresentTest: test_#collection
+-----------------------------------------
+Processing by ActiveRecordBandsController#index as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms)
+--------------------------------------
+ActiveRecordPresentTest: test_#present
+--------------------------------------
+Processing by ActiveRecordBandsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.2ms)
+------------------------------------------------------
+ResponderRespondWithJSONTest: test_Create_[JSON/valid]
+------------------------------------------------------
+Processing by BandsController#create as JSON
+Completed 201 Created in 13ms (Views: 0.8ms)
+-----------------------------------
+ResponderRunTest: test_[html/valid]
+-----------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.3ms)
+-----------------------------------------------
+ResponderRunTest: test_[html/valid]_with_builds
+-----------------------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "admin"=>true, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.3ms)
+------------------------------------------------
+ResponderRunTest: test_with_block_[html/invalid]
+------------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>""}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 12ms (Views: 0.3ms)
+----------------------------------------------
+ResponderRunTest: test_with_block_[html/valid]
+----------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.2ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid/action]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/another_view.html.erb (0.4ms)
+Completed 200 OK in 12ms (Views: 4.1ms)
+------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid]
+------------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/new.html.erb (0.3ms)
+Completed 200 OK in 10ms (Views: 3.5ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/valid/location]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/other_create
+Completed 302 Found in 4ms
+----------------------------------------------
+ResponderRespondTest: test_Create_[html/valid]
+----------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/2
+Completed 302 Found in 3ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[html/valid]
+----------------------------------------------
+Processing by SongsController#destroy as HTML
+  Parameters: {"id"=>"3"}
+Redirected to http://test.host/songs
+Completed 302 Found in 3ms
+--------------------------------------------
+ResponderRespondTest: test_Delete_[js/valid]
+--------------------------------------------
+Processing by SongsController#destroy as JS
+  Parameters: {"id"=>"4"}
+Completed 500 Internal Server Error in 3ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[json/valid]
+----------------------------------------------
+Processing by SongsController#destroy as JSON
+  Parameters: {"id"=>"5"}
+Completed 204 No Content in 3ms
+---------------------------------------------------------
+ResponderRespondTest: test_Delete_with_formats_[js/valid]
+---------------------------------------------------------
+Processing by SongsController#destroy_with_formats as JS
+  Parameters: {"id"=>"6"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.2ms)
+------------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/invalid]
+------------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.2ms)
+----------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/valid]
+----------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.2ms)
+------------------------------------------
+PrefixedTablenameControllerTest: test_show
+------------------------------------------
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms)
+--------------------------------------------------------------
+ProcessParamsTest: test_Create_with_overridden_#process_params
+--------------------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"Kreator"}}
+Redirected to http://test.host/bands/11
+Completed 302 Found in 5ms
+------------------------------------
+ControllerPresentTest: test_#present
+------------------------------------
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"12"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.2ms)
+-------------------------------------------
+ControllerPresentTest: test_#present_[JSON]
+-------------------------------------------
+Processing by BandsController#show as JSON
+  Parameters: {"id"=>"13"}
+Completed 200 OK in 1ms (Views: 0.1ms)
+------------------------------------------------
+ControllerRespondTest: test_#respond_with_builds
+------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"SNFU"}, "admin"=>true}
+Redirected to http://test.host/bands/14
+Completed 302 Found in 5ms
+---------------------------------------------
+GenericResponderTest: test_Create_with_params
+---------------------------------------------
+Processing by SongsController#create_with_params as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down", "length"=>"120"}}
+Redirected to http://test.host/songs/8
+Completed 302 Found in 4ms
+DEPRECATION WARNING: You did not specify a value for the configuration option `active_support.test_order`. In Rails 5, the default value of this option will change from `:sorted` to `:random`.
+To disable this warning and keep the current behavior, you can add the following line to your `config/environments/test.rb`:
+
+  Rails.application.configure do
+    config.active_support.test_order = :sorted
+  end
+
+Alternatively, you can opt into the future behavior by setting this option to `:random`. (called from test_order at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-4.2.4/lib/active_support/test_case.rb:42)
+-----------------------------------------
+ActiveRecordPresentTest: test_#collection
+-----------------------------------------
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from validate_secret_key_config! at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/railties-4.2.4/lib/rails/application.rb:530)
+Processing by ActiveRecordBandsController#index as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 5.9ms)
+--------------------------------------
+ActiveRecordPresentTest: test_#present
+--------------------------------------
+Processing by ActiveRecordBandsController#show as HTML
+  Parameters: {"id"=>"2"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 0.3ms)
+-----------------------------------
+ResponderRunTest: test_[html/valid]
+-----------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.4ms)
+-----------------------------------------------
+ResponderRunTest: test_[html/valid]_with_builds
+-----------------------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "admin"=>true, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.3ms)
+------------------------------------------------
+ResponderRunTest: test_with_block_[html/invalid]
+------------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>""}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 11ms (Views: 0.3ms)
+----------------------------------------------
+ResponderRunTest: test_with_block_[html/valid]
+----------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.2ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid/action]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/another_view.html.erb (1.4ms)
+Completed 200 OK in 16ms (Views: 4.9ms)
+------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid]
+------------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/new.html.erb (0.3ms)
+Completed 200 OK in 10ms (Views: 3.6ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/valid/location]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/other_create
+Completed 302 Found in 4ms
+----------------------------------------------
+ResponderRespondTest: test_Create_[html/valid]
+----------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/2
+Completed 302 Found in 6ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[html/valid]
+----------------------------------------------
+Processing by SongsController#destroy as HTML
+  Parameters: {"id"=>"3"}
+Redirected to http://test.host/songs
+Completed 302 Found in 3ms
+--------------------------------------------
+ResponderRespondTest: test_Delete_[js/valid]
+--------------------------------------------
+Processing by SongsController#destroy as JS
+  Parameters: {"id"=>"4"}
+Completed 500 Internal Server Error in 3ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[json/valid]
+----------------------------------------------
+Processing by SongsController#destroy as JSON
+  Parameters: {"id"=>"5"}
+Completed 204 No Content in 2ms
+---------------------------------------------------------
+ResponderRespondTest: test_Delete_with_formats_[js/valid]
+---------------------------------------------------------
+Processing by SongsController#destroy_with_formats as JS
+  Parameters: {"id"=>"6"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms)
+------------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/invalid]
+------------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.3ms)
+----------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/valid]
+----------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.2ms)
+------------------------------------------------------
+ResponderRespondWithJSONTest: test_Create_[JSON/valid]
+------------------------------------------------------
+Processing by BandsController#create as JSON
+Completed 201 Created in 12ms (Views: 0.6ms)
+------------------------------------------
+ControllerCollectionTest: test_#collection
+------------------------------------------
+Processing by BandsController#index as HTML
+  Rendered views/bands/index.html.erb (0.8ms)
+Completed 200 OK in 5ms (Views: 4.5ms)
+---------------------------------------------
+GenericResponderTest: test_Create_with_params
+---------------------------------------------
+Processing by SongsController#create_with_params as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down", "length"=>"120"}}
+Redirected to http://test.host/songs/8
+Completed 302 Found in 4ms
+------------------------------
+ControllerFormTest: test_#form
+------------------------------
+Processing by BandsController#new as HTML
+  Rendered inline template (7.7ms)
+Completed 200 OK in 8ms (Views: 7.9ms)
+-------------------------------------------
+ControllerFormTest: test_#form_with_builder
+-------------------------------------------
+Processing by BandsController#new as HTML
+  Parameters: {"admin"=>true}
+  Rendered inline template (1.6ms)
+Completed 200 OK in 3ms (Views: 1.8ms)
+------------------------------------------
+PrefixedTablenameControllerTest: test_show
+------------------------------------------
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms)
+------------------------------------
+ControllerPresentTest: test_#present
+------------------------------------
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"9"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms)
+-------------------------------------------
+ControllerPresentTest: test_#present_[JSON]
+-------------------------------------------
+Processing by BandsController#show as JSON
+  Parameters: {"id"=>"10"}
+Completed 200 OK in 1ms (Views: 0.1ms)
+------------------------------------------------
+ControllerRespondTest: test_#respond_with_builds
+------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"SNFU"}, "admin"=>true}
+Redirected to http://test.host/bands/11
+Completed 302 Found in 5ms
+------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create
+------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands" for 127.0.0.1 at 2015-09-25 15:53:23 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"All"}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms)
+------------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create:_JSON
+------------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands.json" for 127.0.0.1 at 2015-09-25 15:53:23 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as JSON
+  Parameters: {"name"=>"NOFX"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.2ms)
+
+
+Started POST "/songs/create_with_namespace" for 127.0.0.1 at 2015-09-25 15:53:23 +0200
+Processing by SongsController#create_with_namespace as JSON
+  Parameters: {"title"=>"Teenager Liebe"}
+Completed 201 Created in 4ms (Views: 0.6ms)
+--------------------------------------------------------------
+ProcessParamsTest: test_Create_with_overridden_#process_params
+--------------------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"Kreator"}}
+Redirected to http://test.host/bands/14
+Completed 302 Found in 4ms
+DEPRECATION WARNING: You did not specify a value for the configuration option `active_support.test_order`. In Rails 5, the default value of this option will change from `:sorted` to `:random`.
+To disable this warning and keep the current behavior, you can add the following line to your `config/environments/test.rb`:
+
+  Rails.application.configure do
+    config.active_support.test_order = :sorted
+  end
+
+Alternatively, you can opt into the future behavior by setting this option to `:random`. (called from test_order at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-4.2.4/lib/active_support/test_case.rb:42)
+-----------------------------------
+ResponderRunTest: test_[html/valid]
+-----------------------------------
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from validate_secret_key_config! at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/railties-4.2.4/lib/rails/application.rb:530)
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 20ms (Views: 5.0ms)
+-----------------------------------------------
+ResponderRunTest: test_[html/valid]_with_builds
+-----------------------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "admin"=>true, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 0.3ms)
+------------------------------------------------
+ResponderRunTest: test_with_block_[html/invalid]
+------------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>""}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 10ms (Views: 0.4ms)
+----------------------------------------------
+ResponderRunTest: test_with_block_[html/valid]
+----------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.3ms)
+-----------------------------------------
+ActiveRecordPresentTest: test_#collection
+-----------------------------------------
+Processing by ActiveRecordBandsController#index as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms)
+--------------------------------------
+ActiveRecordPresentTest: test_#present
+--------------------------------------
+Processing by ActiveRecordBandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.2ms)
+------------------------------------------------------
+ResponderRespondWithJSONTest: test_Create_[JSON/valid]
+------------------------------------------------------
+Processing by BandsController#create as JSON
+Completed 201 Created in 14ms (Views: 1.6ms)
+
+
+Started POST "/songs/create_with_namespace" for 127.0.0.1 at 2015-09-25 15:54:27 +0200
+Processing by SongsController#create_with_namespace as JSON
+  Parameters: {"title"=>"Teenager Liebe"}
+Completed 201 Created in 6ms (Views: 0.8ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid/action]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/another_view.html.erb (1.1ms)
+Completed 200 OK in 11ms (Views: 3.9ms)
+------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid]
+------------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/new.html.erb (0.5ms)
+Completed 200 OK in 10ms (Views: 3.9ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/valid/location]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/other_create
+Completed 302 Found in 4ms
+----------------------------------------------
+ResponderRespondTest: test_Create_[html/valid]
+----------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/2
+Completed 302 Found in 4ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[html/valid]
+----------------------------------------------
+Processing by SongsController#destroy as HTML
+  Parameters: {"id"=>"3"}
+Redirected to http://test.host/songs
+Completed 302 Found in 3ms
+--------------------------------------------
+ResponderRespondTest: test_Delete_[js/valid]
+--------------------------------------------
+Processing by SongsController#destroy as JS
+  Parameters: {"id"=>"4"}
+Completed 500 Internal Server Error in 3ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[json/valid]
+----------------------------------------------
+Processing by SongsController#destroy as JSON
+  Parameters: {"id"=>"5"}
+Completed 204 No Content in 2ms
+---------------------------------------------------------
+ResponderRespondTest: test_Delete_with_formats_[js/valid]
+---------------------------------------------------------
+Processing by SongsController#destroy_with_formats as JS
+  Parameters: {"id"=>"6"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.2ms)
+------------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/invalid]
+------------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.2ms)
+----------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/valid]
+----------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.2ms)
+--------------------------------------------------------------
+ProcessParamsTest: test_Create_with_overridden_#process_params
+--------------------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"Kreator"}}
+Redirected to http://test.host/bands/7
+Completed 302 Found in 5ms
+------------------------------------------
+PrefixedTablenameControllerTest: test_show
+------------------------------------------
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.5ms)
+------------------------------------------------
+ControllerRespondTest: test_#respond_with_builds
+------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"SNFU"}, "admin"=>true}
+Redirected to http://test.host/bands/8
+Completed 302 Found in 5ms
+------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create
+------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands" for 127.0.0.1 at 2015-09-25 15:54:27 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"All"}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms)
+------------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create:_JSON
+------------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands.json" for 127.0.0.1 at 2015-09-25 15:54:27 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as JSON
+  Parameters: {"name"=>"NOFX"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.2ms)
+------------------------------
+ControllerFormTest: test_#form
+------------------------------
+Processing by BandsController#new as HTML
+  Rendered inline template (7.3ms)
+Completed 200 OK in 8ms (Views: 7.6ms)
+-------------------------------------------
+ControllerFormTest: test_#form_with_builder
+-------------------------------------------
+Processing by BandsController#new as HTML
+  Parameters: {"admin"=>true}
+  Rendered inline template (1.6ms)
+Completed 200 OK in 2ms (Views: 1.8ms)
+---------------------------------------------
+GenericResponderTest: test_Create_with_params
+---------------------------------------------
+Processing by SongsController#create_with_params as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down", "length"=>"120"}}
+Redirected to http://test.host/songs/8
+Completed 302 Found in 4ms
+------------------------------------
+ControllerPresentTest: test_#present
+------------------------------------
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"11"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.2ms)
+-------------------------------------------
+ControllerPresentTest: test_#present_[JSON]
+-------------------------------------------
+Processing by BandsController#show as JSON
+  Parameters: {"id"=>"12"}
+Completed 200 OK in 1ms (Views: 0.1ms)
+------------------------------------------
+ControllerCollectionTest: test_#collection
+------------------------------------------
+Processing by BandsController#index as HTML
+  Rendered views/bands/index.html.erb (0.7ms)
+Completed 200 OK in 5ms (Views: 4.3ms)
+DEPRECATION WARNING: You did not specify a value for the configuration option `active_support.test_order`. In Rails 5, the default value of this option will change from `:sorted` to `:random`.
+To disable this warning and keep the current behavior, you can add the following line to your `config/environments/test.rb`:
+
+  Rails.application.configure do
+    config.active_support.test_order = :sorted
+  end
+
+Alternatively, you can opt into the future behavior by setting this option to `:random`. (called from test_order at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-4.2.4/lib/active_support/test_case.rb:42)
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from post at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/2.2.0/forwardable.rb:183)
+
+
+Started POST "/songs/create_with_namespace" for 127.0.0.1 at 2015-09-25 15:58:42 +0200
+Processing by SongsController#create_with_namespace as JSON
+  Parameters: {"title"=>"Teenager Liebe"}
+Completed 201 Created in 17ms (Views: 2.2ms)
+-----------------------------------------
+ActiveRecordPresentTest: test_#collection
+-----------------------------------------
+Processing by ActiveRecordBandsController#index as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.5ms)
+--------------------------------------
+ActiveRecordPresentTest: test_#present
+--------------------------------------
+Processing by ActiveRecordBandsController#show as HTML
+  Parameters: {"id"=>"2"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 0.3ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid/action]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/another_view.html.erb (1.6ms)
+Completed 200 OK in 19ms (Views: 5.4ms)
+------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid]
+------------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/new.html.erb (0.4ms)
+Completed 200 OK in 10ms (Views: 3.9ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/valid/location]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/other_create
+Completed 302 Found in 4ms
+----------------------------------------------
+ResponderRespondTest: test_Create_[html/valid]
+----------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/2
+Completed 302 Found in 3ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[html/valid]
+----------------------------------------------
+Processing by SongsController#destroy as HTML
+  Parameters: {"id"=>"3"}
+Redirected to http://test.host/songs
+Completed 302 Found in 4ms
+--------------------------------------------
+ResponderRespondTest: test_Delete_[js/valid]
+--------------------------------------------
+Processing by SongsController#destroy as JS
+  Parameters: {"id"=>"4"}
+Completed 500 Internal Server Error in 3ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[json/valid]
+----------------------------------------------
+Processing by SongsController#destroy as JSON
+  Parameters: {"id"=>"5"}
+Completed 204 No Content in 3ms
+---------------------------------------------------------
+ResponderRespondTest: test_Delete_with_formats_[js/valid]
+---------------------------------------------------------
+Processing by SongsController#destroy_with_formats as JS
+  Parameters: {"id"=>"6"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms)
+------------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/invalid]
+------------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.3ms)
+----------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/valid]
+----------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.2ms)
+------------------------------------
+ControllerPresentTest: test_#present
+------------------------------------
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"3"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms)
+-------------------------------------------
+ControllerPresentTest: test_#present_[JSON]
+-------------------------------------------
+Processing by BandsController#show as JSON
+  Parameters: {"id"=>"4"}
+Completed 200 OK in 10ms (Views: 0.1ms)
+-----------------------------------
+ResponderRunTest: test_[html/valid]
+-----------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.3ms)
+-----------------------------------------------
+ResponderRunTest: test_[html/valid]_with_builds
+-----------------------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "admin"=>true, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.2ms)
+------------------------------------------------
+ResponderRunTest: test_with_block_[html/invalid]
+------------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>""}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 0.3ms)
+----------------------------------------------
+ResponderRunTest: test_with_block_[html/valid]
+----------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.2ms)
+------------------------------------------------------
+ResponderRespondWithJSONTest: test_Create_[JSON/valid]
+------------------------------------------------------
+Processing by BandsController#create as JSON
+Completed 201 Created in 5ms (Views: 0.7ms)
+------------------------------------------------
+ControllerRespondTest: test_#respond_with_builds
+------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"SNFU"}, "admin"=>true}
+Redirected to http://test.host/bands/9
+Completed 302 Found in 5ms
+------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create
+------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands" for 127.0.0.1 at 2015-09-25 15:58:42 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"All"}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms)
+------------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create:_JSON
+------------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands.json" for 127.0.0.1 at 2015-09-25 15:58:42 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as JSON
+  Parameters: {"name"=>"NOFX"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms)
+------------------------------
+ControllerFormTest: test_#form
+------------------------------
+Processing by BandsController#new as HTML
+  Rendered inline template (7.3ms)
+Completed 200 OK in 8ms (Views: 7.6ms)
+-------------------------------------------
+ControllerFormTest: test_#form_with_builder
+-------------------------------------------
+Processing by BandsController#new as HTML
+  Parameters: {"admin"=>true}
+  Rendered inline template (1.6ms)
+Completed 200 OK in 2ms (Views: 1.9ms)
+--------------------------------------------------------------
+ProcessParamsTest: test_Create_with_overridden_#process_params
+--------------------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"Kreator"}}
+Redirected to http://test.host/bands/12
+Completed 302 Found in 4ms
+---------------------------------------------
+GenericResponderTest: test_Create_with_params
+---------------------------------------------
+Processing by SongsController#create_with_params as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down", "length"=>"120"}}
+Redirected to http://test.host/songs/8
+Completed 302 Found in 5ms
+------------------------------------------
+ControllerCollectionTest: test_#collection
+------------------------------------------
+Processing by BandsController#index as HTML
+  Rendered views/bands/index.html.erb (0.7ms)
+Completed 200 OK in 9ms (Views: 8.4ms)
+------------------------------------------
+PrefixedTablenameControllerTest: test_show
+------------------------------------------
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms)
+DEPRECATION WARNING: You did not specify a value for the configuration option `active_support.test_order`. In Rails 5, the default value of this option will change from `:sorted` to `:random`.
+To disable this warning and keep the current behavior, you can add the following line to your `config/environments/test.rb`:
+
+  Rails.application.configure do
+    config.active_support.test_order = :sorted
+  end
+
+Alternatively, you can opt into the future behavior by setting this option to `:random`. (called from test_order at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-4.2.4/lib/active_support/test_case.rb:42)
+------------------------------------------
+ControllerCollectionTest: test_#collection
+------------------------------------------
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from validate_secret_key_config! at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/railties-4.2.4/lib/rails/application.rb:530)
+Processing by BandsController#index as HTML
+  Rendered views/bands/index.html.erb (1.9ms)
+Completed 200 OK in 11ms (Views: 10.3ms)
+-----------------------------------
+ResponderRunTest: test_[html/valid]
+-----------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 1.2ms)
+-----------------------------------------------
+ResponderRunTest: test_[html/valid]_with_builds
+-----------------------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "admin"=>true, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 0.3ms)
+------------------------------------------------
+ResponderRunTest: test_with_block_[html/invalid]
+------------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>""}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 10ms (Views: 0.3ms)
+----------------------------------------------
+ResponderRunTest: test_with_block_[html/valid]
+----------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.2ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid/action]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/another_view.html.erb (0.4ms)
+Completed 200 OK in 15ms (Views: 4.0ms)
+------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid]
+------------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/new.html.erb (0.3ms)
+Completed 200 OK in 11ms (Views: 4.1ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/valid/location]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/other_create
+Completed 302 Found in 4ms
+----------------------------------------------
+ResponderRespondTest: test_Create_[html/valid]
+----------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/2
+Completed 302 Found in 5ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[html/valid]
+----------------------------------------------
+Processing by SongsController#destroy as HTML
+  Parameters: {"id"=>"3"}
+Redirected to http://test.host/songs
+Completed 302 Found in 4ms
+--------------------------------------------
+ResponderRespondTest: test_Delete_[js/valid]
+--------------------------------------------
+Processing by SongsController#destroy as JS
+  Parameters: {"id"=>"4"}
+Completed 500 Internal Server Error in 3ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[json/valid]
+----------------------------------------------
+Processing by SongsController#destroy as JSON
+  Parameters: {"id"=>"5"}
+Completed 204 No Content in 2ms
+---------------------------------------------------------
+ResponderRespondTest: test_Delete_with_formats_[js/valid]
+---------------------------------------------------------
+Processing by SongsController#destroy_with_formats as JS
+  Parameters: {"id"=>"6"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.2ms)
+------------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/invalid]
+------------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.2ms)
+----------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/valid]
+----------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.2ms)
+------------------------------
+ControllerFormTest: test_#form
+------------------------------
+Processing by BandsController#new as HTML
+  Rendered inline template (7.5ms)
+Completed 200 OK in 8ms (Views: 7.7ms)
+-------------------------------------------
+ControllerFormTest: test_#form_with_builder
+-------------------------------------------
+Processing by BandsController#new as HTML
+  Parameters: {"admin"=>true}
+  Rendered inline template (1.6ms)
+Completed 200 OK in 2ms (Views: 1.8ms)
+------------------------------------------------
+ControllerRespondTest: test_#respond_with_builds
+------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"SNFU"}, "admin"=>true}
+Redirected to http://test.host/bands/6
+Completed 302 Found in 5ms
+------------------------------------
+ControllerPresentTest: test_#present
+------------------------------------
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"7"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms)
+-------------------------------------------
+ControllerPresentTest: test_#present_[JSON]
+-------------------------------------------
+Processing by BandsController#show as JSON
+  Parameters: {"id"=>"8"}
+Completed 200 OK in 8ms (Views: 0.1ms)
+---------------------------------------------
+GenericResponderTest: test_Create_with_params
+---------------------------------------------
+Processing by SongsController#create_with_params as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down", "length"=>"120"}}
+Redirected to http://test.host/songs/8
+Completed 302 Found in 5ms
+------------------------------------------
+PrefixedTablenameControllerTest: test_show
+------------------------------------------
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms)
+
+
+Started POST "/songs/create_with_namespace" for 127.0.0.1 at 2015-09-25 16:00:10 +0200
+Processing by SongsController#create_with_namespace as JSON
+  Parameters: {"title"=>"Teenager Liebe"}
+Completed 201 Created in 4ms (Views: 0.6ms)
+------------------------------------------------------
+ResponderRespondWithJSONTest: test_Create_[JSON/valid]
+------------------------------------------------------
+Processing by BandsController#create as JSON
+Completed 201 Created in 4ms (Views: 0.3ms)
+------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create
+------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands" for 127.0.0.1 at 2015-09-25 16:00:10 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"All"}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms)
+------------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create:_JSON
+------------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands.json" for 127.0.0.1 at 2015-09-25 16:00:10 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as JSON
+  Parameters: {"name"=>"NOFX"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.2ms)
+-----------------------------------------
+ActiveRecordPresentTest: test_#collection
+-----------------------------------------
+Processing by ActiveRecordBandsController#index as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms)
+--------------------------------------
+ActiveRecordPresentTest: test_#present
+--------------------------------------
+Processing by ActiveRecordBandsController#show as HTML
+  Parameters: {"id"=>"13"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.2ms)
+--------------------------------------------------------------
+ProcessParamsTest: test_Create_with_overridden_#process_params
+--------------------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"Kreator"}}
+Redirected to http://test.host/bands/14
+Completed 302 Found in 4ms
+DEPRECATION WARNING: You did not specify a value for the configuration option `active_support.test_order`. In Rails 5, the default value of this option will change from `:sorted` to `:random`.
+To disable this warning and keep the current behavior, you can add the following line to your `config/environments/test.rb`:
+
+  Rails.application.configure do
+    config.active_support.test_order = :sorted
+  end
+
+Alternatively, you can opt into the future behavior by setting this option to `:random`. (called from test_order at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-4.2.4/lib/active_support/test_case.rb:42)
+------------------------------------------------------
+ResponderRespondWithJSONTest: test_Create_[JSON/valid]
+------------------------------------------------------
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from validate_secret_key_config! at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/railties-4.2.4/lib/rails/application.rb:530)
+Processing by BandsController#create as JSON
+Completed 201 Created in 39ms (Views: 1.9ms)
+------------------------------
+ControllerFormTest: test_#form
+------------------------------
+Processing by BandsController#new as HTML
+  Rendered inline template (8.1ms)
+Completed 200 OK in 9ms (Views: 8.4ms)
+-------------------------------------------
+ControllerFormTest: test_#form_with_builder
+-------------------------------------------
+Processing by BandsController#new as HTML
+  Parameters: {"admin"=>true}
+  Rendered inline template (1.6ms)
+Completed 200 OK in 3ms (Views: 1.8ms)
+------------------------------------------
+ControllerCollectionTest: test_#collection
+------------------------------------------
+Processing by BandsController#index as HTML
+  Rendered views/bands/index.html.erb (0.5ms)
+Completed 200 OK in 4ms (Views: 4.0ms)
+------------------------------------------------
+ControllerRespondTest: test_#respond_with_builds
+------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"SNFU"}, "admin"=>true}
+Redirected to http://test.host/bands/4
+Completed 302 Found in 8ms
+---------------------------------------------
+GenericResponderTest: test_Create_with_params
+---------------------------------------------
+Processing by SongsController#create_with_params as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down", "length"=>"120"}}
+Redirected to http://test.host/songs/1
+Completed 302 Found in 7ms
+------------------------------------------
+PrefixedTablenameControllerTest: test_show
+------------------------------------------
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.2ms)
+-----------------------------------------
+ActiveRecordPresentTest: test_#collection
+-----------------------------------------
+Processing by ActiveRecordBandsController#index as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.5ms)
+--------------------------------------
+ActiveRecordPresentTest: test_#present
+--------------------------------------
+Processing by ActiveRecordBandsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms)
+------------------------------------
+ControllerPresentTest: test_#present
+------------------------------------
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"7"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.2ms)
+-------------------------------------------
+ControllerPresentTest: test_#present_[JSON]
+-------------------------------------------
+Processing by BandsController#show as JSON
+  Parameters: {"id"=>"8"}
+Completed 200 OK in 1ms (Views: 0.1ms)
+--------------------------------------------------------------
+ProcessParamsTest: test_Create_with_overridden_#process_params
+--------------------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"Kreator"}}
+Redirected to http://test.host/bands/9
+Completed 302 Found in 4ms
+-----------------------------------
+ResponderRunTest: test_[html/valid]
+-----------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.3ms)
+-----------------------------------------------
+ResponderRunTest: test_[html/valid]_with_builds
+-----------------------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "admin"=>true, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.2ms)
+------------------------------------------------
+ResponderRunTest: test_with_block_[html/invalid]
+------------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>""}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 11ms (Views: 0.3ms)
+----------------------------------------------
+ResponderRunTest: test_with_block_[html/valid]
+----------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.3ms)
+------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create
+------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands" for 127.0.0.1 at 2015-09-25 16:02:33 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"All"}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.3ms)
+------------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create:_JSON
+------------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands.json" for 127.0.0.1 at 2015-09-25 16:02:33 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as JSON
+  Parameters: {"name"=>"NOFX"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.2ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid/action]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/another_view.html.erb (0.4ms)
+Completed 200 OK in 11ms (Views: 3.9ms)
+------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid]
+------------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/new.html.erb (0.4ms)
+Completed 200 OK in 10ms (Views: 3.8ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/valid/location]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/other_create
+Completed 302 Found in 4ms
+----------------------------------------------
+ResponderRespondTest: test_Create_[html/valid]
+----------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/3
+Completed 302 Found in 3ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[html/valid]
+----------------------------------------------
+Processing by SongsController#destroy as HTML
+  Parameters: {"id"=>"4"}
+Redirected to http://test.host/songs
+Completed 302 Found in 3ms
+--------------------------------------------
+ResponderRespondTest: test_Delete_[js/valid]
+--------------------------------------------
+Processing by SongsController#destroy as JS
+  Parameters: {"id"=>"5"}
+Completed 500 Internal Server Error in 3ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[json/valid]
+----------------------------------------------
+Processing by SongsController#destroy as JSON
+  Parameters: {"id"=>"6"}
+Completed 204 No Content in 3ms
+---------------------------------------------------------
+ResponderRespondTest: test_Delete_with_formats_[js/valid]
+---------------------------------------------------------
+Processing by SongsController#destroy_with_formats as JS
+  Parameters: {"id"=>"7"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.2ms)
+------------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/invalid]
+------------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.3ms)
+----------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/valid]
+----------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.2ms)
+
+
+Started POST "/songs/create_with_namespace" for 127.0.0.1 at 2015-09-25 16:02:33 +0200
+Processing by SongsController#create_with_namespace as JSON
+  Parameters: {"title"=>"Teenager Liebe"}
+Completed 201 Created in 4ms (Views: 0.6ms)
+DEPRECATION WARNING: You did not specify a value for the configuration option `active_support.test_order`. In Rails 5, the default value of this option will change from `:sorted` to `:random`.
+To disable this warning and keep the current behavior, you can add the following line to your `config/environments/test.rb`:
+
+  Rails.application.configure do
+    config.active_support.test_order = :sorted
+  end
+
+Alternatively, you can opt into the future behavior by setting this option to `:random`. (called from test_order at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-4.2.4/lib/active_support/test_case.rb:42)
+------------------------------------
+ControllerPresentTest: test_#present
+------------------------------------
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from validate_secret_key_config! at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/railties-4.2.4/lib/rails/application.rb:530)
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 13ms (Views: 7.0ms)
+-------------------------------------------
+ControllerPresentTest: test_#present_[JSON]
+-------------------------------------------
+Processing by BandsController#show as JSON
+  Parameters: {"id"=>"2"}
+Completed 200 OK in 10ms (Views: 0.1ms)
+------------------------------
+ControllerFormTest: test_#form
+------------------------------
+Processing by BandsController#new as HTML
+  Rendered inline template (17.1ms)
+Completed 200 OK in 23ms (Views: 18.5ms)
+-------------------------------------------
+ControllerFormTest: test_#form_with_builder
+-------------------------------------------
+Processing by BandsController#new as HTML
+  Parameters: {"admin"=>true}
+  Rendered inline template (7.4ms)
+Completed 200 OK in 14ms (Views: 8.7ms)
+------------------------------------------
+PrefixedTablenameControllerTest: test_show
+------------------------------------------
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered text template (0.1ms)
+Completed 200 OK in 6ms (Views: 2.3ms)
+-----------------------------------------
+ActiveRecordPresentTest: test_#collection
+-----------------------------------------
+Processing by ActiveRecordBandsController#index as HTML
+  Rendered text template (0.2ms)
+Completed 200 OK in 5ms (Views: 2.8ms)
+--------------------------------------
+ActiveRecordPresentTest: test_#present
+--------------------------------------
+Processing by ActiveRecordBandsController#show as HTML
+  Parameters: {"id"=>"4"}
+  Rendered text template (0.1ms)
+Completed 200 OK in 5ms (Views: 1.6ms)
+------------------------------------------------------
+ResponderRespondWithJSONTest: test_Create_[JSON/valid]
+------------------------------------------------------
+Processing by BandsController#create as JSON
+Completed 201 Created in 18ms (Views: 4.0ms)
+
+
+Started POST "/songs/create_with_namespace" for 127.0.0.1 at 2015-09-25 16:07:52 +0200
+Processing by SongsController#create_with_namespace as JSON
+  Parameters: {"title"=>"Teenager Liebe"}
+Completed 201 Created in 32ms (Views: 6.5ms)
+------------------------------------------
+ControllerCollectionTest: test_#collection
+------------------------------------------
+Processing by BandsController#index as HTML
+  Rendered views/bands/index.html.erb (3.3ms)
+Completed 200 OK in 17ms (Views: 16.1ms)
+------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create
+------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands" for 127.0.0.1 at 2015-09-25 16:07:53 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"All"}}
+  Rendered text template (0.1ms)
+Completed 200 OK in 10ms (Views: 2.0ms)
+------------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create:_JSON
+------------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands.json" for 127.0.0.1 at 2015-09-25 16:07:53 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as JSON
+  Parameters: {"name"=>"NOFX"}
+  Rendered text template (0.1ms)
+Completed 200 OK in 7ms (Views: 1.4ms)
+---------------------------------------------
+GenericResponderTest: test_Create_with_params
+---------------------------------------------
+Processing by SongsController#create_with_params as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down", "length"=>"120"}}
+Redirected to http://test.host/songs/1
+Completed 302 Found in 12ms
+-----------------------------------
+ResponderRunTest: test_[html/valid]
+-----------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.1ms)
+Completed 200 OK in 16ms (Views: 1.4ms)
+-----------------------------------------------
+ResponderRunTest: test_[html/valid]_with_builds
+-----------------------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "admin"=>true, "id"=>"1"}
+  Rendered text template (0.1ms)
+Completed 200 OK in 17ms (Views: 1.1ms)
+------------------------------------------------
+ResponderRunTest: test_with_block_[html/invalid]
+------------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>""}, "id"=>"1"}
+  Rendered text template (0.1ms)
+Completed 200 OK in 34ms (Views: 1.5ms)
+----------------------------------------------
+ResponderRunTest: test_with_block_[html/valid]
+----------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.1ms)
+Completed 200 OK in 16ms (Views: 1.4ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid/action]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/another_view.html.erb (1.5ms)
+Completed 200 OK in 36ms (Views: 9.6ms)
+------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid]
+------------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/new.html.erb (1.5ms)
+Completed 200 OK in 34ms (Views: 7.3ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/valid/location]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/other_create
+Completed 302 Found in 12ms
+----------------------------------------------
+ResponderRespondTest: test_Create_[html/valid]
+----------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/3
+Completed 302 Found in 13ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[html/valid]
+----------------------------------------------
+Processing by SongsController#destroy as HTML
+  Parameters: {"id"=>"4"}
+Redirected to http://test.host/songs
+Completed 302 Found in 11ms
+--------------------------------------------
+ResponderRespondTest: test_Delete_[js/valid]
+--------------------------------------------
+Processing by SongsController#destroy as JS
+  Parameters: {"id"=>"5"}
+Completed 500 Internal Server Error in 8ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[json/valid]
+----------------------------------------------
+Processing by SongsController#destroy as JSON
+  Parameters: {"id"=>"6"}
+Completed 204 No Content in 8ms
+---------------------------------------------------------
+ResponderRespondTest: test_Delete_with_formats_[js/valid]
+---------------------------------------------------------
+Processing by SongsController#destroy_with_formats as JS
+  Parameters: {"id"=>"7"}
+  Rendered text template (0.1ms)
+Completed 200 OK in 7ms (Views: 1.4ms)
+------------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/invalid]
+------------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered text template (0.1ms)
+Completed 200 OK in 26ms (Views: 1.5ms)
+----------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/valid]
+----------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+  Rendered text template (0.1ms)
+Completed 200 OK in 11ms (Views: 1.4ms)
+--------------------------------------------------------------
+ProcessParamsTest: test_Create_with_overridden_#process_params
+--------------------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"Kreator"}}
+Redirected to http://test.host/bands/13
+Completed 302 Found in 21ms
+------------------------------------------------
+ControllerRespondTest: test_#respond_with_builds
+------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"SNFU"}, "admin"=>true}
+Redirected to http://test.host/bands/14
+Completed 302 Found in 22ms
+DEPRECATION WARNING: You did not specify a value for the configuration option `active_support.test_order`. In Rails 5, the default value of this option will change from `:sorted` to `:random`.
+To disable this warning and keep the current behavior, you can add the following line to your `config/environments/test.rb`:
+
+  Rails.application.configure do
+    config.active_support.test_order = :sorted
+  end
+
+Alternatively, you can opt into the future behavior by setting this option to `:random`. (called from test_order at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-4.2.4/lib/active_support/test_case.rb:42)
+------------------------------------------
+PrefixedTablenameControllerTest: test_show
+------------------------------------------
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from validate_secret_key_config! at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/railties-4.2.4/lib/rails/application.rb:530)
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 17ms (Views: 8.4ms)
+------------------------------------------------
+ControllerRespondTest: test_#respond_with_builds
+------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"SNFU"}, "admin"=>true}
+Redirected to http://test.host/bands/1
+Completed 302 Found in 29ms
+------------------------------------------------------
+ResponderRespondWithJSONTest: test_Create_[JSON/valid]
+------------------------------------------------------
+Processing by BandsController#create as JSON
+Completed 201 Created in 17ms (Views: 0.6ms)
+------------------------------
+ControllerFormTest: test_#form
+------------------------------
+Processing by BandsController#new as HTML
+  Rendered inline template (11.0ms)
+Completed 200 OK in 13ms (Views: 11.5ms)
+-------------------------------------------
+ControllerFormTest: test_#form_with_builder
+-------------------------------------------
+Processing by BandsController#new as HTML
+  Parameters: {"admin"=>true}
+  Rendered inline template (2.5ms)
+Completed 200 OK in 4ms (Views: 2.8ms)
+------------------------------------
+ControllerPresentTest: test_#present
+------------------------------------
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"3"}
+  Rendered text template (0.1ms)
+Completed 200 OK in 2ms (Views: 0.4ms)
+-------------------------------------------
+ControllerPresentTest: test_#present_[JSON]
+-------------------------------------------
+Processing by BandsController#show as JSON
+  Parameters: {"id"=>"4"}
+Completed 200 OK in 2ms (Views: 0.1ms)
+-----------------------------------
+ResponderRunTest: test_[html/valid]
+-----------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.4ms)
+-----------------------------------------------
+ResponderRunTest: test_[html/valid]_with_builds
+-----------------------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "admin"=>true, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 0.7ms)
+------------------------------------------------
+ResponderRunTest: test_with_block_[html/invalid]
+------------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>""}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 9ms (Views: 0.4ms)
+----------------------------------------------
+ResponderRunTest: test_with_block_[html/valid]
+----------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 0.8ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid/action]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/another_view.html.erb (0.5ms)
+Completed 200 OK in 14ms (Views: 4.8ms)
+------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid]
+------------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/new.html.erb (0.9ms)
+Completed 200 OK in 14ms (Views: 5.1ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/valid/location]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/other_create
+Completed 302 Found in 5ms
+----------------------------------------------
+ResponderRespondTest: test_Create_[html/valid]
+----------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/2
+Completed 302 Found in 4ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[html/valid]
+----------------------------------------------
+Processing by SongsController#destroy as HTML
+  Parameters: {"id"=>"3"}
+Redirected to http://test.host/songs
+Completed 302 Found in 4ms
+--------------------------------------------
+ResponderRespondTest: test_Delete_[js/valid]
+--------------------------------------------
+Processing by SongsController#destroy as JS
+  Parameters: {"id"=>"4"}
+Completed 500 Internal Server Error in 5ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[json/valid]
+----------------------------------------------
+Processing by SongsController#destroy as JSON
+  Parameters: {"id"=>"5"}
+Completed 204 No Content in 3ms
+---------------------------------------------------------
+ResponderRespondTest: test_Delete_with_formats_[js/valid]
+---------------------------------------------------------
+Processing by SongsController#destroy_with_formats as JS
+  Parameters: {"id"=>"6"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms)
+------------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/invalid]
+------------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 0.3ms)
+----------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/valid]
+----------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.3ms)
+-----------------------------------------
+ActiveRecordPresentTest: test_#collection
+-----------------------------------------
+Processing by ActiveRecordBandsController#index as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms)
+--------------------------------------
+ActiveRecordPresentTest: test_#present
+--------------------------------------
+Processing by ActiveRecordBandsController#show as HTML
+  Parameters: {"id"=>"9"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms)
+
+
+Started POST "/songs/create_with_namespace" for 127.0.0.1 at 2015-09-25 16:09:24 +0200
+Processing by SongsController#create_with_namespace as JSON
+  Parameters: {"title"=>"Teenager Liebe"}
+Completed 201 Created in 5ms (Views: 1.0ms)
+--------------------------------------------------------------
+ProcessParamsTest: test_Create_with_overridden_#process_params
+--------------------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"Kreator"}}
+Redirected to http://test.host/bands/10
+Completed 302 Found in 9ms
+------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create
+------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands" for 127.0.0.1 at 2015-09-25 16:09:24 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"All"}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms)
+------------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create:_JSON
+------------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands.json" for 127.0.0.1 at 2015-09-25 16:09:24 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as JSON
+  Parameters: {"name"=>"NOFX"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.0ms)
+------------------------------------------
+ControllerCollectionTest: test_#collection
+------------------------------------------
+Processing by BandsController#index as HTML
+  Rendered views/bands/index.html.erb (1.2ms)
+Completed 200 OK in 6ms (Views: 5.4ms)
+---------------------------------------------
+GenericResponderTest: test_Create_with_params
+---------------------------------------------
+Processing by SongsController#create_with_params as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down", "length"=>"120"}}
+Redirected to http://test.host/songs/8
+Completed 302 Found in 7ms
+DEPRECATION WARNING: You did not specify a value for the configuration option `active_support.test_order`. In Rails 5, the default value of this option will change from `:sorted` to `:random`.
+To disable this warning and keep the current behavior, you can add the following line to your `config/environments/test.rb`:
+
+  Rails.application.configure do
+    config.active_support.test_order = :sorted
+  end
+
+Alternatively, you can opt into the future behavior by setting this option to `:random`. (called from test_order at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-4.2.4/lib/active_support/test_case.rb:42)
+------------------------------------------------
+ControllerRespondTest: test_#respond_with_builds
+------------------------------------------------
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from validate_secret_key_config! at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/railties-4.2.4/lib/rails/application.rb:530)
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"SNFU"}, "admin"=>true}
+Redirected to http://test.host/bands/1
+Completed 302 Found in 46ms
+------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create
+------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands" for 127.0.0.1 at 2015-09-25 16:09:33 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"All"}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.8ms)
+------------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create:_JSON
+------------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands.json" for 127.0.0.1 at 2015-09-25 16:09:33 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as JSON
+  Parameters: {"name"=>"NOFX"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.2ms)
+--------------------------------------------------------------
+ProcessParamsTest: test_Create_with_overridden_#process_params
+--------------------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"Kreator"}}
+Redirected to http://test.host/bands/4
+Completed 302 Found in 8ms
+-----------------------------------------
+ActiveRecordPresentTest: test_#collection
+-----------------------------------------
+Processing by ActiveRecordBandsController#index as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.7ms)
+--------------------------------------
+ActiveRecordPresentTest: test_#present
+--------------------------------------
+Processing by ActiveRecordBandsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.7ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid/action]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/another_view.html.erb (1.9ms)
+Completed 200 OK in 29ms (Views: 6.2ms)
+------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid]
+------------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/new.html.erb (0.4ms)
+Completed 200 OK in 14ms (Views: 4.5ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/valid/location]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/other_create
+Completed 302 Found in 5ms
+----------------------------------------------
+ResponderRespondTest: test_Create_[html/valid]
+----------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/2
+Completed 302 Found in 5ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[html/valid]
+----------------------------------------------
+Processing by SongsController#destroy as HTML
+  Parameters: {"id"=>"3"}
+Redirected to http://test.host/songs
+Completed 302 Found in 4ms
+--------------------------------------------
+ResponderRespondTest: test_Delete_[js/valid]
+--------------------------------------------
+Processing by SongsController#destroy as JS
+  Parameters: {"id"=>"4"}
+Completed 500 Internal Server Error in 4ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[json/valid]
+----------------------------------------------
+Processing by SongsController#destroy as JSON
+  Parameters: {"id"=>"5"}
+Completed 204 No Content in 3ms
+---------------------------------------------------------
+ResponderRespondTest: test_Delete_with_formats_[js/valid]
+---------------------------------------------------------
+Processing by SongsController#destroy_with_formats as JS
+  Parameters: {"id"=>"6"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms)
+------------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/invalid]
+------------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 0.4ms)
+----------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/valid]
+----------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 0.4ms)
+------------------------------------------
+PrefixedTablenameControllerTest: test_show
+------------------------------------------
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.6ms)
+------------------------------------------
+ControllerCollectionTest: test_#collection
+------------------------------------------
+Processing by BandsController#index as HTML
+  Rendered views/bands/index.html.erb (0.9ms)
+Completed 200 OK in 5ms (Views: 5.2ms)
+---------------------------------------------
+GenericResponderTest: test_Create_with_params
+---------------------------------------------
+Processing by SongsController#create_with_params as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down", "length"=>"120"}}
+Redirected to http://test.host/songs/8
+Completed 302 Found in 6ms
+
+
+Started POST "/songs/create_with_namespace" for 127.0.0.1 at 2015-09-25 16:09:33 +0200
+Processing by SongsController#create_with_namespace as JSON
+  Parameters: {"title"=>"Teenager Liebe"}
+Completed 201 Created in 4ms (Views: 0.7ms)
+-----------------------------------
+ResponderRunTest: test_[html/valid]
+-----------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.3ms)
+-----------------------------------------------
+ResponderRunTest: test_[html/valid]_with_builds
+-----------------------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "admin"=>true, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.3ms)
+------------------------------------------------
+ResponderRunTest: test_with_block_[html/invalid]
+------------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>""}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 8ms (Views: 0.5ms)
+----------------------------------------------
+ResponderRunTest: test_with_block_[html/valid]
+----------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.3ms)
+------------------------------------------------------
+ResponderRespondWithJSONTest: test_Create_[JSON/valid]
+------------------------------------------------------
+Processing by BandsController#create as JSON
+Completed 201 Created in 8ms (Views: 0.5ms)
+------------------------------------
+ControllerPresentTest: test_#present
+------------------------------------
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"13"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms)
+-------------------------------------------
+ControllerPresentTest: test_#present_[JSON]
+-------------------------------------------
+Processing by BandsController#show as JSON
+  Parameters: {"id"=>"14"}
+Completed 200 OK in 2ms (Views: 0.1ms)
+------------------------------
+ControllerFormTest: test_#form
+------------------------------
+Processing by BandsController#new as HTML
+  Rendered inline template (8.8ms)
+Completed 200 OK in 10ms (Views: 9.2ms)
+-------------------------------------------
+ControllerFormTest: test_#form_with_builder
+-------------------------------------------
+Processing by BandsController#new as HTML
+  Parameters: {"admin"=>true}
+  Rendered inline template (2.1ms)
+Completed 200 OK in 3ms (Views: 2.4ms)
+DEPRECATION WARNING: You did not specify a value for the configuration option `active_support.test_order`. In Rails 5, the default value of this option will change from `:sorted` to `:random`.
+To disable this warning and keep the current behavior, you can add the following line to your `config/environments/test.rb`:
+
+  Rails.application.configure do
+    config.active_support.test_order = :sorted
+  end
+
+Alternatively, you can opt into the future behavior by setting this option to `:random`. (called from test_order at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-4.2.4/lib/active_support/test_case.rb:42)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid/action]
+-------------------------------------------------------
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from validate_secret_key_config! at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/railties-4.2.4/lib/rails/application.rb:530)
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/another_view.html.erb (1.8ms)
+Completed 200 OK in 36ms (Views: 6.7ms)
+------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid]
+------------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/new.html.erb (0.4ms)
+Completed 200 OK in 13ms (Views: 4.6ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/valid/location]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/other_create
+Completed 302 Found in 5ms
+----------------------------------------------
+ResponderRespondTest: test_Create_[html/valid]
+----------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/2
+Completed 302 Found in 7ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[html/valid]
+----------------------------------------------
+Processing by SongsController#destroy as HTML
+  Parameters: {"id"=>"3"}
+Redirected to http://test.host/songs
+Completed 302 Found in 10ms
+--------------------------------------------
+ResponderRespondTest: test_Delete_[js/valid]
+--------------------------------------------
+Processing by SongsController#destroy as JS
+  Parameters: {"id"=>"4"}
+Completed 500 Internal Server Error in 5ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[json/valid]
+----------------------------------------------
+Processing by SongsController#destroy as JSON
+  Parameters: {"id"=>"5"}
+Completed 204 No Content in 3ms
+---------------------------------------------------------
+ResponderRespondTest: test_Delete_with_formats_[js/valid]
+---------------------------------------------------------
+Processing by SongsController#destroy_with_formats as JS
+  Parameters: {"id"=>"6"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.5ms)
+------------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/invalid]
+------------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 0.3ms)
+----------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/valid]
+----------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.3ms)
+
+
+Started POST "/songs/create_with_namespace" for 127.0.0.1 at 2015-09-25 16:12:27 +0200
+Processing by SongsController#create_with_namespace as JSON
+  Parameters: {"title"=>"Teenager Liebe"}
+Completed 201 Created in 5ms (Views: 0.8ms)
+------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create
+------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands" for 127.0.0.1 at 2015-09-25 16:12:27 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"All"}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.5ms)
+------------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create:_JSON
+------------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands.json" for 127.0.0.1 at 2015-09-25 16:12:27 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as JSON
+  Parameters: {"name"=>"NOFX"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.3ms)
+-----------------------------------------
+ActiveRecordPresentTest: test_#collection
+-----------------------------------------
+Processing by ActiveRecordBandsController#index as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms)
+--------------------------------------
+ActiveRecordPresentTest: test_#present
+--------------------------------------
+Processing by ActiveRecordBandsController#show as HTML
+  Parameters: {"id"=>"4"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms)
+------------------------------
+ControllerFormTest: test_#form
+------------------------------
+Processing by BandsController#new as HTML
+  Rendered inline template (9.5ms)
+Completed 200 OK in 11ms (Views: 9.9ms)
+-------------------------------------------
+ControllerFormTest: test_#form_with_builder
+-------------------------------------------
+Processing by BandsController#new as HTML
+  Parameters: {"admin"=>true}
+  Rendered inline template (2.9ms)
+Completed 200 OK in 5ms (Views: 3.3ms)
+---------------------------------------------
+GenericResponderTest: test_Create_with_params
+---------------------------------------------
+Processing by SongsController#create_with_params as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down", "length"=>"120"}}
+Redirected to http://test.host/songs/8
+Completed 302 Found in 7ms
+--------------------------------------------------------------
+ProcessParamsTest: test_Create_with_overridden_#process_params
+--------------------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"Kreator"}}
+Redirected to http://test.host/bands/5
+Completed 302 Found in 6ms
+------------------------------------------
+PrefixedTablenameControllerTest: test_show
+------------------------------------------
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.5ms)
+------------------------------------
+ControllerPresentTest: test_#present
+------------------------------------
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms)
+-------------------------------------------
+ControllerPresentTest: test_#present_[JSON]
+-------------------------------------------
+Processing by BandsController#show as JSON
+  Parameters: {"id"=>"7"}
+Completed 200 OK in 11ms (Views: 0.1ms)
+------------------------------------------
+ControllerCollectionTest: test_#collection
+------------------------------------------
+Processing by BandsController#index as HTML
+  Rendered views/bands/index.html.erb (0.9ms)
+Completed 200 OK in 6ms (Views: 5.6ms)
+-----------------------------------
+ResponderRunTest: test_[html/valid]
+-----------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.3ms)
+-----------------------------------------------
+ResponderRunTest: test_[html/valid]_with_builds
+-----------------------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "admin"=>true, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms)
+------------------------------------------------
+ResponderRunTest: test_with_block_[html/invalid]
+------------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>""}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 9ms (Views: 0.4ms)
+----------------------------------------------
+ResponderRunTest: test_with_block_[html/valid]
+----------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms)
+------------------------------------------------------
+ResponderRespondWithJSONTest: test_Create_[JSON/valid]
+------------------------------------------------------
+Processing by BandsController#create as JSON
+Completed 201 Created in 5ms (Views: 0.5ms)
+------------------------------------------------
+ControllerRespondTest: test_#respond_with_builds
+------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"SNFU"}, "admin"=>true}
+Redirected to http://test.host/bands/14
+Completed 302 Found in 6ms
+DEPRECATION WARNING: You did not specify a value for the configuration option `active_support.test_order`. In Rails 5, the default value of this option will change from `:sorted` to `:random`.
+To disable this warning and keep the current behavior, you can add the following line to your `config/environments/test.rb`:
+
+  Rails.application.configure do
+    config.active_support.test_order = :sorted
+  end
+
+Alternatively, you can opt into the future behavior by setting this option to `:random`. (called from test_order at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-4.2.4/lib/active_support/test_case.rb:42)
+------------------------------------------------------
+ResponderRespondWithJSONTest: test_Create_[JSON/valid]
+------------------------------------------------------
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from validate_secret_key_config! at /Users/captainhagbard/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/railties-4.2.4/lib/rails/application.rb:530)
+Processing by BandsController#create as JSON
+Completed 201 Created in 49ms (Views: 2.3ms)
+
+
+Started POST "/songs/create_with_namespace" for 127.0.0.1 at 2015-09-25 16:13:38 +0200
+Processing by SongsController#create_with_namespace as JSON
+  Parameters: {"title"=>"Teenager Liebe"}
+Completed 201 Created in 10ms (Views: 1.5ms)
+---------------------------------------------
+GenericResponderTest: test_Create_with_params
+---------------------------------------------
+Processing by SongsController#create_with_params as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down", "length"=>"120"}}
+Redirected to http://test.host/songs/1
+Completed 302 Found in 7ms
+------------------------------------------
+ControllerCollectionTest: test_#collection
+------------------------------------------
+Processing by BandsController#index as HTML
+  Rendered views/bands/index.html.erb (2.3ms)
+Completed 200 OK in 7ms (Views: 7.0ms)
+-----------------------------------------
+ActiveRecordPresentTest: test_#collection
+-----------------------------------------
+Processing by ActiveRecordBandsController#index as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.7ms)
+--------------------------------------
+ActiveRecordPresentTest: test_#present
+--------------------------------------
+Processing by ActiveRecordBandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 0.4ms)
+--------------------------------------------------------------
+ProcessParamsTest: test_Create_with_overridden_#process_params
+--------------------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"Kreator"}}
+Redirected to http://test.host/bands/6
+Completed 302 Found in 6ms
+------------------------------
+ControllerFormTest: test_#form
+------------------------------
+Processing by BandsController#new as HTML
+  Rendered inline template (9.4ms)
+Completed 200 OK in 10ms (Views: 9.8ms)
+-------------------------------------------
+ControllerFormTest: test_#form_with_builder
+-------------------------------------------
+Processing by BandsController#new as HTML
+  Parameters: {"admin"=>true}
+  Rendered inline template (2.2ms)
+Completed 200 OK in 4ms (Views: 2.5ms)
+------------------------------------------
+PrefixedTablenameControllerTest: test_show
+------------------------------------------
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.5ms)
+------------------------------------
+ControllerPresentTest: test_#present
+------------------------------------
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"7"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms)
+-------------------------------------------
+ControllerPresentTest: test_#present_[JSON]
+-------------------------------------------
+Processing by BandsController#show as JSON
+  Parameters: {"id"=>"8"}
+Completed 200 OK in 2ms (Views: 0.1ms)
+------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create
+------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands" for 127.0.0.1 at 2015-09-25 16:13:38 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"All"}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.5ms)
+------------------------------------------------
+RailsEndpoint::ConfiguredTest: test_Create:_JSON
+------------------------------------------------
+
+
+Started POST "/rails_endpoint/configured_test/bands.json" for 127.0.0.1 at 2015-09-25 16:13:38 +0200
+Processing by RailsEndpoint::ConfiguredTest::BandsController#create as JSON
+  Parameters: {"name"=>"NOFX"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid/action]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/another_view.html.erb (0.5ms)
+Completed 200 OK in 15ms (Views: 5.1ms)
+------------------------------------------------
+ResponderRespondTest: test_Create_[html/invalid]
+------------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered views/songs/new.html.erb (0.5ms)
+Completed 200 OK in 13ms (Views: 4.8ms)
+-------------------------------------------------------
+ResponderRespondTest: test_Create_[html/valid/location]
+-------------------------------------------------------
+Processing by SongsController#other_create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/other_create
+Completed 302 Found in 5ms
+----------------------------------------------
+ResponderRespondTest: test_Create_[html/valid]
+----------------------------------------------
+Processing by SongsController#create as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+Redirected to http://test.host/songs/3
+Completed 302 Found in 4ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[html/valid]
+----------------------------------------------
+Processing by SongsController#destroy as HTML
+  Parameters: {"id"=>"4"}
+Redirected to http://test.host/songs
+Completed 302 Found in 4ms
+--------------------------------------------
+ResponderRespondTest: test_Delete_[js/valid]
+--------------------------------------------
+Processing by SongsController#destroy as JS
+  Parameters: {"id"=>"5"}
+Completed 500 Internal Server Error in 4ms
+----------------------------------------------
+ResponderRespondTest: test_Delete_[json/valid]
+----------------------------------------------
+Processing by SongsController#destroy as JSON
+  Parameters: {"id"=>"6"}
+Completed 204 No Content in 3ms
+---------------------------------------------------------
+ResponderRespondTest: test_Delete_with_formats_[js/valid]
+---------------------------------------------------------
+Processing by SongsController#destroy_with_formats as JS
+  Parameters: {"id"=>"7"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms)
+------------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/invalid]
+------------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>""}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 0.5ms)
+----------------------------------------------------------
+ResponderRespondTest: test_respond_with_block_[html/valid]
+----------------------------------------------------------
+Processing by SongsController#create_with_block as HTML
+  Parameters: {"song"=>{"title"=>"You're Going Down"}}
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.3ms)
+-----------------------------------
+ResponderRunTest: test_[html/valid]
+-----------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.4ms)
+-----------------------------------------------
+ResponderRunTest: test_[html/valid]_with_builds
+-----------------------------------------------
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "admin"=>true, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 0.5ms)
+------------------------------------------------
+ResponderRunTest: test_with_block_[html/invalid]
+------------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>""}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 13ms (Views: 0.7ms)
+----------------------------------------------
+ResponderRunTest: test_with_block_[html/valid]
+----------------------------------------------
+Processing by BandsController#update_with_block as HTML
+  Parameters: {"band"=>{"name"=>"Nofx"}, "id"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 0.5ms)
+------------------------------------------------
+ControllerRespondTest: test_#respond_with_builds
+------------------------------------------------
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"SNFU"}, "admin"=>true}
+Redirected to http://test.host/bands/14
+Completed 302 Found in 7ms
