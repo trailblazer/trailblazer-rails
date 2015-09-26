@@ -74,7 +74,7 @@ class ControllerPresentTest < ActionController::TestCase
   # let (:band) { }
 
   test "#present" do
-    band = Band::Create[band: {name: "Nofx"}].model
+    band = Band::Create.(band: {name: "Nofx"}).model
 
     get :show, id: band.id
 
@@ -83,7 +83,7 @@ class ControllerPresentTest < ActionController::TestCase
 
   # TODO: this implicitely tests builds. maybe have separate test for that?
   test "#present [JSON]" do
-    band = Band::Create[band: {name: "Nofx"}].model
+    band = Band::Create.(band: {name: "Nofx"}).model
 
     get :show, id: band.id, format: :json
     assert_equal "{\"name\":\"Nofx\"}", response.body
@@ -98,8 +98,8 @@ class ControllerCollectionTest < ActionController::TestCase
 
   test "#collection" do
     Band.destroy_all
-    Band::Create[band: {name: "Nofx"}]
-    Band::Create[band: {name: "Ramones"}]
+    Band::Create.(band: {name: "Nofx"})
+    Band::Create.(band: {name: "Ramones"})
 
 
     get :index
@@ -138,7 +138,7 @@ class ActiveRecordPresentTest < ActionController::TestCase
 
   test "#collection" do
     Band.destroy_all
-    Band::Create[band: {name: "Nofx"}]
+    Band::Create.(band: {name: "Nofx"})
 
     get :index
 

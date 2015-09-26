@@ -29,7 +29,7 @@ class ResponderRespondTest < ActionController::TestCase
   end
 
   test "Delete [html/valid]" do
-    song = Song::Create[song: {title: "You're Going Down"}].model
+    song = Song::Create.(song: {title: "You're Going Down"}).model
     delete :destroy, id: song.id
     assert_redirected_to songs_path
     # assert that model is deleted.
@@ -49,14 +49,14 @@ class ResponderRespondTest < ActionController::TestCase
 
   # JSON
   test "Delete [json/valid]" do
-    song = Song::Create[song: {title: "You're Going Down"}].model
+    song = Song::Create.(song: {title: "You're Going Down"}).model
     delete :destroy, id: song.id, format: :json
     assert_response 204 # no content.
   end
 
   # JS
   test "Delete [js/valid]" do
-    song = Song::Create[song: {title: "You're Going Down"}].model
+    song = Song::Create.(song: {title: "You're Going Down"}).model
     assert_raises ActionView::MissingTemplate do
       # js wants to render destroy.js.erb
       delete :destroy, id: song.id, format: :js
@@ -64,7 +64,7 @@ class ResponderRespondTest < ActionController::TestCase
   end
 
   test "Delete with formats [js/valid]" do
-    song = Song::Create[song: {title: "You're Going Down"}].model
+    song = Song::Create.(song: {title: "You're Going Down"}).model
 
     delete :destroy_with_formats, id: song.id, format: :js
     assert_response 200
