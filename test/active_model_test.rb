@@ -22,20 +22,8 @@ class ActiveModelTest < MiniTest::Spec
     end
   end
 
-  class Contract < Reform::Form
-    property :title
-  end
-
-  class ExternalContractOperation < Trailblazer::Operation
-    include Model
-    model Song
-    contract Contract
-  end
-
   it { ContractKnowsModelNameOperation.present(song: {title: "Direct Hit"}).contract.class.model_name.to_s.must_equal "ActiveModelTest::Song" }
 
   # when Model is not included, contract_class.model= is not called.
   it { NoModelOp.present({}).contract.class.model_name.to_s.must_equal "Reform" }
-
-  it { skip; ExternalContractOperation.present(song: {title: "Direct Hit"}).contract.title.must_equal "Direct Hit" }
 end
