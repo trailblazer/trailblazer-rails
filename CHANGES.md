@@ -1,5 +1,6 @@
 # 0.1.4
 
+* Treat `:js` requests as non-document, too.
 * `Controller#form` now returns the form object and not the operation.
 
 # 0.1.3
