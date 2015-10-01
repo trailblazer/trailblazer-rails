@@ -1,4 +1,3 @@
-# BUNDLE_GEMFILE=gemfiles/Gemfile.rails bundle exec rake rails
 require 'test_helper'
 
 ActionController::TestCase.class_eval do
@@ -47,10 +46,18 @@ end
 class ResponderRunTest < ActionController::TestCase
   tests BandsController
 
+  # JS (url-encoded, etc) assumes is_document: false
   test "[html/valid]" do
     put :update, {id: 1, band: {name: "Nofx"}}
     assert_equal "no block: Nofx, Essen, Band::Create", response.body
   end
+
+  # JS (url-encoded, etc) assumes is_document: false
+  test "#run with format: :js" do
+    put :update, id: 1, band: {name: "Nofx"}, format: :js
+    assert_equal "no block: Nofx, Essen, Band::Create", response.body
+  end
+
 
   test "[html/valid] with builds" do
     put :update, {id: 1, band: {name: "Nofx"}, admin: true}
