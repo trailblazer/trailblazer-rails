@@ -67,17 +67,19 @@ class BandsController < ApplicationController
   end
 
   def new
-    @op = form Band::Create
+    @returned_form = form Band::Create # #form returns form
 
     @locality = params[:band][:locality]
 
+    # assigns @form
+    # returns form from #form.
     render inline: <<-ERB
 <%= form_for @form do |f| %>
   <%= f.text_field :name %>
   <a><%= @form.locality %></a>
 <% end %>
 
-<b><%= [@model.class, @form.is_a?(Reform::Form), @operation.class, @op.class, @locality].join(",") %></b>
+<b><%= [@model.class, @form.is_a?(Reform::Form), @operation.class, @returned_form.is_a?(Reform::Form), @locality].join(",") %></b>
 ERB
   end
 
