@@ -25,7 +25,7 @@ ERB
   end
 
   def create_with_params
-    respond Song::Create, {}, song: {title: "A Beautiful Indifference"}
+    respond Song::Create, params: {song: {title: "A Beautiful Indifference"}}
   end
 
   def create_with_block
