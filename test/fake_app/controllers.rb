@@ -67,7 +67,7 @@ class BandsController < ApplicationController
   end
 
   def new
-    @returned_form = form Band::Create # #form returns form
+    @returned_form = form Band::Create, locality: "Sydney" # #form returns form
 
     @locality = params[:band][:locality]
 
