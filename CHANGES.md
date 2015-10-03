@@ -1,3 +1,8 @@
+# 0.1.5
+
+* Treat all requests as `params` requests unless the operation has a representer mixed in. If you don't want that, you can override using `is_document: false`. This appears to be the smoothest solution for all. Thanks to @Scharrels for discussion.
+* In `Controller#form`, the options argument is now passed into `form.prepopulate!(options)`. This allows to use arbitrary options and the `options[:params]` for prepopulation. Thanks @sauy7 for discussion.
+
 # 0.1.4
 
 * Treat `:js` requests as non-document, too.
