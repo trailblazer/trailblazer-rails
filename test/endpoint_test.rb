@@ -23,7 +23,7 @@ module RailsEndpoint
 
       def create
         run Create if request.format == :html
-        run JSONCreate if request.format == :json
+        run JSONCreate, is_document: true if request.format == :json
         render text: ""
       end
     end

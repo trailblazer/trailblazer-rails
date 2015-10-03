@@ -35,7 +35,7 @@ ERB
   end
 
   def create_with_namespace
-    respond Song::Create::Json, namespace: [:api]
+    respond Song::Create::Json, namespace: [:api], is_document: true
   end
 
   def destroy
@@ -84,7 +84,7 @@ ERB
   end
 
   def create
-    respond Band::Create
+    respond Band::Create, is_document: (request.format == :json)
   end
 
   def update
