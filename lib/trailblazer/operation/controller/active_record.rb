@@ -1,4 +1,9 @@
 # Assigns an additional instance variable for +@model+ named after the model's table name (e.g. @comment).
+#
+# THIS MODULE IS DEPRECATED!
+#
+# Please don't use this module. Instead, use @model in your controller or pass the 
+# operation instance to a cell to present it.
 module Trailblazer::Operation::Controller::ActiveRecord
 private
   def setup_operation_instance_variables!(operation, options)
