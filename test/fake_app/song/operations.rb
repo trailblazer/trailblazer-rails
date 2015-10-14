@@ -4,8 +4,8 @@ class Song < ActiveRecord::Base
   class Create < Trailblazer::Operation
     include Model
     include Responder
-    model Song, :create
 
+    model Song, :create
 
     contract do
       property :title, validates: {presence: true}

@@ -15,6 +15,12 @@ class Song
   end
 end
 
+class Lyric
+  class Operation < Trailblazer::Operation
+    include Responder
+  end
+end
+
 module MyApp
   class Song
     extend ActiveModel::Naming
@@ -72,4 +78,20 @@ class ResponderTestForModelWitNamespace < MiniTest::Spec
     it { MyApp::Song::Operation.(false).errors.must_equal [1] } # TODO: since we don't want responder to render anything, just return _one_ error. :)
 
     # TODO: integration test with Controller.
+end
+
+class ResponderTestForModelessOperationWitNamespace < MiniTest::Spec
+
+    # test ::model_name
+    it {
+      assert_raises NoMethodError do 
+        Lyric::Operation.model_name
+      end
+    }
+
+    it {
+      assert_raises NoMethodError do 
+        Lyric::Operation.to_model
+      end
+    }
 end
