@@ -15,7 +15,9 @@ Trailblazer::Operation.contract_class.class_eval do
     # for whatever reason, validations climb up the inheritance tree and require _every_ class to have a name (4.1).
     "Reform::Form"
   end
+end
 
+class Reform::Form
   # For modeless operations. It will be override if model is add.
   def persisted?
     false
@@ -23,12 +25,11 @@ Trailblazer::Operation.contract_class.class_eval do
 end
 
 require "trailblazer/autoloading"
-require "trailblazer/rails/autoloading"
 
 # Automatically set model_name on operation's contract when `Op::Model` is included.
 require "trailblazer/operation/model"
 require "trailblazer/operation/model/active_model"
-require "trailblazer/operation/model/responder"
+require "trailblazer/operation/model/extension"
 Trailblazer::Operation::Model::DSL.module_eval do
   include Trailblazer::Operation::Model::ActiveModel # ::contract.
 end

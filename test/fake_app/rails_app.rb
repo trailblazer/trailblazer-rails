@@ -62,7 +62,6 @@ app.routes.draw do
   resources :tenants, only: [:show]
 end
 
-require 'trailblazer/operation/responder'
 require 'trailblazer/operation/controller'
 require 'trailblazer/operation/representer'
 

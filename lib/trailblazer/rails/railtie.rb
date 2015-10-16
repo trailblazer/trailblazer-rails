@@ -14,7 +14,27 @@ module Trailblazer
 
     def self.autoload_operations(app)
       Dir.glob("app/concepts/**/operations.rb") do |f|
+        path  = f.sub("app/concepts/", "")
+        concept = path.sub("/operations.rb", "")
+        operations_class = concept.split('/').map { |s| s.capitalize }.join('::')
+
         require_dependency "#{app.root}/#{f}" # load app/concepts/{concept}/operations.rb
+
+        models = []
+        operations_class.constantize.constants.each do |constant|
+          constant_class = (operations_class + '::' + constant.to_s).constantize
+
+          if (
+            constant_class.class === Class &&
+            constant_class.ancestors.include?(Trailblazer::Operation::Model)
+          )
+            models.push(constant_class.model_class.name.downcase.gsub('::', '/'))
+          end
+        end
+
+        models.uniq.each do |model|
+          require_dependency "#{app.root}/app/models/#{model}"
+        end
       end
     end
 

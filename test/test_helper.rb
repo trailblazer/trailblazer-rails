@@ -1,7 +1,6 @@
 require 'trailblazer'
 require 'minitest/autorun'
 
-
 require 'active_record'
 require 'database_cleaner'
 ActiveRecord::Base.logger = false

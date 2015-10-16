@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'trailblazer/operation/responder'
 
 class Song
   extend ActiveModel::Naming
@@ -7,7 +6,6 @@ class Song
   class Operation < Trailblazer::Operation
     include Model
     model Song
-    include Responder
 
     def process(params)
       invalid! if params == false
@@ -17,7 +15,6 @@ end
 
 class Lyric
   class Operation < Trailblazer::Operation
-    include Responder
   end
 end
 
@@ -27,7 +24,6 @@ module MyApp
 
     class Operation < Trailblazer::Operation
       include Model
-      include Responder
       model Song
 
       def process(params)
