@@ -16,13 +16,13 @@ module Trailblazer
       Dir.glob("app/concepts/**/operations.rb") do |f|
         path  = f.sub("app/concepts/", "")
         concept = path.sub("/operations.rb", "")
-        operations_class = concept.split('/').map { |s| s.capitalize }.join('::')
+        operations_class = concept.split('/').map { |s| s.capitalize }.join('::').constantize
 
         require_dependency "#{app.root}/#{f}" # load app/concepts/{concept}/operations.rb
 
         models = []
-        operations_class.constantize.constants.each do |constant|
-          constant_class = (operations_class + '::' + constant.to_s).constantize
+        operations_class.constants.each do |constant|
+          constant_class = operations_class.const_get(constant)
 
           if (
             constant_class.class === Class &&
