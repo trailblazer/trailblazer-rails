@@ -17,13 +17,6 @@ Trailblazer::Operation.contract_class.class_eval do
   end
 end
 
-class Reform::Form
-  # For modeless operations. It will be override if model is add.
-  def persisted?
-    false
-  end
-end
-
 require "trailblazer/autoloading"
 
 # Automatically set model_name on operation's contract when `Op::Model` is included.
