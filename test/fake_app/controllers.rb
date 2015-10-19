@@ -128,7 +128,6 @@ class ActiveRecordBandsController < ApplicationController
   end
 end
 
-require 'trailblazer/operation/controller/active_record'
 class TenantsController < ApplicationController
   include Trailblazer::Operation::Controller
   include Trailblazer::Operation::Controller::ActiveRecord

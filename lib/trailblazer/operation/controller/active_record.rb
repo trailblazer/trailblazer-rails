@@ -8,7 +8,7 @@ module Trailblazer::Operation::Controller::ActiveRecord
 private
   def setup_operation_instance_variables!(operation, options)
     super
-    instance_variable_set(:"@#{operation_model_name}", @model)
+    instance_variable_set(:"@#{operation_model_name}", @model) if @model
   end
 
   def operation_model_name

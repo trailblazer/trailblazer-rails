@@ -3,9 +3,8 @@ require 'trailblazer/autoloading'
 class Song < ActiveRecord::Base
   class Create < Trailblazer::Operation
     include Model
-    include Responder
-    model Song, :create
 
+    model Song, :create
 
     contract do
       property :title, validates: {presence: true}
@@ -39,7 +38,7 @@ end
 
 class Band < ActiveRecord::Base
   class Create < Trailblazer::Operation
-    include Model, Responder#, Representer
+    include Model#, Representer
     model Band, :create
 
     contract do

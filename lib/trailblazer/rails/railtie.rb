@@ -2,7 +2,7 @@ require "rails/railtie"
 
 module Trailblazer
   class Railtie < ::Rails::Railtie
-    def self.autoload_operations(app)
+    def self.autoload_cruds(app)
       Dir.glob("app/concepts/**/crud.rb") do |f|
         path  = f.sub("app/concepts/", "")
         model = path.sub("/crud.rb", "")
@@ -28,7 +28,7 @@ module Trailblazer
       # the trb autoloading has to be run after initializers have been loaded, so we can tweak inclusion of features in
       # initializers.
       ActionDispatch::Reloader.to_prepare do
-        Trailblazer::Railtie.autoload_operations(app)
+        Trailblazer::Railtie.autoload_cruds(app)
         Trailblazer::Railtie.autoload_cells(app)
       end
     end

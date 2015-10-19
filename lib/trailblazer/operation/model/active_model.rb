@@ -1,5 +1,5 @@
-module Trailblazer
-  module Operation::Model
+class Trailblazer::Operation
+  module Model
     # Automatically set model_name on operation's contract.
     module ActiveModel
       def contract(*, &block)
