@@ -12,12 +12,6 @@ module Trailblazer
       end
     end
 
-    def self.autoload_operations(app)
-      Dir.glob('app/concepts/**/operations.rb') do |f|
-        require_dependency "#{app.root}/#{f}" # load app/concepts/{concept}/operations.rb
-      end
-    end
-
     def self.autoload_cells(app)
       Dir.glob("app/concepts/**/*cell.rb") do |f|
         require_dependency "#{app.root}/#{f}" # load app/concepts/{concept}/cell.rb.
@@ -35,7 +29,6 @@ module Trailblazer
       # initializers.
       ActionDispatch::Reloader.to_prepare do
         Trailblazer::Railtie.autoload_cruds(app)
-        Trailblazer::Railtie.autoload_operations(app)
         Trailblazer::Railtie.autoload_cells(app)
       end
     end
