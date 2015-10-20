@@ -20,9 +20,9 @@ end
 # Automatically set model_name on operation's contract when `Op::Model` is included.
 require "trailblazer/operation/model"
 require "trailblazer/operation/model/active_model"
+require "trailblazer/operation/model/responder"
 Trailblazer::Operation::Model::DSL.module_eval do
   include Trailblazer::Operation::Model::ActiveModel # ::contract.
 end
 
 require "trailblazer/autoloading"
-require "trailblazer/rails/autoloading"
