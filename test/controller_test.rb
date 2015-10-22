@@ -43,30 +43,35 @@ end
 
 
 
-class ResponderRunTest < ActionController::TestCase
+class ControllerRunTest < ActionController::TestCase
   tests BandsController
 
   # JS (url-encoded, etc) assumes is_document: false
   test "[html/valid]" do
     put :update, {id: 1, band: {name: "Nofx"}}
-    assert_equal "no block: Nofx, Essen, Band::Create", response.body
+    assert_equal "no block: Band::Create, Nofx, Essen, Band::Create", response.body
   end
 
   # JS (url-encoded, etc) assumes is_document: false
   test "#run with format: :js" do
     put :update, id: 1, band: {name: "Nofx"}, format: :js
-    assert_equal "no block: Nofx, Essen, Band::Create", response.body
+    assert_equal "no block: Band::Create, Nofx, Essen, Band::Create", response.body
   end
 
 
   test "[html/valid] with builds" do
     put :update, {id: 1, band: {name: "Nofx"}, admin: true}
-    assert_equal "no block: Nofx [ADMIN], Essen, Band::Create::Admin", response.body
+    assert_equal "no block: Band::Create::Admin, Nofx [ADMIN], Essen, Band::Create::Admin", response.body
   end
 
-  test "with block [html/valid]" do
+  test "with block, valid" do
     put :update_with_block, {id: 1, band: {name: "Nofx"}}
     assert_equal "[valid] with block: Nofx, Essen", response.body
+  end
+
+  test "with block, error" do
+    put :update_with_block, {id: 1, band: {name: ""}}
+    assert_equal "[invalid] with block: Band::Create, {:name=>[\"can't be blank\"]}, Essen", response.body
   end
 
   test "with block [html/invalid]" do
@@ -85,7 +90,7 @@ class ControllerPresentTest < ActionController::TestCase
 
     get :show, id: band.id
 
-    assert_equal "bands/show: Band,Band,Band::Update,Essen,nil", response.body
+    assert_equal "bands/show: Band::Update,Band,Band::Update,Essen,nil", response.body
   end
 
   # TODO: this implicitely tests builds. maybe have separate test for that?

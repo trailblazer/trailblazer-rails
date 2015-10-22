@@ -1,3 +1,7 @@
+# 0.1.6
+
+* Fix `Controller#run`, which now returns the operation instance instead of the `Else` object.
+
 # 0.1.5
 
 * Treat all requests as `params` requests unless the operation has a representer mixed in. If you don't want that, you can override using `is_document: false`. This appears to be the smoothest solution for all. Thanks to @Scharrels for discussion.

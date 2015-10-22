@@ -57,13 +57,28 @@ class BandsController < ApplicationController
     collection Band::Index
   end
 
+  # #present
   def show
-    op = present Band::Update
-    @klass    = op.model.class
+    op        = present Band::Update
     @locality = params[:band][:locality] unless params[:format] == "json"
 
     return render json: op.to_json if params[:format] == "json"
-    render text: "bands/show: #{[@klass, @model.class, @operation.class, @locality, @form.inspect].join(',')}"
+    render text: "bands/show: #{[op.class, @model.class, @operation.class, @locality, @form.inspect].join(',')}"
+  end
+
+  # #run
+  def update
+    op        = run Band::Create
+
+    render text: "no block: #{op.class}, #{@operation.model.name}, #{params[:band][:locality]}, #{@operation.class}"
+  end
+
+  def update_with_block
+    op        = run Band::Create do |operation|
+      return render text: "[valid] with block: #{operation.model.name}, #{params[:band][:locality]}"
+    end
+
+    render text: "[invalid] with block: #{op.class}, #{@operation.contract.errors}, #{params[:band][:locality]}"
   end
 
   def new
@@ -71,8 +86,6 @@ class BandsController < ApplicationController
 
     @locality = params[:band][:locality]
 
-    # assigns @form
-    # returns form from #form.
     render inline: <<-ERB
 <%= form_for @form do |f| %>
   <%= f.text_field :name %>
@@ -87,19 +100,6 @@ ERB
     respond Band::Create, is_document: (request.format == :json)
   end
 
-  def update
-    run Band::Create
-
-    render text: "no block: #{@operation.model.name}, #{params[:band][:locality]}, #{@operation.class}"
-  end
-
-  def update_with_block
-    run Band::Create do |op|
-      return render text: "[valid] with block: #{op.model.name}, #{params[:band][:locality]}"
-    end
-
-    render text: "[invalid] with block: #{@operation.model.name}, #{params[:band][:locality]}"
-  end
 
 private
   def process_params!(params) # this is where you set :current_user, etc.
