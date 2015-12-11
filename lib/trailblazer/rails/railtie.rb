@@ -11,9 +11,11 @@ module Trailblazer
       # app_root/app/concepts/comments/opertaion/special_operation.rb
       # app_root/app/concepts/comments/opertaion/comment_operation.rb
 
-      # Picks up everything in the root of concepts, ie app_cell.rb
+      # Picks up everything in the root of concepts, ie app/concepts/app_cell.rb - essentially classes that all concepts can inherit from. 
       files = Dir.glob("#{app.root}/app/concepts/*{#{items}}.rb")
-      # Picks up everything in the root appropriate folder ie app/concepts/operation/operation.rb
+      # Picks up in the root of the concept - like app/concepts/comments/operation.rb 
+      files += Dir.glob("#{app.root}/app/concepts/**/{#{items}}.rb")
+      # Picks up everything in the root appropriate folder ie app/concepts/comments/operation/operation.rb
       # This will make sure to load operation.rb before  create.rb - helpful with cells
       # When  you have app/concepts/cell/cell.rb & app/concepts/cell/apple.rb and cell.rb needs to be loaded first.
       files += Dir.glob("#{app.root}/app/concepts/**/{#{items}}/{#{items}}.rb")
@@ -22,10 +24,10 @@ module Trailblazer
       # FIXME
       # Address a case when there is deeper nesting - thou it's too much
       # like app/concepts/comments/special_comments/cell/form.rb  -?
-      
+
       # Add to Rails autload paths
-      app.config.autoload_paths += files
-      
+      app.config.autoload_paths += files.uniq!
+
       # Require all
       files.each do |f|
          require_dependency "#{f}"
