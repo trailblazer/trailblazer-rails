@@ -22,11 +22,14 @@ module Trailblazer
       # FIXME
       # Address a case when there is deeper nesting - thou it's too much
       # like app/concepts/comments/special_comments/cell/form.rb  -?
-
+      
+      # Add to Rails autload paths
+      app.config.autoload_paths += files
+      
+      # Require all
       files.each do |f|
          require_dependency "#{f}"
       end
-      app.config.autoload_paths += files
     end
 
     def self.autoload_operations(app)
