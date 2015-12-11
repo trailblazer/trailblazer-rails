@@ -34,7 +34,7 @@ module Trailblazer
     end
 
     def self.autoload_operations(app)
-      self.autoload_items(app,'opertaion,opertaions')
+      self.autoload_items(app,'operation,operations')
     end
 
     def self.autoload_models(app)
@@ -74,6 +74,10 @@ module Trailblazer
       # the trb autoloading has to be run after initializers have been loaded, so we can tweak inclusion of features in
       # initializers.
       ActionDispatch::Reloader.to_prepare do
+        # FIXME
+        # Down the line this can be changed to just this
+        # Trailblazer::Railtie.autoload_items(app,'operation,operations')
+        # For now let's keep it explicit, if case it needs to be overwriden
         Trailblazer::Railtie.autoload_models(app)
         Trailblazer::Railtie.autoload_policies(app)
         Trailblazer::Railtie.autoload_representers(app)
