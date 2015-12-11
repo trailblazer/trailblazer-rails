@@ -14,7 +14,7 @@ module Trailblazer
       # Picks up everything in the root of concepts, ie app/concepts/app_cell.rb - essentially classes that all concepts can inherit from. 
       files = Dir.glob("#{app.root}/app/concepts/*{#{items}}.rb")
       # Picks up in the root of the concept - like app/concepts/comments/operation.rb 
-      files += Dir.glob("#{app.root}/app/concepts/**/{#{items}}.rb")
+      files += Dir.glob("#{app.root}/app/concepts/*/{#{items}}.rb")
       # Picks up everything in the root appropriate folder ie app/concepts/comments/operation/operation.rb
       # This will make sure to load operation.rb before  create.rb - helpful with cells
       # When  you have app/concepts/cell/cell.rb & app/concepts/cell/apple.rb and cell.rb needs to be loaded first.
