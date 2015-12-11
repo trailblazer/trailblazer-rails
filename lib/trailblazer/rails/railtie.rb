@@ -2,20 +2,53 @@ require "rails/railtie"
 
 module Trailblazer
   class Railtie < ::Rails::Railtie
-    def self.autoload_operations(app)
-      Dir.glob("app/concepts/**/crud.rb") do |f|
-        path  = f.sub("app/concepts/", "")
-        model = path.sub("/crud.rb", "")
+    def self.autoload_items(app, items)
+      # Pick up default operation.rb or crud.rb - without folder structure
+      # This assumes on of the following patterns
+      # app_root/app/concepts/comments/opertaion.rb
+      # and either / or
+      # app_root/app/concepts/comments/opertaion/create.rb
+      # app_root/app/concepts/comments/opertaion/special_operation.rb
+      # app_root/app/concepts/comments/opertaion/comment_operation.rb
 
-        require_dependency "#{app.root}/app/models/#{model}" # load the model file, first (thing.rb).
-        require_dependency "#{app.root}/#{f}" # load app/concepts/{concept}/crud.rb (Thing::Create, Thing::Update, and so on).
+      files = Dir.glob("#{app.root}/app/concepts/*{#{items}}.rb") # Picks up everything in the root of concepts, ie app_cell.rb
+      files += Dir.glob("#{app.root}/app/concepts/**/{#{items}}.rb")
+      files += Dir.glob("#{app.root}/app/concepts/**/{#{items}}/**.rb")
+      files.each do |f|
+         require_dependency "#{f}"
       end
+      app.config.autoload_paths += files
+    end
+
+    def self.autoload_operations(app)
+      self.autoload_items(app,'opertaion,opertaions')
+    end
+
+    def self.autoload_models(app)
+      self.autoload_items(app,'model,models')
     end
 
     def self.autoload_cells(app)
-      Dir.glob("app/concepts/**/*cell.rb") do |f|
-        require_dependency "#{app.root}/#{f}" # load app/concepts/{concept}/cell.rb.
-      end
+      self.autoload_items(app,'cell,cells')
+    end
+
+    def self.autoload_contracts(app)
+      # Some people call them contracts, some people call them forms - It's Reform object.
+      self.autoload_items(app,'contract,contracts,forms,form')
+    end
+
+    def self.autoload_callbacks(app)
+      self.autoload_items(app,'callback,callbacks')
+    end
+
+     def self.autoload_policies(app)
+      self.autoload_items(app,'policy,policies')
+    end
+
+    def self.autoload_representers(app)
+      # Same idea as autoload_operations - no need for duplicate comments.
+      # Some people refer to them as decorators
+      self.autoload_items(app,'representers,decorators,representer,decorator')
     end
 
     # This is to autoload Operation::Dispatch, etc. I'm simply assuming people find this helpful in Rails.
@@ -28,6 +61,11 @@ module Trailblazer
       # the trb autoloading has to be run after initializers have been loaded, so we can tweak inclusion of features in
       # initializers.
       ActionDispatch::Reloader.to_prepare do
+        Trailblazer::Railtie.autoload_models(app)
+        Trailblazer::Railtie.autoload_policies(app)
+        Trailblazer::Railtie.autoload_representers(app)
+        Trailblazer::Railtie.autoload_contracts(app)
+        Trailblazer::Railtie.autoload_callbacks(app)
         Trailblazer::Railtie.autoload_operations(app)
         Trailblazer::Railtie.autoload_cells(app)
       end
