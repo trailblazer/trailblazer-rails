@@ -11,9 +11,18 @@ module Trailblazer
       # app_root/app/concepts/comments/opertaion/special_operation.rb
       # app_root/app/concepts/comments/opertaion/comment_operation.rb
 
-      files = Dir.glob("#{app.root}/app/concepts/*{#{items}}.rb") # Picks up everything in the root of concepts, ie app_cell.rb
-      files += Dir.glob("#{app.root}/app/concepts/**/{#{items}}.rb")
-      files += Dir.glob("#{app.root}/app/concepts/**/{#{items}}/**.rb")
+      # Picks up everything in the root of concepts, ie app_cell.rb
+      files = Dir.glob("#{app.root}/app/concepts/*{#{items}}.rb")
+      # Picks up everything in the root appropriate folder ie app/concepts/operation/operation.rb
+      # This will make sure to load operation.rb before  create.rb - helpful with cells
+      # When  you have app/concepts/cell/cell.rb & app/concepts/cell/apple.rb and cell.rb needs to be loaded first.
+      files += Dir.glob("#{app.root}/app/concepts/**/{#{items}}/{#{items}}.rb")
+      # Pick up everything else in the item folder operations/create.rb or opertations/update.rb - except operation.rb
+      files += Dir.glob("#{app.root}/app/concepts/**/{#{items}}/**[^#{items}].rb")
+      # FIXME
+      # Address a case when there is deeper nesting - thou it's too much
+      # like app/concepts/comments/special_comments/cell/form.rb  -?
+
       files.each do |f|
          require_dependency "#{f}"
       end
