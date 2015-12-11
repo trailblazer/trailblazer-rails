@@ -24,14 +24,16 @@ module Trailblazer
       # FIXME
       # Address a case when there is deeper nesting - thou it's too much
       # like app/concepts/comments/special_comments/cell/form.rb  -?
-
-      # Add to Rails autload paths
-      app.config.autoload_paths += files.uniq!
-
+      
+      # FIXME - it shouldn't happen but ocasionlly same file gets load twice - not sure why yet. 
+      files = files.uniq 
+      
       # Require all
       files.each do |f|
          require_dependency "#{f}"
       end
+      # Add to Rails autload paths
+      app.config.autoload_paths += files
     end
 
     def self.autoload_operations(app)
