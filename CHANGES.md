@@ -1,3 +1,8 @@
+# 0.2.0
+
+* Use `trailblazer-loader` for loading operations and associated files, now. Note that `operations.rb` now is `operation.rb` (hence the minor bump).
+* The `Operation::Controller` module is not included into `ApplicationController` automatically.
+
 # 0.1.6
 
 * Fix `Controller#run`, which now returns the operation instance instead of the `Else` object.
