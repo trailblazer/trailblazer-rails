@@ -3,13 +3,7 @@ require "rails/railtie"
 module Trailblazer
   class Railtie < ::Rails::Railtie
     def self.autoload_operations(app)
-      Dir.glob("app/concepts/**/crud.rb") do |f|
-        path  = f.sub("app/concepts/", "")
-        model = path.sub("/crud.rb", "")
-
-        require_dependency "#{app.root}/app/models/#{model}" # load the model file, first (thing.rb).
-        require_dependency "#{app.root}/#{f}" # load app/concepts/{concept}/crud.rb (Thing::Create, Thing::Update, and so on).
-      end
+      Loader.new.(app.root) { |file| require_dependency(file) }
     end
 
     def self.autoload_cells(app)
@@ -31,6 +25,14 @@ module Trailblazer
         Trailblazer::Railtie.autoload_operations(app)
         Trailblazer::Railtie.autoload_cells(app)
       end
+    end
+
+    # initializer "trailblazer.roar" do
+    #   require "trailblazer/rails/roar" #if Object.const_defined?(:Roar)
+    # end
+
+    initializer "trailblazer.application_controller" do
+      require "trailblazer/rails/application_controller"
     end
   end
 end
