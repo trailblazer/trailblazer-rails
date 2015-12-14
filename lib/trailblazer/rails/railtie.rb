@@ -1,4 +1,5 @@
 require "rails/railtie"
+require "trailblazer/loader"
 
 module Trailblazer
   class Railtie < ::Rails::Railtie
