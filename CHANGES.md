@@ -1,3 +1,7 @@
+# 0.2.1
+
+* Require `trailblazer-loader`.
+
 # 0.2.0
 
 * Use `trailblazer-loader` for loading operations and associated files, now. Note that `operations.rb` now is `operation.rb` (hence the minor bump).
