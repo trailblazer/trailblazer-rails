@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["apotonick@gmail.com"]
 
   spec.summary       = %q{Convenient Rails support for Trailblazer.}
-  spec.homepage      = "http://trailblazerb.org"
+  spec.homepage      = "http://trailblazer.to"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "trailblazer", ">= 1.0.4"
+  spec.add_dependency "trailblazer-loader", ">= 0.0.1"
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
