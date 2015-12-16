@@ -1,3 +1,8 @@
+# 0.2.2
+
+* Remove cells loading code, this happens via trailblazer-loader now.
+* We now load the concept's model file if it exists.
+
 # 0.2.1
 
 * Require `trailblazer-loader`.
