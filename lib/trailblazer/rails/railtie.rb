@@ -3,14 +3,8 @@ require "trailblazer/loader"
 
 module Trailblazer
   class Railtie < ::Rails::Railtie
-    def self.autoload_operations(app)
-      Loader.new.(app.root) { |file| require_dependency(file) }
-    end
-
-    def self.autoload_cells(app)
-      Dir.glob("app/concepts/**/*cell.rb") do |f|
-        require_dependency "#{app.root}/#{f}" # load app/concepts/{concept}/cell.rb.
-      end
+    def self.load_concepts(app)
+      Loader.new.(insert: [ModelFile, before: Loader::ConceptFiles]) { |file| require_dependency("#{app.root}/#{file}") }
     end
 
     # This is to autoload Operation::Dispatch, etc. I'm simply assuming people find this helpful in Rails.
@@ -23,8 +17,7 @@ module Trailblazer
       # the trb autoloading has to be run after initializers have been loaded, so we can tweak inclusion of features in
       # initializers.
       ActionDispatch::Reloader.to_prepare do
-        Trailblazer::Railtie.autoload_operations(app)
-        Trailblazer::Railtie.autoload_cells(app)
+        Trailblazer::Railtie.load_concepts(app)
       end
     end
 
@@ -34,6 +27,12 @@ module Trailblazer
 
     initializer "trailblazer.application_controller" do
       require "trailblazer/rails/application_controller"
+    end
+
+    # Prepend model file, before the concept files like operation.rb get loaded.
+    ModelFile = ->(input, options) do
+      model = "app/models/#{options[:name]}.rb"
+      File.exist?(model) ? [model]+input : input
     end
   end
 end
