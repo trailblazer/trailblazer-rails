@@ -4,7 +4,7 @@ require "trailblazer/loader"
 module Trailblazer
   class Railtie < ::Rails::Railtie
     def self.load_concepts(app)
-      Loader.new.(insert: [ModelFile, before: Loader::ConceptFiles]) { |file| require_dependency("#{app.root}/#{file}") }
+      Loader.new.(insert: [ModelFile, before: Loader::AddConceptFiles]) { |file| require_dependency("#{app.root}/#{file}") }
     end
 
     # This is to autoload Operation::Dispatch, etc. I'm simply assuming people find this helpful in Rails.
