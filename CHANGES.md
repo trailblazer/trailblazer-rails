@@ -1,3 +1,8 @@
+# 0.2.4
+
+* Require `trailblazer-loader-0.0.7`.
+* Fix sorting, model files are now always required first.
+
 # 0.2.3
 
 * Bump to `trailblazer-loader` 0.0.4.
