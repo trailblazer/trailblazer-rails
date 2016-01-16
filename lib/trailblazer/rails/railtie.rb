@@ -26,7 +26,9 @@ module Trailblazer
     # end
 
     initializer "trailblazer.application_controller" do
-      require "trailblazer/rails/application_controller"
+      ActiveSupport.on_load(:action_controller) do
+        include Trailblazer::Operation::Controller
+      end
     end
 
     # Prepend model file, before the concept files like operation.rb get loaded.
