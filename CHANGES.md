@@ -2,6 +2,7 @@
 
 * Require `trailblazer-loader-0.0.7`.
 * Fix sorting, model files are now always required first.
+* Manually include `Operation::Controller` in `ApplicationController` for every reload.
 
 # 0.2.3
 
