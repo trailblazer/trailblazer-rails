@@ -3,8 +3,8 @@ require "trailblazer/loader"
 
 module Trailblazer
   class Railtie < ::Rails::Railtie
-    def self.load_concepts(app)
-      Loader.new.(insert: [ModelFile, before: Loader::AddConceptFiles]) { |file| require_dependency("#{app.root}/#{file}") }
+    def self.load_concepts(app, concepts_root: nil)
+      Loader.new.(concepts_root: concepts_root, insert: [ModelFile, before: Loader::AddConceptFiles]) { |file| require_dependency("#{app.root}/#{file}") }
     end
 
     # This is to autoload Operation::Dispatch, etc. I'm simply assuming people find this helpful in Rails.
@@ -33,7 +33,7 @@ module Trailblazer
 
     # Prepend model file, before the concept files like operation.rb get loaded.
     ModelFile = ->(input, options) do
-      model = "app/models/#{options[:name]}.rb"
+      model = "#{ options[:concepts_root].sub('app/concepts/', '') }app/models/#{options[:name]}.rb"
       File.exist?(model) ? [model]+input : input
     end
   end
