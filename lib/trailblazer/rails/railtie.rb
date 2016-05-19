@@ -16,8 +16,12 @@ module Trailblazer
     initializer 'trailblazer.install', after: :load_config_initializers do |app|
       # the trb autoloading has to be run after initializers have been loaded, so we can tweak inclusion of features in
       # initializers.
-      ActionDispatch::Reloader.to_prepare do
-        Trailblazer::Railtie.load_concepts(app)
+      if defined? ActiveSupport::Reloader
+        ActiveSupport::Reloader.to_prepare(...)
+      else
+        # `ActionDispatch::Reloader` is deprecated since Rails 5.0,
+        # can be removed if Rails 4 support is droped.
+        ActionDispatch::Reloader.to_prepare(...)
       end
     end
 
