@@ -16,8 +16,14 @@ module Trailblazer
     initializer 'trailblazer.install', after: :load_config_initializers do |app|
       # the trb autoloading has to be run after initializers have been loaded, so we can tweak inclusion of features in
       # initializers.
-      ActionDispatch::Reloader.to_prepare do
-        Trailblazer::Railtie.load_concepts(app)
+      if ::Rails.version > '5.0'
+        ActiveSupport::Reloader.to_prepare do
+          Trailblazer::Railtie.load_concepts(app)
+        end
+      else
+        ActionDispatch::Reloader.to_prepare do
+          Trailblazer::Railtie.load_concepts(app)
+        end
       end
     end
 
