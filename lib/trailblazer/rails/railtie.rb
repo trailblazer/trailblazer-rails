@@ -16,7 +16,7 @@ module Trailblazer
     initializer 'trailblazer.install', after: :load_config_initializers do |app|
       # the trb autoloading has to be run after initializers have been loaded, so we can tweak inclusion of features in
       # initializers.
-      ActionDispatch::Reloader.to_prepare do
+      reloader_class.to_prepare do
         Trailblazer::Railtie.load_concepts(app)
       end
     end
@@ -35,6 +35,19 @@ module Trailblazer
     ModelFile = ->(input, options) do
       model = "app/models/#{options[:name]}.rb"
       File.exist?(model) ? [model]+input : input
+    end
+
+    private
+
+    def reloader_class
+      # Rails 5.0.0.rc1 says:
+      # DEPRECATION WARNING: to_prepare is deprecated and will be removed from Rails 5.1
+      # (use ActiveSupport::Reloader.to_prepare instead)
+      if ActiveSupport.version.release >= Gem::Version.new('5')
+        ActiveSupport::Reloader
+      else
+        ActionDispatch::Reloader
+      end
     end
   end
 end
