@@ -26,3 +26,4 @@ end
 
 require "trailblazer/autoloading"
 require "trailblazer/rails/autoloading"
+require "trailblazer/rails/logging"
