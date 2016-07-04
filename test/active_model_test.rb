@@ -1,3 +1,4 @@
+require 'active_model_helper'
 require "test_helper"
 require "rails/all"
 require "trailblazer/rails"
@@ -12,13 +13,11 @@ class ActiveModelTest < MiniTest::Spec
     model Song
 
     contract do
-      include Reform::Form::ActiveModel # this usually happens in Reform::Form::Rails.
     end
   end
 
   class NoModelOp < Trailblazer::Operation
     contract do
-      include Reform::Form::ActiveModel
     end
   end
 

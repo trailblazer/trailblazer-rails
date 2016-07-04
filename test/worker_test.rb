@@ -8,7 +8,6 @@ require 'trailblazer/operation'
 require 'trailblazer/operation/worker'
 require 'sidekiq/testing'
 
-
 class WorkerTest < MiniTest::Spec
   class Operation < Trailblazer::Operation
     include Worker

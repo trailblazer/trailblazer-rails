@@ -18,12 +18,14 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "trailblazer", ">= 1.0.4"
+  spec.add_dependency "reform-rails", ">= 0.1.3"
   spec.add_dependency "trailblazer-loader", ">= 0.0.7"
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest"
   spec.add_development_dependency "rails"
+  spec.add_development_dependency "dry-validation"
   spec.add_development_dependency "actionpack", '>= 3.0.0' # Rails is optional.
   spec.add_development_dependency "sqlite3"
   spec.add_development_dependency "responders"
