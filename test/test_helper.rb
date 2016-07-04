@@ -26,12 +26,12 @@ end
 DatabaseCleaner.strategy = :transaction
 DatabaseCleaner.clean_with(:truncation)
 
-require "reform/form/active_model/validations"
-Reform::Form.class_eval do
-  include Reform::Form::ActiveModel::Validations
-end
 
+# FIXME: we HAVE to use a testing setup similar to cells-rails (separate rails app, run tests).
 require 'fake_app/rails_app.rb'
+require 'fake_app/controllers'
+require 'fake_app/models'
+require 'fake_app/song/operations.rb'
 
 
 require 'fileutils'

@@ -13,7 +13,7 @@ module Trailblazer
     end
 
     # thank you, http://stackoverflow.com/a/17573888/465070
-    initializer 'trailblazer.install', after: :load_config_initializers do |app|
+    initializer 'trailblazer.install', after: "reform.form_extensions" do |app|
       # the trb autoloading has to be run after initializers have been loaded, so we can tweak inclusion of features in
       # initializers.
       reloader_class.to_prepare do

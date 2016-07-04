@@ -3,6 +3,9 @@ require 'action_view/railtie'
 require 'active_record'
 require 'responders'
 
+require "reform"
+require "reform/rails"
+
 require 'fake_app/config'
 
 
@@ -65,10 +68,6 @@ end
 require 'trailblazer/operation/responder'
 require 'trailblazer/operation/controller'
 require 'trailblazer/operation/representer'
-
-require 'fake_app/controllers'
-require 'fake_app/models'
-require 'fake_app/song/operations.rb'
 
 # helpers
 Object.const_set(:ApplicationHelper, Module.new)
