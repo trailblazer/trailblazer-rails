@@ -6,6 +6,7 @@ module Trailblazer
   end
 end
 
+require "reform/rails"
 require "trailblazer/rails/railtie"
 
 require "trailblazer/operation"
