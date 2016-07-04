@@ -1,3 +1,8 @@
+# 0.3.0
+
+* Require `reform-rails` as a static dependency. This simplifies the user's setup significantly.
+* Run the `Railtie` after `reform.form_extensions` and allow reform-rails to do its setup work, then load concepts.
+
 # 0.2.4
 
 * Require `trailblazer-loader-0.0.7`.

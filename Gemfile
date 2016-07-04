@@ -4,5 +4,6 @@ source 'https://rubygems.org'
 gemspec
 
 # gem "trailblazer", path: "../trailblazer"
-gem "trailblazer", github: "apotonick/trailblazer"
+# gem "trailblazer", github: "apotonick/trailblazer"
 # gem "trailblazer-loader", github: "trailblazer/trailblazer-loader"
+# gem "trailblazer-loader", path: "../trailblazer-loader"
