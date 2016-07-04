@@ -1,3 +1,7 @@
+# 0.3.1
+
+* Fix loading of `reform-rails`.
+
 # 0.3.0
 
 * Require `reform-rails` as a static dependency. This simplifies the user's setup significantly.
