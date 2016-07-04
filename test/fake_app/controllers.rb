@@ -87,7 +87,7 @@ class BandsController < ApplicationController
     @locality = params[:band][:locality]
 
     render inline: <<-ERB
-<%= form_for @form do |f| %>
+<%= form_for @model do |f| %>
   <%= f.text_field :name %>
   <a><%= @form.locality %></a>
 <% end %>

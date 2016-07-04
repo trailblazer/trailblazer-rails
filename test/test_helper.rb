@@ -26,10 +26,6 @@ end
 DatabaseCleaner.strategy = :transaction
 DatabaseCleaner.clean_with(:truncation)
 
-require "reform/form/active_model/validations"
-Reform::Form.class_eval do
-  include Reform::Form::ActiveModel::Validations
-end
 
 require 'fake_app/rails_app.rb'
 

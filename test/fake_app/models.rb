@@ -10,6 +10,9 @@ class Tenant < ActiveRecord::Base
   self.table_name = 'public.tenants'
 end
 
+class Concert < ActiveRecord::Base
+end
+
 # migrations
 class CreateAllTables < ActiveRecord::Migration
   def self.up
@@ -26,6 +29,10 @@ class CreateAllTables < ActiveRecord::Migration
 
     create_table(:"public.tenants") do |t|
       t.string :name
+    end
+
+    create_table(:concerts) do |t|
+      t.string :title
     end
   end
 end
