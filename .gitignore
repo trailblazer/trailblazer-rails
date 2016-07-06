@@ -8,3 +8,4 @@
 /spec/reports/
 /tmp/
 test/fake_app/log/*.log
+.idea/
