@@ -14,6 +14,7 @@ module Trailblazer::Operation::Responder
 
   def errors
     return [] if @valid
+    return contract.errors if self.respond_to?(:contract)
     [1]
   end
 
