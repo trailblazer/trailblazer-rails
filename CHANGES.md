@@ -1,3 +1,7 @@
+# 0.3.2
+
+* Make it work with Rails 3.x, again.
+
 # 0.3.1
 
 * Fix loading of `reform-rails`.
