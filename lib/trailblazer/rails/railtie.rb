@@ -3,8 +3,39 @@ require "trailblazer/loader"
 
 module Trailblazer
   class Railtie < ::Rails::Railtie
+    def self.load_root(root)
+
+      # Loader has no concept for base dir, must chdir so that it can find files local to the root
+      Dir.chdir(root) do
+        # For STI models, we need to sort all models before concepts, gather files first from loader
+        files = []
+        Loader.new.({debug: false, insert: [ModelFile, before: Loader::AddConceptFiles]}) { |file|
+          files << file
+        }
+
+        # Now re-sort the files, all models-first
+        files = files.sort_by { |file|
+          (file =~ /(app\/models\/.*)/) || 1000 # model index otherwise 1000 to keep models first.
+        }
+
+        files.each do |file|
+          require_dependency("#{root}/#{file}")
+        end
+      end
+    end
+
     def self.load_concepts(app)
-      Loader.new.(insert: [ModelFile, before: Loader::AddConceptFiles]) { |file| require_dependency("#{app.root}/#{file}") }
+
+      # Iterate over all engines and load concepts
+      engines = ::Rails::Engine.subclasses.map(&:instance)
+      engines.each do |engine|
+        load_root(engine.root)
+      end
+
+      # Load the app root (Dir is necessary to guarantee context for tests)
+      Dir.chdir(app.root) do
+        load_root(app.root)
+      end
     end
 
     # This is to autoload Operation::Dispatch, etc. I'm simply assuming people find this helpful in Rails.
