@@ -33,9 +33,7 @@ module Trailblazer
       end
 
       # Load the app root (Dir is necessary to guarantee context for tests)
-      Dir.chdir(app.root) do
-        load_root(app.root)
-      end
+      load_root(app.root)
     end
 
     # This is to autoload Operation::Dispatch, etc. I'm simply assuming people find this helpful in Rails.
