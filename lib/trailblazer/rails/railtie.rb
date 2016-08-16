@@ -3,27 +3,6 @@ require "trailblazer/loader"
 
 module Trailblazer
   class Railtie < ::Rails::Railtie
-    def self.load_root(root)
-
-      # Loader has no concept for base dir, must chdir so that it can find files local to the root
-      Dir.chdir(root) do
-        # For STI models, we need to sort all models before concepts, gather files first from loader
-        files = []
-        Loader.new.({debug: false, insert: [ModelFile, before: Loader::AddConceptFiles]}) { |file|
-          files << file
-        }
-
-        # Now re-sort the files, all models-first
-        files = files.sort_by { |file|
-          (file =~ /(app\/models\/.*)/) || 1000 # model index otherwise 1000 to keep models first.
-        }
-
-        files.each do |file|
-          require_dependency("#{root}/#{file}")
-        end
-      end
-    end
-
     def self.load_concepts(app)
       # Loader.new.(insert: [ModelFile, before: Loader::AddConceptFiles]) { |file| require_dependency("#{app.root}/#{file}") }
       load_for(app)
@@ -34,7 +13,7 @@ module Trailblazer
     end
 
     def self.load_for(app)
-      Loader.new.(insert: [AllModelFiles], root: app.root, _fixme: true, debug: true) { |file| require_dependency(file) }
+      Loader.new.(prepend: AllModelFiles, root: app.root) { |file| require_dependency(file) }
     end
 
     # This is to autoload Operation::Dispatch, etc. I'm simply assuming people find this helpful in Rails.
