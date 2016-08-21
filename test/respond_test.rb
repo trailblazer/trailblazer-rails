@@ -7,6 +7,7 @@ class ResponderRespondTest < ActionController::TestCase
   # #respond Create [valid]
   test "Create [html/valid]" do
     post :create, {song: {title: "You're Going Down"}}
+    assert_response 302
     assert_redirected_to song_path(Song.last)
   end
 
@@ -18,7 +19,7 @@ class ResponderRespondTest < ActionController::TestCase
   test "Create [html/invalid]" do
     post :create, {song: {title: ""}}
     assert_response 200
-    assert_equal @response.body, "{:title=&gt;[&quot;can&#39;t be blank&quot;]}"
+    assert_equal @response.body, "{:title=&gt;[&quot;can&#39;t be blank&quot;]}\n"
   end
 
   test "Create [html/invalid/action]" do

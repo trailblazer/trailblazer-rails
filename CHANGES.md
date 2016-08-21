@@ -1,3 +1,7 @@
+# 0.4.0
+
+* Fix `Responder#errors` by simply removing it and letting `Operation#errors` return the contract errors.
+
 # 0.3.2
 
 * Make it work with Rails 3.x, again.
