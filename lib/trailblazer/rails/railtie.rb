@@ -48,7 +48,7 @@ module Trailblazer
 
     # Load all model files before any TRB files.
     AllModelFiles = ->(input, options) do
-      Dir.glob("#{options[:root]}/app/models/*.rb") + input
+      Dir.glob("#{options[:root]}/app/models/**/*.rb") + input
     end
 
     private
