@@ -1,5 +1,6 @@
 # 0.4.0
 
+* Better engines support.
 * Fix `Responder#errors` by simply removing it and letting `Operation#errors` return the contract errors.
 
 # 0.3.2
