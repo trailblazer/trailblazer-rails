@@ -37,6 +37,12 @@ module Trailblazer
     initializer "trailblazer.application_controller" do
       ActiveSupport.on_load(:action_controller) do
         include Trailblazer::Operation::Controller
+        ActionController.add_renderer :concept do |cell, options|
+          model = options.delete(:model) || @model
+          layout = options.delete(:layout)
+          options.slice!(:template, :prefixes)
+          render text: concept(cell, model, options), layout: layout
+        end
       end
     end
 
