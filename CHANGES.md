@@ -1,3 +1,8 @@
+# 0.5.0
+
+* Runs only with >= Trailblazer 2.0.0.
+* Autoloading got replaced with explicit requires.
+
 # 0.4.0
 
 * Better engines support.

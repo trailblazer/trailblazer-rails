@@ -2,7 +2,6 @@ require "trailblazer/rails/version"
 
 module Trailblazer
   module Rails
-    # Your code goes here...
   end
 end
 
@@ -24,6 +23,3 @@ require "trailblazer/operation/model/active_model"
 Trailblazer::Operation::Model::DSL.module_eval do
   include Trailblazer::Operation::Model::ActiveModel # ::contract.
 end
-
-require "trailblazer/autoloading"
-require "trailblazer/rails/autoloading"

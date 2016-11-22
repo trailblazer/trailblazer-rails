@@ -1,5 +1,3 @@
-require 'trailblazer/autoloading'
-
 class Song < ActiveRecord::Base
   class Create < Trailblazer::Operation
     include Model
