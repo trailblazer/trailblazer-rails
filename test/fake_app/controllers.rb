@@ -13,7 +13,7 @@ class SongsController < ApplicationController
 ERB
   end
 
-  include Trailblazer::Operation::Controller
+  # include Trailblazer::Operation::Controller
   respond_to :html
 
   def create
@@ -50,7 +50,7 @@ ERB
 end
 
 class BandsController < ApplicationController
-  include Trailblazer::Operation::Controller
+  # include Trailblazer::Operation::Controller
   respond_to :html, :json
 
   def index
@@ -110,33 +110,17 @@ private
   end
 end
 
-require 'trailblazer/operation/controller/active_record'
-class ActiveRecordBandsController < ApplicationController
-  include Trailblazer::Operation::Controller
-  include Trailblazer::Operation::Controller::ActiveRecord
-  respond_to :html
 
-  def index
-    collection Band::Index
-    render text: "active_record_bands/index.html: #{@collection.class}, #{@bands.class}, #{@operation.class}"
-  end
 
-  def show
-    present Band::Update
+# require 'trailblazer/operation/controller/active_record'
+# class TenantsController < ApplicationController
+#   # include Trailblazer::Operation::Controller
+#   # include Trailblazer::Operation::Controller::ActiveRecord
+#   respond_to :html
 
-    render text: "active_record_bands/show.html: #{@model.class}, #{@band.class}, #{@form.inspect}, #{@operation.class}"
-  end
-end
-
-require 'trailblazer/operation/controller/active_record'
-class TenantsController < ApplicationController
-  include Trailblazer::Operation::Controller
-  include Trailblazer::Operation::Controller::ActiveRecord
-  respond_to :html
-
-  def show
-    present Tenant::Show
-    render text: "#{@tenant.name}" # model ivar doesn't contain table prefix `bla.xxx`.
-  end
-end
+#   def show
+#     present Tenant::Show
+#     render text: "#{@tenant.name}" # model ivar doesn't contain table prefix `bla.xxx`.
+#   end
+# end
 

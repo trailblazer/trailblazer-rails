@@ -138,34 +138,3 @@ class ControllerFormTest < ActionController::TestCase
   end
 end
 
-class ActiveRecordPresentTest < ActionController::TestCase
-  tests ActiveRecordBandsController
-
-  test "#present" do
-    band = Band::Create.(band: {name: "Nofx"}).model
-    get :show, id: band.id
-
-    assert_equal "active_record_bands/show.html: Band, Band, nil, Band::Update", response.body
-  end
-
-  test "#collection" do
-    Band.destroy_all
-    Band::Create.(band: {name: "Nofx"})
-
-    get :index
-
-    assert_equal "active_record_bands/index.html: Band::ActiveRecord_Relation, Band::ActiveRecord_Relation, Band::Index", response.body
-  end
-end
-
-class PrefixedTablenameControllerTest < ActionController::TestCase
-  tests TenantsController
-
-  test "show" do
-    tenant = Tenant.create(name: "My Tenant") # yepp, I am not using an operation! blasphemy!!!
-    get :show, id: tenant.id
-
-    assert_equal "My Tenant", response.body
-  end
-end
-
