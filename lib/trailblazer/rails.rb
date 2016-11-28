@@ -8,8 +8,9 @@ end
 
 require "reform/rails"
 require "trailblazer/rails/railtie"
-
 require "trailblazer/operation"
+require "trailblazer/cell/view_model"
+
 # TODO: remove that once i18n, validations etc in Reform/AM are sorted.
 Trailblazer::Operation.contract_class.class_eval do
   def self.name
