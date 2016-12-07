@@ -2,3 +2,7 @@ language: ruby
 rvm:
   - 2.2.2
 before_install: gem install bundler
+
+script:
+- cd test/rails4.2
+- bundle exec rake test
