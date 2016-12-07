@@ -6,6 +6,6 @@ class Song::New < Trailblazer::Operation
     property :title
   end
 
-  step Model( Song, :create )
+  step Model( Song, :new )
   step Contract::Build()
 end

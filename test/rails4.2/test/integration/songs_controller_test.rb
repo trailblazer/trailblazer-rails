@@ -1,7 +1,8 @@
 require "test_helper"
 
-class SongsControllerTest < ActionDispatch::IntegrationTest
-  test "new" do
-    get "/songs/new"
+class SongsControllerTest < Trailblazer::Test::Integration
+  it "new" do
+    visit "/songs/new"
+    page.must_have_css "form.new_song[action='/songs']"
   end
 end

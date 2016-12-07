@@ -7,4 +7,5 @@ gem 'sqlite3'
 # Use SCSS for stylesheets
 
 gem "trailblazer-rails", path: "../../"
-gem "trailblazer",       path: "../../../trailblazer"
+gem "trailblazer"#,       path: "../../../trailblazer"
+gem "minitest-rails-capybara"
