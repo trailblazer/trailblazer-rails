@@ -18,7 +18,6 @@ module Trailblazer
 
     # This is to autoload Operation::Dispatch, etc. I'm simply assuming people find this helpful in Rails.
     initializer "trailblazer.library_autoloading" do
-      require "trailblazer/rails/all"
     end
 
     # thank you, http://stackoverflow.com/a/17573888/465070
@@ -36,7 +35,7 @@ module Trailblazer
 
     initializer "trailblazer.application_controller" do
       ActiveSupport.on_load(:action_controller) do
-        # include Trailblazer::Operation::Controller
+        include Trailblazer::Rails::Controller
       end
     end
 

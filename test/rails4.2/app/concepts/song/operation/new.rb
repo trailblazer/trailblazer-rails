@@ -6,6 +6,6 @@ class Song::New < Trailblazer::Operation
     property :title
   end
 
-  self.| Model[Song, :create]
-  self.| Contract[]
+  step Model( Song, :create )
+  step Contract::Build()
 end
