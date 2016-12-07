@@ -3,3 +3,4 @@ rvm:
   - 2.3.1
 
 script: cd test/rails4.2 && bundle exec rake test
+gemfile: test/rails4.2/Gemfile
