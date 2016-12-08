@@ -1,6 +1,8 @@
-# 0.5.0
+# 1.0.0
 
 * Runs only with >= Trailblazer 2.0.0.
+* Removed `Controller#form`, `#present` and `#respond`. The latter is now [replaced with `Endpoint`](https://github.com/trailblazer/trailblazer-endpoint/). The only operation trigger is `Controller#run`.
+* Added support for explicit `render cell: Artist::Cell::Index, model: @model`.
 * Autoloading got replaced with explicit requires.
 
 # 0.4.0
