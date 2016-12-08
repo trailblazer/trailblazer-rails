@@ -5,6 +5,7 @@ class ArtistsControllerTest < Trailblazer::Test::Integration
     visit "/artists/dashboard"
     page.must_have_css "h1", visible: "Dashboard"
     page.must_have_css "h2", visible: "LAYOUT"
+    page.must_have_css "h1[theme='cute']"
   end
 
   it "cell: Artist::Cell::Dashboard" do

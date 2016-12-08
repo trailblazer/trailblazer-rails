@@ -18,9 +18,10 @@ module Trailblazer::Rails
       def render_cell(options)
         options = options.reverse_merge(layout: true)
 
-        content = cell(options[:cell], options[:model])
+        # render the cell.
+        content = cell(options[:cell], options[:model], options[:options] || {})
 
-        render( { html: content }.merge(options.except(:model, :cell)) )
+        render( { html: content }.merge(options.except(:cell, :model, :options)) )
       end
     end
 
