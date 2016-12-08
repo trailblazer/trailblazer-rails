@@ -1,10 +1,10 @@
 # Trailblazer::Rails
 
-*Rails bindings for Trailblazer in your controllers.*
+*Trailblazer in your Rails controllers.*
 
 ## Overview
 
-`Trailblazer::Rails` helps you with the following.
+`trailblazer-rails` helps you with the following.
 
 * Running operations in your controller actions.
 * Minimalistic integration tests ("smoke tests") to test controller/operation wiring.
@@ -20,6 +20,7 @@ Add this line to your application's Gemfile:
 gem 'trailblazer-rails'
 ```
 
+Note that the 1.x version only runs with TRB >= 2.0.0.
 
 ## License
 
