@@ -1,20 +1,16 @@
 # Trailblazer::Rails
 
-## Railtie
+*Rails bindings for Trailblazer in your controllers.*
 
+## Overview
 
-This will go through `app/concepts/`, find all the `crud.rb` files, autoload their corresponding namespace (e.g. `Thing`, which is a model) and then load the `crud.rb` file.
+`Trailblazer::Rails` helps you with the following.
 
-## Form::model_name
+* Running operations in your controller actions.
+* Minimalistic integration tests ("smoke tests") to test controller/operation wiring.
+* Rendering cells instead of an ActionView in a controller action.
 
-Automatically sets `model` on operation's contract when `Operation::Model` is included in operation.
-
-
-## Planned
-
-* Adds autoloading, etc.
-* Automatic rendering of a controller cell instead of primitive view.
-
+Please refer to the [full documentation for more](http://trailblazer.to/gems/trailblazer/rails.html).
 
 ## Installation
 
@@ -23,6 +19,7 @@ Add this line to your application's Gemfile:
 ```ruby
 gem 'trailblazer-rails'
 ```
+
 
 ## License
 
