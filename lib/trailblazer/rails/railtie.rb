@@ -35,7 +35,7 @@ module Trailblazer
 
     initializer "trailblazer.application_controller" do
       ActiveSupport.on_load(:action_controller) do
-        include Trailblazer::Rails::Controller
+        ApplicationController.send :include, Trailblazer::Rails::Controller
       end
     end
 
