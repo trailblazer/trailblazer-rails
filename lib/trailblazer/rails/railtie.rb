@@ -34,7 +34,7 @@ module Trailblazer
     # end
 
     initializer "trailblazer.application_controller" do
-      ActiveSupport.on_load(:action_controller) do
+      reloader_class.to_prepare do
         ApplicationController.send :include, Trailblazer::Rails::Controller
       end
     end
