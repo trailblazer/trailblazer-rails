@@ -16,7 +16,11 @@ module Trailblazer::Rails
       end
 
       def render_cell(options)
-        render html: options[:cell].(options[:model]), layout: true
+        options = options.reverse_merge(layout: true)
+
+        content = options[:cell].(options[:model])
+
+        render( { html: content }.merge(options.except(:model, :cell)) )
       end
     end
 
