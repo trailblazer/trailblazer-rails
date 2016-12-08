@@ -2,6 +2,12 @@
 
 *Trailblazer in your Rails controllers.*
 
+[![Gitter Chat](https://badges.gitter.im/trailblazer/chat.svg)](https://gitter.im/trailblazer/chat)
+[![TRB Newsletter](https://img.shields.io/badge/TRB-newsletter-lightgrey.svg)](http://trailblazer.to/newsletter/)
+[![Build
+Status](https://travis-ci.org/trailblazer/trailblazer-rails.svg)](https://travis-ci.org/trailblazer/trailblazer-rails)
+[![Gem Version](https://badge.fury.io/rb/trailblazer-rails.svg)](http://badge.fury.io/rb/cells)
+
 ## Overview
 
 `trailblazer-rails` helps you with the following.
