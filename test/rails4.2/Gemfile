@@ -9,3 +9,7 @@ gem 'sqlite3'
 gem "trailblazer-rails", path: "../../../trailblazer-rails"
 gem "trailblazer"#,       path: "../../../trailblazer"
 gem "minitest-rails-capybara"
+
+gem "trailblazer-cells"
+gem "cells-rails"
+gem "cells-erb"

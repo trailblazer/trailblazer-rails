@@ -1,12 +1,10 @@
 class SongsController < ApplicationController
   def new
     run Song::New
-    render
   end
 
   def show
     run Song::Show
-    render
   end
 
   def create
