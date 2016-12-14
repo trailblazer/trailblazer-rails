@@ -14,4 +14,10 @@ class SongsController < ApplicationController
 
     render :new
   end
+
+  def new_with_result
+    result = run Song::New
+
+    @class = result["model"].class
+  end
 end

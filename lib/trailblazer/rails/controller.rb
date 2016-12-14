@@ -7,8 +7,8 @@ module Trailblazer::Rails
       @model = result["model"]
 
       yield(result) if result.success? && block_given?
-      # TODO: RETURN RESULT
-      result # TODO: TEST ME.
+
+      result
     end
 
     module Render

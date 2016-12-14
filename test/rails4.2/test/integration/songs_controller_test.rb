@@ -19,4 +19,9 @@ class SongsControllerTest < Trailblazer::Test::Integration
     click_button "Create Song"
     page.must_have_css "h1", visible: "Skin Trade"
   end
+
+  it "new_with_result" do
+    visit "/songs/new_with_result"
+    page.must_have_css "h1", visible: "Song"
+  end
 end
