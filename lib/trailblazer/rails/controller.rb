@@ -6,7 +6,9 @@ module Trailblazer::Rails
       @form = Trailblazer::Rails::Form.new(result["contract.default"], result["model"].class)
       @model = result["model"]
 
-      yield(result) if result.success? if block_given?
+      yield(result) if result.success? && block_given?
+      # TODO: RETURN RESULT
+      result # TODO: TEST ME.
     end
 
     module Render
