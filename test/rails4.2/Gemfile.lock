@@ -1,7 +1,7 @@
 PATH
   remote: ../../
   specs:
-    trailblazer-rails (0.4.0)
+    trailblazer-rails (1.0.0.rc1)
       reform-rails (>= 0.1.4, < 0.2.0)
       trailblazer (>= 2.0.0.beta1, < 2.1.0)
       trailblazer-loader (>= 0.1.0)
