@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get "artists/dashboard", controller: :artists, action: :dashboard
   get "artists/dashboard/widget", controller: :artists, action: :widget
   resources :artists
+
+  get "params/with_args", controller: "params/with_args"
 end

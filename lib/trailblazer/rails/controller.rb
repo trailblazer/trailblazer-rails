@@ -1,14 +1,14 @@
 module Trailblazer::Rails
   module Controller
-    def run(operation)
-      result = operation.(params)
+    def run(operation, params=self.params, *dependencies)
+      result = operation.(params, *dependencies)
 
       @form = Trailblazer::Rails::Form.new(result["contract.default"], result["model"].class)
       @model = result["model"]
 
       yield(result) if result.success? && block_given?
 
-      result
+      @_result = result
     end
 
     module Render
