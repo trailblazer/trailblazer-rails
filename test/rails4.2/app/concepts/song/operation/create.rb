@@ -13,5 +13,5 @@ end
 class Song::Create < Trailblazer::Operation
   step Nested( Song::New )
   step Contract::Validate()
-  step Persist()
+  step Contract::Persist()
 end
