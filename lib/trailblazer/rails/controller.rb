@@ -53,11 +53,11 @@ module Trailblazer::Rails
     module Expose
       require "ostruct"
 
-      def expose(properties)
-        hsh = {}
-        properties.each { |prop| hsh[prop.to_sym] = @_result[prop] }
+      def expose(properties, data={})
+        # hsh = {}
+        properties.each { |prop| data[prop.to_sym] = @_result[prop] }
 
-        OpenStruct.new(hsh)
+        OpenStruct.new(data)
       end
     end
   end

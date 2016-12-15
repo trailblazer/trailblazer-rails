@@ -17,7 +17,12 @@ class ArtistsControllerTest < Trailblazer::Test::Integration
   #---
   #- expose
   it "expose" do
-    visit "/artists/new"
-    page.body.must_match %{#<Song id: nil, title: nil>,Reform::Form}
+    visit "/artists/with_expose"
+    page.body.must_match %{<p>#<Song id: nil, title: nil>,Reform::Form,nil</p>}
+  end
+
+  it "expose with additional args" do
+    visit "/artists/with_expose_and_args"
+    page.body.must_match %{<p>#<Song id: nil, title: nil>,Reform::Form,#<Song id: nil, title: nil></p>}
   end
 end

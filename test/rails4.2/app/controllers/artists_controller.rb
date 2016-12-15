@@ -10,8 +10,14 @@ class ArtistsController < ApplicationController
   end
 
   include Trailblazer::Rails::Controller::Expose
-  def new
+
+  def with_expose
     run Song::New
     render cell( Artist::Cell::Show, expose(%w{model contract.default}) )
+  end
+
+  def with_expose_and_args
+    run Song::New
+    render cell( Artist::Cell::Show, expose(%w{model contract.default}, song: @model) )
   end
 end
