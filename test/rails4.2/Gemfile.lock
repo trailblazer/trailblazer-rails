@@ -90,6 +90,8 @@ GEM
       capybara (~> 2.2)
       minitest (~> 5.0)
       rake
+    minitest-line (0.6.3)
+      minitest (~> 5.0)
     minitest-metadata (0.6.0)
       minitest (>= 4.7, < 6.0)
     minitest-rails (2.2.1)
@@ -177,6 +179,7 @@ PLATFORMS
 DEPENDENCIES
   cells-erb
   cells-rails
+  minitest-line
   minitest-rails-capybara
   rails (= 4.2.6)
   sqlite3

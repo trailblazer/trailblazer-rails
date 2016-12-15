@@ -33,18 +33,18 @@ module Trailblazer::Rails
     end
 
     module Render
-      def render(options={}, *args, &block)
-        return super unless options.is_a?(::Hash) && options[:cell]
-        render_cell(options)
+      def render(cell, options={}, *, &block)
+        return super unless cell.kind_of?(::Cell::ViewModel)
+        render_cell(cell, options)
       end
 
-      def render_cell(options)
+      def render_cell(cell, options={})
         options = options.reverse_merge(layout: true)
 
         # render the cell.
-        content = cell(options[:cell], options[:model], options[:options] || {})
+        content = cell.()
 
-        render( { html: content }.merge(options.except(:cell, :model, :options)) )
+        render( { html: content }.merge(options) )
       end
     end
 
