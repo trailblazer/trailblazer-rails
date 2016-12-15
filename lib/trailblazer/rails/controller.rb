@@ -6,7 +6,7 @@ module Trailblazer::Rails
         *_run_runtime_options(*dependencies)
       )
 
-      @form = Trailblazer::Rails::Form.new(result["contract.default"], result["model"].class)
+      @form  = Trailblazer::Rails::Form.new(result["contract.default"], result["model"].class)
       @model = result["model"]
 
       yield(result) if result.success? && block_given?
@@ -34,9 +34,8 @@ module Trailblazer::Rails
 
     module Render
       def render(options={}, *args, &block)
-        return super unless options.is_a? Hash
-        return render_cell(options) if options[:cell]
-        super
+        return super unless options.is_a?(::Hash) && options[:cell]
+        render_cell(options)
       end
 
       def render_cell(options)
