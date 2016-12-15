@@ -33,12 +33,12 @@ module Trailblazer::Rails
     end
 
     module Render
-      def render(cell, options={}, *, &block)
+      def render(cell=nil, options={}, *, &block)
         return super unless cell.kind_of?(::Cell::ViewModel)
         render_cell(cell, options)
       end
 
-      def render_cell(cell, options={})
+      def render_cell(cell, options)
         options = options.reverse_merge(layout: true)
 
         # render the cell.
