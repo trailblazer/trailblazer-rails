@@ -10,8 +10,14 @@ class ArtistsControllerTest < Trailblazer::Test::Integration
 
   it "cell: Artist::Cell::Dashboard" do
     visit "/artists/dashboard/widget"
-    puts page.body
     page.must_have_css "h1", text: "Dashboard"
     page.wont_have_css "h2", text: "LAYOUT"
+  end
+
+  #---
+  #- expose
+  it "expose" do
+    visit "/artists/new"
+    page.body.must_match %{#<Song id: nil, title: nil>,Reform::Form}
   end
 end

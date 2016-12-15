@@ -49,5 +49,16 @@ module Trailblazer::Rails
     end
 
     include Render
+
+    module Expose
+      require "ostruct"
+
+      def expose(properties)
+        hsh = {}
+        properties.each { |prop| hsh[prop.to_sym] = @_result[prop] }
+
+        OpenStruct.new(hsh)
+      end
+    end
   end
 end

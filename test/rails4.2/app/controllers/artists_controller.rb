@@ -8,4 +8,10 @@ class ArtistsController < ApplicationController
     model = Struct.new(:title).new("Dashboard")
     render cell( Artist::Cell::Dashboard, model ), layout: false
   end
+
+  include Trailblazer::Rails::Controller::Expose
+  def new
+    run Song::New
+    render cell( Artist::Cell::Show, expose(%w{model contract.default}) )
+  end
 end
