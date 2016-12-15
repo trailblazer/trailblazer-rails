@@ -9,15 +9,16 @@ class ArtistsController < ApplicationController
     render cell( Artist::Cell::Dashboard, model ), layout: false
   end
 
-  include Trailblazer::Rails::Controller::Expose
+  include Trailblazer::Rails::Controller::Result
 
   def with_expose
     run Song::New
-    render cell( Artist::Cell::Show, expose(%w{model contract.default}) )
+    render cell( Artist::Cell::Show, result )
+    # render cell( Artist::Cell::Show, expose(search: @search, %w{model contract.default}) )
   end
 
   def with_expose_and_args
     run Song::New
-    render cell( Artist::Cell::Show, expose(%w{model contract.default}, song: @model) )
+    render cell( Artist::Cell::Show, result, song: @model )
   end
 end

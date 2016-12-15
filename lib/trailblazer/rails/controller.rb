@@ -50,15 +50,12 @@ module Trailblazer::Rails
 
     include Render
 
-    module Expose
-      require "ostruct"
-
-      def expose(properties, data={})
-        # hsh = {}
-        properties.each { |prop| data[prop.to_sym] = @_result[prop] }
-
-        OpenStruct.new(data)
+    module Result
+      def result
+        @_result
       end
     end
+
+    include Result
   end
 end
