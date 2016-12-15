@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get "artists/dashboard/widget", controller: :artists, action: :widget
   resources :artists
 
+  get "args/with_args", controller: "args/with_args"
   get "params/with_args", controller: "params/with_args"
 end
