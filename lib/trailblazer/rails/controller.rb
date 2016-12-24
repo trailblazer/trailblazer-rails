@@ -34,7 +34,7 @@ module Trailblazer::Rails
 
     module Render
       def render(cell=nil, options={}, *, &block)
-        return super unless cell.kind_of?(::Cell::ViewModel)
+        return super unless defined?(::Cell) && cell.kind_of?(::Cell::ViewModel)
         render_cell(cell, options)
       end
 
