@@ -36,6 +36,7 @@ module Trailblazer
     initializer "trailblazer.application_controller" do
       reloader_class.to_prepare do
         ApplicationController.send :include, Trailblazer::Rails::Controller
+        ApplicationController.send :include, Trailblazer::Rails::Controller::Cell if defined?(::Cell)
       end
     end
 
