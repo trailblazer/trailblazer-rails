@@ -1,3 +1,7 @@
+# 1.0.1
+
+* Allow using this gem without `cells,` by loading cells support only when the `cells` gem got detected. Thanks to @promisedlandt.
+
 # 1.0.0
 
 * Runs only with >= Trailblazer 2.0.0.
