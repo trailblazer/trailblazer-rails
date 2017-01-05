@@ -1,3 +1,7 @@
+# 1.0.2
+
+* Allow configuring `ApplicationController` constant via `config.trailblazer.application_controller`.
+
 # 1.0.1
 
 * Allow using this gem without `cells,` by loading cells support only when the `cells` gem got detected. Thanks to @promisedlandt.
