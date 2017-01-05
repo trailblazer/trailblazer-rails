@@ -1,7 +1,7 @@
 PATH
   remote: ../../../trailblazer-rails
   specs:
-    trailblazer-rails (1.0.0)
+    trailblazer-rails (1.0.1)
       reform-rails (>= 0.1.4, < 0.2.0)
       trailblazer (>= 2.0.0, < 2.1.0)
       trailblazer-loader (>= 0.1.0)
@@ -185,6 +185,7 @@ DEPENDENCIES
   minitest-line
   minitest-rails-capybara
   rails (= 4.2.6)
+  reform-rails
   sqlite3
   trailblazer
   trailblazer-cells
