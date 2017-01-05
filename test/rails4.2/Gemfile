@@ -19,4 +19,4 @@ gem "cells-erb"
 
 gem "minitest-line"
 
-# gem "reform-rails"
+gem "reform-rails"
