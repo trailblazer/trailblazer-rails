@@ -10,8 +10,19 @@ module Trailblazer
       # Loader.new.(insert: [ModelFile, before: Loader::AddConceptFiles]) { |file| require_dependency("#{app.root}/#{file}") }
       load_for(app)
 
-      ::Rails.application.railties.find_all { |tie| tie.is_a?(::Rails::Engine) }.each do |engine|
-        load_for(engine)
+      engines.each { |engine| load_for(engine) }
+    end
+
+    def self.engines
+      if !defined?(::Rails::Engine)
+        # Rails <3.1
+        []
+      elsif ::Rails.application.railties.respond_to?(:engines)
+        # Rails 3.1+
+        ::Rails.application.railties.engines
+      else
+        # Rails 4+
+        ::Rails.application.railties.find_all { |tie| tie.is_a?(::Rails::Engine) }
       end
     end
 
