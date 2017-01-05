@@ -14,15 +14,10 @@ module Trailblazer
     end
 
     def self.engines
-      if !defined?(::Rails::Engine)
-        # Rails <3.1
-        []
-      elsif ::Rails.application.railties.respond_to?(:engines)
-        # Rails 3.1+
-        ::Rails.application.railties.engines
-      else
-        # Rails 4+
+      if Gem::Version.new(::Rails.version) >= Gem::Version.new("4.1")
         ::Rails.application.railties.find_all { |tie| tie.is_a?(::Rails::Engine) }
+      else
+        ::Rails.application.railties.engines
       end
     end
 
