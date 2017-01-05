@@ -3,6 +3,9 @@ require "trailblazer/loader"
 
 module Trailblazer
   class Railtie < ::Rails::Railtie
+    config.trailblazer = ActiveSupport::OrderedOptions.new
+    config.trailblazer.application_controller ||= :ApplicationController
+
     def self.load_concepts(app)
       # Loader.new.(insert: [ModelFile, before: Loader::AddConceptFiles]) { |file| require_dependency("#{app.root}/#{file}") }
       load_for(app)
@@ -29,14 +32,9 @@ module Trailblazer
       end
     end
 
-    # initializer "trailblazer.roar" do
-    #   require "trailblazer/rails/roar" #if Object.const_defined?(:Roar)
-    # end
-
-    initializer "trailblazer.application_controller" do
+    initializer "trailblazer.application_controller" do |app|
       reloader_class.to_prepare do
-        ApplicationController.send :include, Trailblazer::Rails::Controller
-        ApplicationController.send :include, Trailblazer::Rails::Controller::Cell if defined?(::Cell)
+        Trailblazer::Railtie.extend_application_controller!(app)
       end
     end
 
@@ -62,6 +60,13 @@ module Trailblazer
       else
         ActionDispatch::Reloader
       end
+    end
+
+    def self.extend_application_controller!(app)
+      application_controller = app.config.trailblazer.application_controller.to_s.constantize
+
+      application_controller.send :include, Trailblazer::Rails::Controller
+      application_controller.send :include, Trailblazer::Rails::Controller::Cell if defined?(::Cell)
     end
   end
 end
