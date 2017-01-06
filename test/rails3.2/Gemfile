@@ -11,6 +11,14 @@ gem "trailblazer-cells"
 gem "cells-rails"
 gem "cells-erb"
 
-gem "minitest-line"
+# gem "minitest-line"
+gem "test-unit", "~> 3.0"
 
 gem "reform-rails"
+
+gem "trailblazer-rails", path: "../../../trailblazer-rails"
+# gem "trailblazer"#,       path: "../../../trailblazer"
+
+group :test do
+  gem "minitest-rails-capybara", "~> 1.0.0"
+end

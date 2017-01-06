@@ -38,6 +38,12 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.3)
     builder (3.0.4)
+    capybara (2.1.0)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     cells (4.1.5)
       tilt (>= 1.4, < 3)
       uber (>= 0.1.0, < 0.2.0)
@@ -64,13 +70,32 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
-    minitest (5.10.1)
-    minitest-line (0.6.3)
-      minitest (~> 5.0)
+    mini_portile2 (2.1.0)
+    minitest (4.7.5)
+    minitest-capybara (0.5.0)
+      capybara (~> 2.1.0)
+      minitest (~> 4.0)
+      rake
+    minitest-metadata (0.5.3)
+      minitest (>= 4.7, < 6.0)
+    minitest-rails (1.0.1)
+      minitest (~> 4.7)
+      minitest-test (~> 1.0)
+      railties (>= 3.0, < 4.1)
+    minitest-rails-capybara (1.0.0)
+      capybara (~> 2.0)
+      minitest-capybara (~> 0.5.0)
+      minitest-metadata (~> 0.5.0)
+      minitest-rails (~> 1.0)
+    minitest-test (1.1.0)
+      minitest (~> 4.0)
     multi_json (1.12.1)
+    nokogiri (1.7.0.1)
+      mini_portile2 (~> 2.1.0)
     pipetree (0.0.5)
       uber
     polyglot (0.3.5)
+    power_assert (0.3.0)
     rack (1.4.7)
     rack-cache (1.6.1)
       rack (>= 0.4)
@@ -113,6 +138,8 @@ GEM
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.13)
     temple (0.7.7)
+    test-unit (3.2.0)
+      power_assert
     thor (0.19.4)
     tilt (1.4.1)
     trailblazer (2.0.0)
@@ -132,6 +159,8 @@ GEM
       polyglot (>= 0.3.1)
     tzinfo (0.3.52)
     uber (0.1.0)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -139,10 +168,11 @@ PLATFORMS
 DEPENDENCIES
   cells-erb
   cells-rails
-  minitest-line
+  minitest-rails-capybara (~> 1.0.0)
   rails (= 3.2.22.2)
   reform-rails
   sqlite3
+  test-unit (~> 3.0)
   trailblazer
   trailblazer-cells
   trailblazer-rails!
