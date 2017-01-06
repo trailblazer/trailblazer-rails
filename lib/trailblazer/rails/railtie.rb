@@ -10,8 +10,14 @@ module Trailblazer
       # Loader.new.(insert: [ModelFile, before: Loader::AddConceptFiles]) { |file| require_dependency("#{app.root}/#{file}") }
       load_for(app)
 
-      ::Rails.application.railties.find_all { |tie| tie.is_a?(::Rails::Engine) }.each do |engine|
-        load_for(engine)
+      engines.each { |engine| load_for(engine) }
+    end
+
+    def self.engines
+      if Gem::Version.new(::Rails.version) >= Gem::Version.new("4.1")
+        ::Rails.application.railties.find_all { |tie| tie.is_a?(::Rails::Engine) }
+      else
+        ::Rails.application.railties.engines
       end
     end
 
