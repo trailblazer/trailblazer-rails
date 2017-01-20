@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["apotonick@gmail.com"]
 
   spec.summary       = %q{Convenient Rails support for Trailblazer.}
-  spec.homepage      = "http://trailblazer.to/gems/trailblazer/rails"
+  spec.homepage      = "http://trailblazer.to/gems/trailblazer/2.0/rails.html"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
