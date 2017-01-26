@@ -1,0 +1,12 @@
+Description:
+    Creates core concept for a given model
+
+Example:
+    rails generate trailblazer:concept Thing
+
+    This will create:
+        app/concepts/thing/operation/new.rb
+        app/concepts/thing/operation/create.rb
+        app/concepts/thing/operation/update.rb
+        app/concepts/thing/contract/create.rb
+        app/concepts/thing/contract/update.rb
