@@ -1,3 +1,7 @@
+# 1.0.3
+
+* Return the computed application controller constant from `Railtie::extend_application_controller!` to make `compat` code simpler.
+
 # 1.0.2
 
 * Allow configuring `ApplicationController` constant via `config.trailblazer.application_controller`.
