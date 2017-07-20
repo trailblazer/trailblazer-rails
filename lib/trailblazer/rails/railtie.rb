@@ -73,6 +73,8 @@ module Trailblazer
 
       application_controller.send :include, Trailblazer::Rails::Controller
       application_controller.send :include, Trailblazer::Rails::Controller::Cell if defined?(::Cell)
+
+      application_controller
     end
   end
 end
