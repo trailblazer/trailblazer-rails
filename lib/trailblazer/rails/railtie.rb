@@ -68,13 +68,17 @@ module Trailblazer
       end
     end
 
-    def self.extend_application_controller!(app)
-      application_controller = app.config.trailblazer.application_controller.to_s.constantize
+    module ExtendApplicationController
+      def extend_application_controller!(app)
+        application_controller = app.config.trailblazer.application_controller.to_s.constantize
 
-      application_controller.send :include, Trailblazer::Rails::Controller
-      application_controller.send :include, Trailblazer::Rails::Controller::Cell if defined?(::Cell)
+        application_controller.send :include, Trailblazer::Rails::Controller
+        application_controller.send :include, Trailblazer::Rails::Controller::Cell if defined?(::Cell)
 
-      application_controller
+        application_controller
+      end
     end
+
+    extend ExtendApplicationController
   end
 end
