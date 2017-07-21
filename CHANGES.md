@@ -1,3 +1,7 @@
+# 1.0.4
+
+* Make `Railtie::extend_application_controller!` overwriteable via a module.
+
 # 1.0.3
 
 * Return the computed application controller constant from `Railtie::extend_application_controller!` to make `compat` code simpler.
