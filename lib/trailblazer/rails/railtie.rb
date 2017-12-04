@@ -6,6 +6,7 @@ module Trailblazer
     config.trailblazer = ActiveSupport::OrderedOptions.new
     ## Accept also an Array of controllers
     config.trailblazer.application_controller ||= 'ActionController::Base'
+    config.trailblazer.trb_railtie ||= :enabled
 
     def self.load_concepts(app)
       # Loader.new.(insert: [ModelFile, before: Loader::AddConceptFiles]) { |file| require_dependency("#{app.root}/#{file}") }
@@ -34,8 +35,10 @@ module Trailblazer
     initializer 'trailblazer.install', after: "reform.form_extensions" do |app|
       # the trb autoloading has to be run after initializers have been loaded, so we can tweak inclusion of features in
       # initializers.
-      reloader_class.to_prepare do
-        Trailblazer::Railtie.load_concepts(app)
+      if config.trailblazer.trb_railtie == :enabled
+        reloader_class.to_prepare do
+          Trailblazer::Railtie.load_concepts(app)
+        end
       end
     end
 
