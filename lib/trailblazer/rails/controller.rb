@@ -6,8 +6,10 @@ module Trailblazer::Rails
         *_run_runtime_options(*dependencies)
       )
 
-      @form  = Trailblazer::Rails::Form.new(result["contract.default"], result["model"].class)
-      @model = result["model"]
+      model_name, contract_name = Gem::Version.new(::Trailblazer.version) >= Gem::Version.new("2.1") ? [:model, "contract.default"] : ["model", "contract.default"]
+
+      @form  = Trailblazer::Rails::Form.new( result[ contract_name ], result[ model_name ].class )
+      @model = result[ model_name ]
 
       yield(result) if result.success? && block_given?
 
