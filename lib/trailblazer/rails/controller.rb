@@ -2,7 +2,7 @@ module Trailblazer::Rails
   module Controller
     def run(operation, params=self.params, *dependencies)
       result = operation.(
-        _run_params(params),
+        _run_params(params: params),
         *_run_runtime_options(*dependencies)
       )
 
