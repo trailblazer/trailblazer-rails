@@ -6,7 +6,7 @@
 [![TRB Newsletter](https://img.shields.io/badge/TRB-newsletter-lightgrey.svg)](http://trailblazer.to/newsletter/)
 [![Build
 Status](https://travis-ci.org/trailblazer/trailblazer-rails.svg)](https://travis-ci.org/trailblazer/trailblazer-rails)
-[![Gem Version](https://badge.fury.io/rb/trailblazer-rails.svg)](http://badge.fury.io/rb/cells)
+[![Gem Version](https://badge.fury.io/rb/trailblazer-rails.svg)](http://badge.fury.io/rb/trailblazer-rails)
 
 ## Overview
 
