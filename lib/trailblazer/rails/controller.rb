@@ -1,15 +1,10 @@
 module Trailblazer::Rails
   module Controller
     def run(operation, params=self.params, *dependencies)
-      result = operation.(
-        _run_params(params),
-        *_run_runtime_options(*dependencies)
-      )
+      result = operation.({params: _run_params(params) }.merge(*_run_runtime_options(*dependencies)))
 
-      model_name, contract_name = Gem::Version.new(::Trailblazer.version) >= Gem::Version.new("2.1") ? [:model, "contract.default"] : ["model", "contract.default"]
-
-      @form  = Trailblazer::Rails::Form.new( result[ contract_name ], result[ model_name ].class )
-      @model = result[ model_name ]
+      @model = result[:model]
+      @form  = Trailblazer::Rails::Form.new( result[ "contract.default" ], @model.class )
 
       yield(result) if result.success? && block_given?
 

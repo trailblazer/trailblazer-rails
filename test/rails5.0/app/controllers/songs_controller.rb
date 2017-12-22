@@ -9,7 +9,7 @@ class SongsController < ApplicationController
 
   def create
     run Song::Create do |result|
-      return redirect_to song_path(result["model"].id)
+      return redirect_to song_path(result[:model].id)
     end
 
     render :new
@@ -18,6 +18,6 @@ class SongsController < ApplicationController
   def new_with_result
     result = run Song::New
 
-    @class = result["model"].class
+    @class = result[:model].class
   end
 end

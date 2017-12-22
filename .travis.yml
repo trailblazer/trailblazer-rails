@@ -1,9 +1,10 @@
 language: ruby
 matrix:
   include:
-  - rvm: 2.3.1
-    env: TEST_SUITE=rails4.2
-    gemfile: test/rails4.2/Gemfile
+  - rvm: 2.4.1
+    env: TEST_SUITE=rails5.0
+    gemfile: test/rails5.0/Gemfile
+
   # - rvm: 2.1.9
   #   env: TEST_SUITE=rails3.2
   #   gemfile: test/rails3.2/Gemfile

@@ -7,7 +7,7 @@ class SongsControllerTest < Trailblazer::Test::Integration
   end
 
   it "show" do
-    song = Song::Create.(title: "Skin Trade")["model"]
+    song = Song::Create.(params: { title: "Skin Trade" })[:model]
 
     visit "/songs/#{song.id}"
     page.must_have_css "h1", visible: "Skin Trade"

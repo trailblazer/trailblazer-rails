@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.0'
+gem 'rails', '~> 5.0.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
 
 gem "trailblazer-rails", path: "../../../trailblazer-rails"
-gem "trailblazer"#,       path: "../../../trailblazer"
+gem "trailblazer"#,       path: "../../../trailblazer" # ,       github: "trailblazer/trailblazer"
 
 group :test do
   gem "minitest-rails-capybara"
@@ -20,3 +20,5 @@ gem "cells-erb"
 gem "minitest-line"
 
 gem "reform-rails"
+
+gem "byebug"

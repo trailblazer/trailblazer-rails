@@ -1,3 +1,8 @@
+# 2.0.0
+
+* Support Trailblazer 2.1.0+
+* Drop support for older version of Trailblazer
+
 # 1.0.4
 
 * Make `Railtie::extend_application_controller!` overwriteable via a module.

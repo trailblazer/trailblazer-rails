@@ -1,13 +1,6 @@
 class Song::New < Trailblazer::Operation
-  extend Contract::DSL
-
-  contract do
-    property :id
-    property :title
-  end
-
   step Model( Song, :new )
-  step Contract::Build()
+  step Contract::Build( constant: Song::Contract )
 end
 
 class Song::Create < Trailblazer::Operation
