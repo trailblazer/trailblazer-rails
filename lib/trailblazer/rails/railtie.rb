@@ -38,9 +38,10 @@ module Trailblazer
       end
     end
 
-    initializer "trailblazer.application_controller", before: "finisher_hook" do |app|
-      reloader_class.to_prepare do
-        Trailblazer::Railtie.extend_application_controller!(app)
+    initializer "trailblazer.application_controller" do |_app|
+      ActiveSupport.on_load(:action_controller) do
+        include Trailblazer::Rails::Controller
+        include Trailblazer::Rails::Controller::Cell if defined?(::Cell)
       end
     end
 
@@ -67,18 +68,5 @@ module Trailblazer
         ActionDispatch::Reloader
       end
     end
-
-    module ExtendApplicationController
-      def extend_application_controller!(app)
-        application_controller = app.config.trailblazer.application_controller.to_s.constantize
-
-        application_controller.send :include, Trailblazer::Rails::Controller
-        application_controller.send :include, Trailblazer::Rails::Controller::Cell if defined?(::Cell)
-
-        application_controller
-      end
-    end
-
-    extend ExtendApplicationController
   end
 end
