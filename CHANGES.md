@@ -1,3 +1,7 @@
+# 1.0.5
+
+* Hook trailblazer application_controller initializer to finisher_hook
+
 # 1.0.4
 
 * Make `Railtie::extend_application_controller!` overwriteable via a module.

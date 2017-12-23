@@ -38,7 +38,7 @@ module Trailblazer
       end
     end
 
-    initializer "trailblazer.application_controller" do |app|
+    initializer "trailblazer.application_controller", before: "finisher_hook" do |app|
       reloader_class.to_prepare do
         Trailblazer::Railtie.extend_application_controller!(app)
       end
