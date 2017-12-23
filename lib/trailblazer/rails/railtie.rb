@@ -4,7 +4,8 @@ require "trailblazer/loader"
 module Trailblazer
   class Railtie < ::Rails::Railtie
     config.trailblazer = ActiveSupport::OrderedOptions.new
-    config.trailblazer.application_controller ||= :ApplicationController
+    ## Accept also an Array of controllers
+    config.trailblazer.application_controller ||= 'ActionController::Base'
 
     def self.load_concepts(app)
       # Loader.new.(insert: [ModelFile, before: Loader::AddConceptFiles]) { |file| require_dependency("#{app.root}/#{file}") }
@@ -38,9 +39,11 @@ module Trailblazer
       end
     end
 
-    initializer "trailblazer.application_controller" do |app|
+    initializer "trailblazer.application_controller", before: "finisher_hook" do |app|
       reloader_class.to_prepare do
-        Trailblazer::Railtie.extend_application_controller!(app)
+        ActiveSupport.on_load(:action_controller) do |app|
+          Trailblazer::Railtie.extend_application_controller!(app)
+        end
       end
     end
 
@@ -70,12 +73,12 @@ module Trailblazer
 
     module ExtendApplicationController
       def extend_application_controller!(app)
-        application_controller = app.config.trailblazer.application_controller.to_s.constantize
-
-        application_controller.send :include, Trailblazer::Rails::Controller
-        application_controller.send :include, Trailblazer::Rails::Controller::Cell if defined?(::Cell)
-
-        application_controller
+        controllers = Array(::Rails.application.config.trailblazer.application_controller).map{ |x| x.to_s }
+        if controllers.include? app.to_s
+          app.send :include, Trailblazer::Rails::Controller
+          app.send :include, Trailblazer::Rails::Controller::Cell if defined?(::Cell)
+        end
+        app
       end
     end
 
