@@ -1,6 +1,6 @@
 module Trailblazer::Rails
   module Controller
-    def run(operation, params=self.params.clone.permit!, *dependencies)
+    def run(operation, params=self.params, *dependencies)
       result = operation.({params: _run_params(params) }.merge(*_run_runtime_options(*dependencies)))
 
       @model = result[:model]
