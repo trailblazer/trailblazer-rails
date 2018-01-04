@@ -1,5 +1,5 @@
 module Params
   class WithArgs < Trailblazer::Operation
-    step ->(options) { options["x"] = %{#{options["params"].to_h} #{options["current_user"] }} }
+    step ->(context, **) {context[:x] = %{#{context[:params].to_h} #{context[:current_user] }}}
   end
 end

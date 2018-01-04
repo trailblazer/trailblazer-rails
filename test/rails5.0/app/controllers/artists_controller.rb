@@ -9,8 +9,6 @@ class ArtistsController < ApplicationController
     render cell( Artist::Cell::Dashboard, model ), layout: false
   end
 
-  include Trailblazer::Rails::Controller::Result
-
   def with_expose
     run Song::New
     render cell( Artist::Cell::Show, result )

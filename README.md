@@ -26,7 +26,7 @@ Add this line to your application's Gemfile:
 gem 'trailblazer-rails'
 ```
 
-Note that the 1.x version only runs with TRB >= 2.0.0.
+Note that the 2.x version only runs with TRB >= 2.1.0.
 
 ## License
 
