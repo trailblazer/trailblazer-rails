@@ -7,13 +7,13 @@ module Trailblazer::Rails::Controller::Cell
       render_cell(cell, options)
     end
 
-    def render_cell(cell, context)
-      context = context.reverse_merge(layout: true)
+    def render_cell(cell, options)
+      options = options.reverse_merge(layout: true)
 
       # render the cell.
       content = cell.()
 
-      render( { html: content }.merge(context) )
+      render( { html: content }.merge(options) )
     end
   end
 
