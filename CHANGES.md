@@ -1,3 +1,7 @@
+# 2.1.0
+
+* Drop deprecated syntax for controller `run`
+
 # 2.0.0
 
 * Support Trailblazer 2.1.0+
