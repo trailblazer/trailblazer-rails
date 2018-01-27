@@ -5,7 +5,7 @@ class ParamsController < ApplicationController
   end
 
 private
-  def _run_options(options)
-    options.merge(:current_user => Module )
+  def _run_options(context)
+    context.merge(:current_user => Module )
   end
 end

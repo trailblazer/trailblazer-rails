@@ -1,6 +1,6 @@
 class ArgsController < ApplicationController
   def with_args
-    run Params::WithArgs, { fake: "bla" }
+    run Params::WithArgs, params:{ fake: "bla" }
   end
 
   def _run_options(context)

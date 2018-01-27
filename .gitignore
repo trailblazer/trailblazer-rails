@@ -1,3 +1,5 @@
+.idea
+.rakeTasks
 /.bundle/
 /.yardoc
 /Gemfile.lock
@@ -9,3 +11,4 @@
 /tmp/
 test/**/*.log
 *.iml
+*.sqlite3

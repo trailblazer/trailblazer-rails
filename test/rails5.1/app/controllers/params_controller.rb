@@ -4,8 +4,8 @@ class ParamsController < ApplicationController
     render "args/with_args"
   end
 
-private
-  def _run_options(options)
-    options.merge(:current_user => Module )
-  end
+  private
+    def _run_options(context)
+      context.merge(:current_user => Module )
+    end
 end
