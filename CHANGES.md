@@ -1,6 +1,7 @@
 # 2.1.0
 
 * Drop deprecated syntax for controller `run`
+* Allow disabling of the Trailblazer loader via `config.trailblazer.use_loader = false`
 
 # 2.0.0
 
