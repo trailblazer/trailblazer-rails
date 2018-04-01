@@ -1,7 +1,11 @@
 module Trailblazer::Rails
   module Controller
     def run(operation, *dependencies)
-      result = operation.({ params: _run_params(self.params) }.merge(*_run_runtime_options(*dependencies)))
+      result = if Rails.application.config.trailblazer.enable_tracing
+                 _run_operation(operation, :trace, *dependencies).tap { |r| _operation_trace(r) }
+               else
+                 _run_operation(operation, :call, *dependencies)
+               end
 
       @model = result[:model]
       @form  = Trailblazer::Rails::Form.new(result["contract.default"], @model.class)
@@ -27,6 +31,17 @@ module Trailblazer::Rails
     # into the runtime options.
     def _run_options(ctx)
       ctx
+    end
+
+    def _run_operation(operation, call_method, *dependencies)
+      operation.send(
+        call_method,
+        { params: _run_params(self.params) }.merge(*_run_runtime_options(*dependencies))
+      )
+    end
+
+    def _operation_trace(result)
+      puts result.wtf?
     end
 
     module Result

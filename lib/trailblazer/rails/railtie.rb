@@ -7,6 +7,7 @@ module Trailblazer
     ## Accept also an Array of controllers
     config.trailblazer.application_controller ||= 'ActionController::Base'
     config.trailblazer.use_loader ||= true
+    config.trailblazer.enable_tracing ||= false
 
     def self.load_concepts(app)
       # Loader.new.(insert: [ModelFile, before: Loader::AddConceptFiles]) { |file| require_dependency("#{app.root}/#{file}") }
