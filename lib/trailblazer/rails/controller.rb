@@ -1,10 +1,10 @@
 module Trailblazer::Rails
   module Controller
     def run(operation, *dependencies)
-      result = operation.({params: _run_params(self.params) }.merge(*_run_runtime_options(*dependencies)))
+      result = operation.({ params: _run_params(self.params) }.merge(*_run_runtime_options(*dependencies)))
 
       @model = result[:model]
-      @form  = Trailblazer::Rails::Form.new( result[ "contract.default" ], @model.class )
+      @form  = Trailblazer::Rails::Form.new(result["contract.default"], @model.class)
 
       yield(result) if result.success? && block_given?
 
@@ -19,7 +19,7 @@ module Trailblazer::Rails
     end
 
     # This is where we can inject Dry.RB containers and the like via dependencies.
-    def _run_runtime_options(ctx={}, *dependencies)
+    def _run_runtime_options(ctx = {}, *dependencies)
       [_run_options(ctx), *dependencies]
     end
 

@@ -42,7 +42,7 @@ module Trailblazer
       end
     end
 
-    initializer "trailblazer.application_controller", before: "finisher_hook" do |app|
+    initializer "trailblazer.application_controller", before: "finisher_hook" do
       reloader_class.to_prepare do
         ActiveSupport.on_load(:action_controller) do |app|
           Trailblazer::Railtie.extend_application_controller!(app)
@@ -53,7 +53,7 @@ module Trailblazer
     # Prepend model file, before the concept files like operation.rb get loaded.
     ModelFile = ->(input, options) do
       model = "app/models/#{options[:name]}.rb"
-      File.exist?(model) ? [model]+input : input
+      File.exist?(model) ? [model] + input : input
     end
 
     # Load all model files before any TRB files.
@@ -76,7 +76,7 @@ module Trailblazer
 
     module ExtendApplicationController
       def extend_application_controller!(app)
-        controllers = Array(::Rails.application.config.trailblazer.application_controller).map{ |x| x.to_s }
+        controllers = Array(::Rails.application.config.trailblazer.application_controller).map { |x| x.to_s }
         if controllers.include? app.to_s
           app.send :include, Trailblazer::Rails::Controller
           app.send :include, Trailblazer::Rails::Controller::Cell if defined?(::Cell)
