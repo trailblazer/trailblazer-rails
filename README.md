@@ -28,6 +28,11 @@ gem 'trailblazer-rails'
 
 Note that the 2.x version only runs with TRB >= 2.1.0.
 
+## Setting flags
+
+* `config.trailblazer.use_loader = false` to disable Trailblazer loader (default TRUE)
+* `config.trailblazer.enable_tracing = true` to enable tracing when using `run` (default FALSE)
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
