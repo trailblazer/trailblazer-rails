@@ -1,3 +1,9 @@
+# 2.1.1
+
+* Fixed issue for rails 5.2rc2 when loading model's files
+* Rubocop introduced
+* Allow enabling tracing when using `run` via `config.trailblazer.enable_tracing = true`
+
 # 2.1.0
 
 * Drop deprecated syntax for controller `run`
