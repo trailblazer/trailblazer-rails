@@ -1,4 +1,8 @@
-# 1.0.6
+# 1.0.7
+
+* Fixed typo error in use_loader config flag
+
+# 1.0.6 (revoked)
 
 * Introduce use_loader config flag
 
