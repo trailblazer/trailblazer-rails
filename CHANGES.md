@@ -1,3 +1,7 @@
+# 1.0.6
+
+* Introduce use_loader config flag
+
 # 1.0.5
 
 * Hook trailblazer application_controller initializer to finisher_hook
