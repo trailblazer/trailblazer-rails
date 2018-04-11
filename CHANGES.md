@@ -1,7 +1,3 @@
-# 1.0.6
-
-* Using a specific require_dependency method for operations which fixes Operation multi invocation 
-
 # 1.0.5
 
 * Hook trailblazer application_controller initializer to finisher_hook
