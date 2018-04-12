@@ -1,0 +1,23 @@
+source 'https://rubygems.org'
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 5.2.0'
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3'
+
+gem "trailblazer-rails", path: "../../../trailblazer-rails"
+gem "trailblazer"
+
+group :test do
+  gem "minitest"
+  gem "minitest-capybara"
+end
+
+gem "trailblazer-cells"
+gem "cells-rails"
+gem "cells-erb"
+
+
+gem "reform-rails"
+
+gem "byebug"
