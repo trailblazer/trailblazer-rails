@@ -1,3 +1,7 @@
+# 1.0.8
+
+* Fixed Circular dependency detected in rails 5.2
+
 # 1.0.7
 
 * Fixed typo error in use_loader config flag
