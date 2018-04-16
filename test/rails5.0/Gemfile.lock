@@ -3,7 +3,7 @@ PATH
   specs:
     trailblazer-rails (1.0.7)
       reform-rails (>= 0.1.4, < 0.2.0)
-      trailblazer (< 2.0.9)
+      trailblazer (~> 2.0.0)
       trailblazer-loader (>= 0.1.0)
 
 GEM

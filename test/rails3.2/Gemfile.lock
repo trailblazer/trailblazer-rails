@@ -1,9 +1,9 @@
 PATH
-  remote: ../../../trailblazer-rails
+  remote: ../..
   specs:
-    trailblazer-rails (1.0.2)
+    trailblazer-rails (1.0.7)
       reform-rails (>= 0.1.4, < 0.2.0)
-      trailblazer (>= 2.0.0, < 2.1.0)
+      trailblazer (~> 2.0.0)
       trailblazer-loader (>= 0.1.0)
 
 GEM
@@ -53,19 +53,23 @@ GEM
     cells-rails (0.0.6)
       actionpack (>= 3.0)
       cells (>= 4.1)
-    declarative (0.0.8)
-      uber (>= 0.0.15)
-    disposable (0.3.2)
-      declarative (>= 0.0.8, < 1.0.0)
+    declarative (0.0.10)
+    declarative-builder (0.1.0)
+      declarative-option (< 0.2.0)
+    declarative-option (0.1.0)
+    disposable (0.4.3)
+      declarative (>= 0.0.9, < 1.0.0)
+      declarative-builder (< 0.2.0)
+      declarative-option (< 0.2.0)
       representable (>= 2.4.0, <= 3.1.0)
-      uber
+      uber (< 0.2.0)
     erbse (0.1.1)
       temple
     erubis (2.7.0)
     hike (1.2.3)
     i18n (0.7.0)
     journey (1.0.4)
-    json (1.8.3)
+    json (1.8.6)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -92,8 +96,7 @@ GEM
     multi_json (1.12.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
-    pipetree (0.0.5)
-      uber
+    pipetree (0.1.1)
     polyglot (0.3.5)
     power_assert (0.3.0)
     rack (1.4.7)
@@ -121,16 +124,16 @@ GEM
     rake (12.0.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    reform (2.2.3)
-      disposable (>= 0.3.0, < 0.4.0)
+    reform (2.2.4)
+      disposable (>= 0.4.1)
       representable (>= 2.4.0, < 3.1.0)
-      uber (>= 0.0.15, < 0.2.0)
     reform-rails (0.1.7)
       activemodel (>= 3.2)
       reform (>= 2.2.0)
-    representable (3.0.2)
-      declarative (~> 0.0.5)
-      uber (>= 0.0.15, < 0.2.0)
+    representable (3.0.4)
+      declarative (< 0.1.0)
+      declarative-option (< 0.2.0)
+      uber (< 0.2.0)
     sprockets (2.2.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -142,18 +145,17 @@ GEM
       power_assert
     thor (0.19.4)
     tilt (1.4.1)
-    trailblazer (2.0.0)
+    trailblazer (2.0.7)
       declarative
       reform (>= 2.2.0, < 3.0.0)
-      trailblazer-operation (>= 0.0.9)
-      uber (>= 0.1.0, < 0.2.0)
+      trailblazer-operation (>= 0.0.12, < 0.1.0)
     trailblazer-cells (0.0.3)
       cells (>= 4.1.0.rc1, < 5.0.0)
-    trailblazer-loader (0.1.0)
-    trailblazer-operation (0.0.9)
+    trailblazer-loader (0.1.2)
+    trailblazer-operation (0.0.13)
       declarative
-      pipetree (>= 0.0.5, < 0.1.0)
-      uber (>= 0.1.0, < 0.2.0)
+      pipetree (>= 0.1.1, < 0.2.0)
+      uber
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -178,4 +180,4 @@ DEPENDENCIES
   trailblazer-rails!
 
 BUNDLED WITH
-   1.13.7
+   1.16.1
