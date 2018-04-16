@@ -14,6 +14,18 @@
 * Support Trailblazer 2.1.0+
 * Drop support for older version of Trailblazer
 
+# 1.0.8
+
+* Fixed Circular dependency detected in rails 5.2
+
+# 1.0.7
+
+* Fixed typo error in use_loader config flag
+
+# 1.0.6 (revoked)
+
+* Introduce use_loader config flag
+
 # 1.0.5
 
 * Hook trailblazer application_controller initializer to finisher_hook
