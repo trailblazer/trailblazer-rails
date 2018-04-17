@@ -1,6 +1,6 @@
 .idea
 .rakeTasks
-/.bundle/
+.bundle/
 /.yardoc
 /Gemfile.lock
 /_yardoc/
