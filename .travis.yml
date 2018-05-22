@@ -9,4 +9,8 @@ matrix:
     env: TEST_SUITE=rails5.1
     gemfile: test/rails5.1/Gemfile
 
+  - rvm: 2.5.1
+    env: TEST_SUITE=rails5.2
+    gemfile: test/rails5.2/Gemfile
+
 script: cd test/$TEST_SUITE && bundle exec rake test
