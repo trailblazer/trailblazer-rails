@@ -1,3 +1,9 @@
+# 2.1.2
+
+* `Trailblazer::Rails::Railtie` divided in 2 modules:
+  * `Loader` -> require_dependecy `concepts`
+  * `ExtendApplicationController` -> include `run` and `render` in controllers
+
 # 2.1.1
 
 * Fixed issue for rails 5.2rc2 when loading model's files
@@ -13,6 +19,12 @@
 
 * Support Trailblazer 2.1.0+
 * Drop support for older version of Trailblazer
+
+# 1.0.9
+
+* `Trailblazer::Rails::Railtie` divided in 2 modules:
+  * `Loader` -> require_dependecy `concepts`
+  * `ExtendApplicationController` -> include `run` and `render` in controllers
 
 # 1.0.8
 
