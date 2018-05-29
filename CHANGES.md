@@ -1,3 +1,9 @@
+# 1.0.9
+
+* `Trailblazer::Rails::Railtie` divided in 2 modules:
+  * `Loader` -> require_dependecy `concepts`
+  * `ExtendApplicationController` -> include `run` and `render` in controllers
+
 # 1.0.8
 
 * Fixed Circular dependency detected in rails 5.2
