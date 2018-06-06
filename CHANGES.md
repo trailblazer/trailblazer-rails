@@ -1,3 +1,10 @@
+# 1.0.9
+
+* `Trailblazer::Rails::Railtie` divided in 2 modules:
+  * `Loader` -> require_dependecy `concepts`
+  * `ExtendApplicationController` -> include `run` and `render` in controllers
+* Remove Gemfile.lock in the test folders to make travis CI to work
+
 # 1.0.8
 
 * Fixed Circular dependency detected in rails 5.2
