@@ -1,3 +1,7 @@
+# 2.1.3
+
+* Update Gemfile.lock in the test folders to make travis CI to work again
+
 # 2.1.2
 
 * `Trailblazer::Rails::Railtie` divided in 2 modules:
