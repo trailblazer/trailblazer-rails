@@ -1,7 +1,7 @@
 PATH
   remote: ../..
   specs:
-    trailblazer-rails (2.1.1)
+    trailblazer-rails (2.1.2)
       reform-rails (>= 0.1.4, < 0.2.0)
       trailblazer (>= 2.1.0.beta1, < 2.2.0)
       trailblazer-loader (>= 0.1.0)
@@ -213,4 +213,4 @@ DEPENDENCIES
   trailblazer-rails!
 
 BUNDLED WITH
-   1.16.1
+   1.16.2

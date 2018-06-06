@@ -13,4 +13,4 @@ matrix:
     env: TEST_SUITE=rails5.2
     gemfile: test/rails5.2/Gemfile
 
-script: cd test/$TEST_SUITE && bundle exec rake test
+script: cd test/$TEST_SUITE && bundle install && bundle exec rake test
