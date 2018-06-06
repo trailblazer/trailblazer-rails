@@ -10,5 +10,6 @@
 /spec/reports/
 /tmp/
 test/**/*.log
+test/**/Gemfile.lock
 *.iml
 *.sqlite3
