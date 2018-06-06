@@ -1,3 +1,7 @@
+# 2.1.4
+
+* Remove Gemfile.lock in the test folders to make travis CI to work (this time will work!)
+
 # 2.1.3
 
 * Update Gemfile.lock in the test folders to make travis CI to work again
@@ -29,6 +33,7 @@
 * `Trailblazer::Rails::Railtie` divided in 2 modules:
   * `Loader` -> require_dependecy `concepts`
   * `ExtendApplicationController` -> include `run` and `render` in controllers
+* Remove Gemfile.lock in the test folders to make travis CI to work
 
 # 1.0.8
 
