@@ -1,4 +1,4 @@
-require 'active_support/concern'
+require "active_support/concern"
 
 module Trailblazer
   class Railtie < ::Rails::Railtie
@@ -36,7 +36,7 @@ module Trailblazer
         end
 
         # thank you, http://stackoverflow.com/a/17573888/465070
-        initializer 'trailblazer.install', after: "reform.form_extensions" do |app|
+        initializer "trailblazer.install", after: "reform.form_extensions" do |app|
           # the trb autoloading has to be run after initializers have been loaded, so we can tweak inclusion of features in
           # initializers.
           if config.trailblazer.use_loader

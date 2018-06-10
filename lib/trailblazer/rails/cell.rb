@@ -13,7 +13,7 @@ module Trailblazer::Rails::Controller::Cell
       # render the cell.
       content = cell.()
 
-      render({ html: content }.merge(options))
+      render({html: content}.merge(options))
     end
   end
 
