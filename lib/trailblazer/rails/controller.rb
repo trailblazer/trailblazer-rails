@@ -1,6 +1,6 @@
 module Trailblazer::Rails
   module Controller
-    def run(operation, params=self.params, *dependencies)
+    def run(operation, params = self.params, *dependencies)
       result = operation.(
         _run_params(params),
         *_run_runtime_options(*dependencies)
@@ -14,7 +14,8 @@ module Trailblazer::Rails
       @_result = result
     end
 
-  private
+    private
+
     # Override to tweak params. Not recommended.
     # Use a deserializer instead.
     def _run_params(params)
@@ -22,7 +23,7 @@ module Trailblazer::Rails
     end
 
     # This is where we can inject Dry.RB containers and the like via dependencies.
-    def _run_runtime_options(options={}, *dependencies)
+    def _run_runtime_options(options = {}, *dependencies)
       [_run_options(options), *dependencies]
     end
 
