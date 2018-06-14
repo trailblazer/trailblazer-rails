@@ -1,10 +1,10 @@
 module Trailblazer::Rails
   module Controller
-    def run(operation, *dependencies)
+    def run_v21(operation, *dependencies)
       result = if Rails.application.config.trailblazer.enable_tracing
-                 _run_operation(operation, :trace, *dependencies).tap { |r| _operation_trace(r) }
+                 _run_operation_v21(operation, :trace, *dependencies).tap { |r| _operation_trace(r) }
                else
-                 _run_operation(operation, :call, *dependencies)
+                 _run_operation_v21(operation, :call, *dependencies)
                end
 
       @model = result[:model]
@@ -14,6 +14,8 @@ module Trailblazer::Rails
 
       @_result = result
     end
+
+    alias run run_v21 unless method_defined?(:run)
 
   private
     # Override to tweak params. Not recommended.
@@ -33,7 +35,7 @@ module Trailblazer::Rails
       ctx
     end
 
-    def _run_operation(operation, call_method, *dependencies)
+    def _run_operation_v21(operation, call_method, *dependencies)
       operation.send(
         call_method,
         { params: _run_params(self.params) }.merge(*_run_runtime_options(*dependencies))

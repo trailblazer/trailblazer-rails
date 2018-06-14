@@ -1,3 +1,8 @@
+# 2.1.5
+
+* Add dependency `activesupport` 5+
+* rename `run` to `run_v21` and alias it to `run` only if it not already defined
+
 # 2.1.4
 
 * Remove Gemfile.lock in the test folders to make travis CI to work (this time will work!)
