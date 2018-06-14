@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Convenient Rails support for Trailblazer.}
   spec.homepage      = "http://trailblazer.to/gems/trailblazer/2.0/rails.html"
-  spec.license       = "MIT"
+  spec.license       = "LGPL-3.0"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test)/}) }
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
