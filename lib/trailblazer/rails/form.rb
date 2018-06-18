@@ -11,7 +11,11 @@ module Trailblazer
     end
 
     def model_name
-      ::ActiveModel::Name.new(self, nil, @model_class.to_s.camelize)
+      if __getobj__.class.model_options
+        __getobj__.model_name
+      else
+        ::ActiveModel::Name.new(self, nil, @model_class.to_s.camelize)
+      end
     end
 
     def to_model
