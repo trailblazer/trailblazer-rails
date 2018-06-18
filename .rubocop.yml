@@ -1,4 +1,6 @@
-inherit_from: .rubocop_todo.yml
+inherit_from:
+  - https://raw.githubusercontent.com/trailblazer/meta/master/rubocop.yml
+  - .rubocop_todo.yml
 
 Style/ClassCheck:
   Exclude:
@@ -7,3 +9,6 @@ Style/ClassCheck:
 Metrics/AbcSize:
   Exclude:
     - 'lib/trailblazer/rails/controller.rb'
+
+Bundler/DuplicatedGem:
+  Enabled: false
