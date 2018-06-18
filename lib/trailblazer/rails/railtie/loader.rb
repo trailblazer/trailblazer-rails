@@ -1,4 +1,4 @@
-require 'active_support/concern'
+require "active_support/concern"
 
 module Trailblazer
   class Railtie < ::Rails::Railtie
@@ -15,7 +15,7 @@ module Trailblazer
 
         def self.engines
           if Gem::Version.new(::Rails.version) >= Gem::Version.new("4.1")
-            ::Rails.application.railties.find_all { |tie| tie.is_a?(::Rails::Engine) }
+            ::Rails.application.railties.select { |tie| tie.is_a?(::Rails::Engine) }
           else
             ::Rails.application.railties.engines
           end
@@ -28,7 +28,7 @@ module Trailblazer
         # Prepend model file, before the concept files like operation.rb get loaded.
         ModelFile = ->(input, options) do
           model = "app/models/#{options[:name]}.rb"
-          File.exist?(model) ? [model]+input : input
+          File.exist?(model) ? [model] + input : input
         end
 
         # Load all model files before any TRB files.
@@ -41,7 +41,7 @@ module Trailblazer
         end
 
         # thank you, http://stackoverflow.com/a/17573888/465070
-        initializer 'trailblazer.install', after: "reform.form_extensions" do |app|
+        initializer "trailblazer.install", after: "reform.form_extensions" do |app|
           # the trb autoloading has to be run after initializers have been loaded, so we can tweak inclusion of features in
           # initializers.
           if config.trailblazer.use_loader
