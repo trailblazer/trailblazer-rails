@@ -8,7 +8,7 @@ module Trailblazer::Rails
                end
 
       @model = result[:model]
-      @form  = Trailblazer::Rails::Form.new(result["contract.default"], @model.class)
+      @form  = _wrap_with_trb_form(result["contract.default"], @model.class)
 
       yield(result) if result.success? && block_given?
 
@@ -44,6 +44,10 @@ module Trailblazer::Rails
 
     def _operation_trace(result)
       puts result.wtf?
+    end
+
+    def _wrap_with_trb_form(form, model)
+      Trailblazer::Rails::Form.new(form, model)
     end
 
     module Result
