@@ -12,3 +12,8 @@ Metrics/AbcSize:
 
 Bundler/DuplicatedGem:
   Enabled: false
+
+# required when rubocop is run via travis
+AllCops:
+  Exclude:
+    - 'test/**/vendor/**/*'

@@ -97,3 +97,5 @@ Layout/AlignHash:
   EnforcedLastArgumentHashStyle: ignore_implicit
 Metrics/AbcSize:
   Max: 25
+Style/LambdaCall:
+  Enabled: false
