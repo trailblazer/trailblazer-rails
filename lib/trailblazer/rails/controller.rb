@@ -7,8 +7,7 @@ module Trailblazer::Rails
                  _run_operation_v21(operation, :call, *dependencies)
                end
 
-      @model = result[:model]
-      @form  = _wrap_with_trb_form(result["contract.default"], @model.class)
+      _assign_trb_ivars(result)
 
       yield(result) if result.success? && block_given?
 
@@ -45,6 +44,11 @@ module Trailblazer::Rails
 
     def _operation_trace(result)
       puts result.wtf?
+    end
+
+    def _assign_trb_ivars(result)
+      @model = result[:model]
+      @form  = _wrap_with_trb_form(result["contract.default"], @model.class)
     end
 
     def _wrap_with_trb_form(form, model)
