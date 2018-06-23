@@ -1,7 +1,6 @@
 require 'trailblazer'
 require 'minitest/autorun'
 
-
 require 'active_record'
 require 'database_cleaner'
 ActiveRecord::Base.logger = false
@@ -26,17 +25,14 @@ end
 DatabaseCleaner.strategy = :transaction
 DatabaseCleaner.clean_with(:truncation)
 
-
 # FIXME: we HAVE to use a testing setup similar to cells-rails (separate rails app, run tests).
 require 'fake_app/rails_app.rb'
 require 'fake_app/controllers'
 require 'fake_app/models'
 require 'fake_app/song/operations.rb'
 
-
 require 'fileutils'
 FileUtils::mkdir_p '/tmp/uploads'
-
 
 module TmpUploads
   def self.included(includer)
