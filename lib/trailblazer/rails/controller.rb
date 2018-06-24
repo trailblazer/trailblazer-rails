@@ -6,8 +6,7 @@ module Trailblazer::Rails
         *_run_runtime_options(*dependencies)
       )
 
-      @form  = Trailblazer::Rails::Form.new(result["contract.default"], result["model"].class)
-      @model = result["model"]
+      _assign_trb_ivars(result)
 
       yield(result) if result.success? && block_given?
 
@@ -30,6 +29,15 @@ module Trailblazer::Rails
     # into the runtime options.
     def _run_options(options)
       options
+    end
+
+    def _assign_trb_ivars(result)
+      @model = result["model"]
+      @form  = _wrap_with_trb_form(result["contract.default"], @model.class)
+    end
+
+    def _wrap_with_trb_form(form, model)
+      Trailblazer::Rails::Form.new(form, model)
     end
 
     module Result
