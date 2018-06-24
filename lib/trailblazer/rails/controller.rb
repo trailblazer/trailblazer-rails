@@ -14,7 +14,8 @@ module Trailblazer::Rails
       @_result = result
     end
 
-  private
+    private
+
     # Override to tweak params. Not recommended.
     # Use a deserializer instead.
     def _run_params(params)

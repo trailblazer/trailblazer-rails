@@ -28,7 +28,7 @@ module Trailblazer
         # Prepend model file, before the concept files like operation.rb get loaded.
         ModelFile = ->(input, options) do
           model = "app/models/#{options[:name]}.rb"
-          File.exist?(model) ? [model]+input : input
+          File.exist?(model) ? [model] + input : input
         end
 
         # Load all model files before any TRB files.
