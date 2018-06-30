@@ -1,6 +1,6 @@
 # 2.1.5
 
-* Add dependency `activesupport` 5+
+* Add dependency `railties` >= 5.0.7
 * rename `run` to `run_v21` and alias it to `run` only if it not already defined
 
 # 2.1.4

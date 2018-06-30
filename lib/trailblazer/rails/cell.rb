@@ -17,5 +17,5 @@ module Trailblazer::Rails::Controller::Cell
     end
   end
 
-  include Render
+  include Render unless method_defined?(:render_cell)
 end
