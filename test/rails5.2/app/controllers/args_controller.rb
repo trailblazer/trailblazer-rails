@@ -1,12 +1,12 @@
 class ArgsController < ApplicationController
   def with_args
-    run Params::WithArgs, params:{ fake: "bla" }
+    run Params::WithArgs, params: {fake: "bla"}
   end
 
   private
 
   def _run_options(context)
-    context.merge({ :current_user => Module })
+    context.merge(current_user: Module)
   end
 
   def _assign_trb_ivars(_result)

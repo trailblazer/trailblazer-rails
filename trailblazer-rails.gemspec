@@ -1,4 +1,4 @@
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'trailblazer/rails/version'
 
@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Nick Sutterer"]
   spec.email         = ["apotonick@gmail.com"]
 
-  spec.summary       = %q{Convenient Rails support for Trailblazer.}
+  spec.summary       = "Convenient Rails support for Trailblazer."
   spec.homepage      = "http://trailblazer.to/gems/trailblazer/2.0/rails.html"
   spec.license       = "MIT"
 

@@ -38,7 +38,7 @@ module Trailblazer::Rails
     def _run_operation_v21(operation, call_method, *dependencies)
       operation.send(
         call_method,
-        {params: _run_params(self.params)}.merge(*_run_runtime_options(*dependencies))
+        {params: _run_params(self.params)}.merge(*_run_runtime_options(*dependencies)) # rubocop:disable Style/RedundantSelf
       )
     end
 
