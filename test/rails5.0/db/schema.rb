@@ -11,9 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20161122145124) do
-
   create_table "songs", force: :cascade do |t|
     t.string "title"
   end
-
 end

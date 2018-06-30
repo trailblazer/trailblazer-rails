@@ -5,7 +5,7 @@ module Trailblazer
     module Loader
       extend ActiveSupport::Concern
 
-      included do
+      included do # rubocop:disable Metrics/BlockLength
         def self.load_concepts(app)
           load_for(app)
 

@@ -1,5 +1,5 @@
 module Trailblazer::Rails::Controller::Cell
-  private
+  private # rubocop:disable Lint/UselessAccessModifier
 
   module Render
     def render(cell = nil, options = {}, *, &block)
