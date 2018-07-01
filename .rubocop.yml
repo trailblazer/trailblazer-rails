@@ -1,3 +1,11 @@
 inherit_from:
   - https://raw.githubusercontent.com/trailblazer/meta/master/rubocop.yml
-  - .rubocop_todo.yml
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/Send:
+  Enabled: false

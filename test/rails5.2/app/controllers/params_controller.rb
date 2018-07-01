@@ -7,6 +7,6 @@ class ParamsController < ApplicationController
   private
 
   def _run_options(options)
-    options.merge( "current_user" => Module )
+    options.merge("current_user" => Module)
   end
 end

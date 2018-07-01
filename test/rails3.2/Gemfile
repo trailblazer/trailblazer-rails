@@ -4,12 +4,12 @@ gem 'rails', '3.2.22.2'
 
 gem 'sqlite3'
 
+gem "trailblazer" # ,       path: "../../../trailblazer"
 gem "trailblazer-rails", path: "../../../trailblazer-rails"
-gem "trailblazer"#,       path: "../../../trailblazer"
 
-gem "trailblazer-cells"
-gem "cells-rails"
 gem "cells-erb"
+gem "cells-rails"
+gem "trailblazer-cells"
 
 # gem "minitest-line"
 gem "test-unit", "~> 3.0"

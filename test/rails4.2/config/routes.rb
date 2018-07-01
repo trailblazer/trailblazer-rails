@@ -11,5 +11,4 @@ Rails.application.routes.draw do
 
   get "args/with_args", controller: "args/with_args"
   get "params/with_args", controller: "params/with_args"
-
 end
