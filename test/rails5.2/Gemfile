@@ -5,18 +5,17 @@ gem 'rails', '~> 5.2.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
-gem "trailblazer-rails", path: "../../../trailblazer-rails"
 gem "trailblazer"
+gem "trailblazer-rails", path: "../../../trailblazer-rails"
 
 group :test do
   gem "minitest"
   gem "minitest-capybara"
 end
 
-gem "trailblazer-cells"
-gem "cells-rails"
 gem "cells-erb"
-
+gem "cells-rails"
+gem "trailblazer-cells"
 
 gem "reform-rails"
 
