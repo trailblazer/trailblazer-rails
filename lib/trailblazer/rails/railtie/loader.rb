@@ -39,7 +39,14 @@ module Trailblazer
         initializer "trailblazer.install", after: "reform.form_extensions" do |app|
           # the trb autoloading has to be run after initializers have been loaded, so we can tweak inclusion of features in
           # initializers.
-          if config.trailblazer.use_loader
+
+          # TODO: remove me in the next version!
+          if config.trailblazer.use_loader.to_s.present?
+            warn "DEPRECATION WARNING [trailblazer-rails]: please use config.trailblazer.enable_loader" \
+                 " to enable/disable the loader. config.trailblazer.use_loader will be removed from version > 2.1.6"
+          end
+
+          if config.trailblazer.enable_loader || config.trailblazer.use_loader
             reloader_class.to_prepare do
               Trailblazer::Railtie.load_concepts(app)
             end
