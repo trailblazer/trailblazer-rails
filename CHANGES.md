@@ -1,3 +1,8 @@
+# 2.1.6
+
+* Dependency for `railties` >= 4.0.0
+* Config flag use_loader renamed with enable_loader
+
 # 2.1.5
 
 * Add dependency `railties` >= 5.0.7
