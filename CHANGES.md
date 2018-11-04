@@ -1,3 +1,8 @@
+# 1.0.10
+
+* Reintroduced railtie dependency 4.x +
+* Config flag use_loader renamed with enable_loader
+
 # 1.0.9
 
 * `Trailblazer::Rails::Railtie` divided in 2 modules:
