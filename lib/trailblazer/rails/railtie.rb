@@ -9,7 +9,6 @@ module Trailblazer
     ## Accept also an Array of controllers
     config.trailblazer.application_controller ||= 'ActionController::Base'
     config.trailblazer.enable_loader ||= true
-    config.trailblazer.use_loader ||= true # TODO: remove with next release
     config.trailblazer.enable_tracing ||= false
 
     include Loader

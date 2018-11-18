@@ -1,4 +1,5 @@
 AllCops:
+  TargetRubyVersion: 2.5.0
   DisplayCopNames: true
 Layout/CaseIndentation:
   IndentOneStep: true
@@ -99,3 +100,15 @@ Metrics/AbcSize:
   Max: 25
 Style/LambdaCall:
   Enabled: false
+# This to fix lots of failure in trailblazer-operation tests
+Style/Semicolon:
+  Enabled: false
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Layout/LeadingCommentSpace:
+  Exclude:
+    - 'test/docs/**/*'
+Layout/AlignHash:
+  EnforcedHashRocketStyle: table
