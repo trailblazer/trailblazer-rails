@@ -45,10 +45,10 @@ module Trailblazer
           # the trb autoloading has to be run after initializers have been loaded, so we can tweak inclusion of features in
           # initializers.
 
-          # TODO: remove me in the next version!
+          # TODO: remove me in v1.1.0
           if config.trailblazer.use_loader.to_s.present?
             warn "DEPRECATION WARNING [trailblazer-rails]: please use config.trailblazer.enable_loader" \
-                 " to enable/disable the loader. config.trailblazer.use_loader will be removed from version > 2.1.6"
+                 " to enable/disable the loader, config.trailblazer.use_loader will be removed from version 1.1.0"
           end
 
           if config.trailblazer.enable_loader || config.trailblazer.use_loader
