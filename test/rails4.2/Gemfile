@@ -1,9 +1,9 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'actionpack', '~> 4.2.10'
-gem 'activerecord', '~> 4.2.10'
+gem "actionpack", "~> 4.2.10"
+gem "activerecord", "~> 4.2.10"
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem "sqlite3"
 # Use SCSS for stylesheets
 
 gem "trailblazer" # ,       path: "../../../trailblazer"

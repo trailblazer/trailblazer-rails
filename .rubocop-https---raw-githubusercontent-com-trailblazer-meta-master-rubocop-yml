@@ -100,7 +100,6 @@ Metrics/AbcSize:
   Max: 25
 Style/LambdaCall:
   Enabled: false
-# This to fix lots of failure in trailblazer-operation tests
 Style/Semicolon:
   Enabled: false
 Naming/UncommunicativeMethodParamName:
@@ -112,3 +111,5 @@ Layout/LeadingCommentSpace:
     - 'test/docs/**/*'
 Layout/AlignHash:
   EnforcedHashRocketStyle: table
+Style/FrozenStringLiteralComment:
+  Enabled: false

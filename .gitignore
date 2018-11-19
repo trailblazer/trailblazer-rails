@@ -10,3 +10,4 @@
 test/**/*.log
 test/**/db/*.sqlite3
 test/**/Gemfile.lock
+test/**/.bundle

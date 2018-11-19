@@ -1,9 +1,9 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'actionpack', '~> 5.1.4'
-gem 'activerecord', '~> 5.1.4'
+gem "actionpack", "~> 5.1.4"
+gem "activerecord", "~> 5.1.4"
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem "sqlite3"
 # Use SCSS for stylesheets
 
 gem "trailblazer" # ,       path: "../../../trailblazer"
@@ -17,6 +17,6 @@ gem "cells-erb"
 gem "cells-rails"
 gem "trailblazer-cells"
 
-gem "minitest", '~> 5.10', '!= 5.10.2'
+gem "minitest", "~> 5.10", "!= 5.10.2"
 
 gem "reform-rails"
