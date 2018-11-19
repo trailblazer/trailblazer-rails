@@ -15,8 +15,8 @@ matrix:
     gemfile: test/rails5.1/Gemfile
 
   - rvm: 2.5.1
-    env: TEST_SUITE=rails5.2
     gemfile: test/rails5.2/Gemfile
+    script: cd test/rails5.2 && bundle install && bundle exec rake test && cd ../.. && bundle install && bundle exec rake rubocop
 
-script: cd test/$TEST_SUITE && bundle install && bundle exec rake test && cd ../.. && bundle install && bundle exec rake rubocop
+script: cd test/$TEST_SUITE && bundle install && bundle exec rake test
 

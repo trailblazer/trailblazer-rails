@@ -11,10 +11,10 @@ class ArgsController < ApplicationController
 
   def _assign_trb_ivars(_result)
     super
-    @model = 'my_model'
+    @model = "my_model"
   end
 
   def _wrap_with_trb_form(_form, _model)
-    'my_form'
+    "my_form"
   end
 end

@@ -5,12 +5,12 @@ require "rubocop/rake_task"
 Rake::TestTask.new(:test) do |t|
   t.libs << "test"
   t.libs << "lib"
-  t.test_files = FileList['test/**/*_test.rb']
+  t.test_files = FileList["test/**/*_test.rb"]
 end
 
 RuboCop::RakeTask.new(:rubocop)
 
-desc 'Remove temporary files'
+desc "Remove temporary files"
 task :clean do
   `rm -rf *.gem doc pkg coverage test-reports`
   %x(rm -f `find . -name '*.rbc'`)
@@ -21,5 +21,5 @@ task :gem do
   `gem build trailblazer-rails.gemspec`
 end
 
-desc 'Running Tests'
+desc "Running Tests"
 task default: %i[clean test]

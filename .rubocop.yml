@@ -1,27 +1,10 @@
 inherit_from:
   - https://raw.githubusercontent.com/trailblazer/meta/master/rubocop.yml
 
-Style/ClassCheck:
-  Exclude:
-    - 'lib/trailblazer/rails/cell.rb'
-
-Metrics/AbcSize:
-  Exclude:
-    - 'lib/trailblazer/rails/controller.rb'
-
 Bundler/DuplicatedGem:
   Enabled: false
 
 Style/Send:
-  Enabled: false
-
-Style/StringLiterals:
-  Enabled: false
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
-Style/ClassAndModuleChildren:
   Enabled: false
 
 # required when rubocop is run via travis
