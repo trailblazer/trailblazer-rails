@@ -1,3 +1,8 @@
+# 2.1.7
+
+* Bug: Deprecation warning for use_loader always called (fixed)
+* Run rubocop in travis only for ruby 2.5
+
 # 2.1.6
 
 * Dependency for `railties` >= 4.0.0
