@@ -1,3 +1,7 @@
+# 1.0.11
+
+* Bug: Deprecation warning for use_loader always called (fixed)
+
 # 1.0.10
 
 * Reintroduced railtie dependency 4.x +
