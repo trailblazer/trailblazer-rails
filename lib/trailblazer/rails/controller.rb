@@ -20,8 +20,8 @@ module Trailblazer::Rails
 
     # Override to tweak params. Not recommended.
     # Use a deserializer instead.
-    def _run_params(params)
-      params
+    def _run_params(run_params)
+      run_params
     end
 
     # This is where we can inject Dry.RB containers and the like via dependencies.
@@ -38,7 +38,7 @@ module Trailblazer::Rails
     def _run_operation_v21(operation, call_method, *dependencies)
       operation.send(
         call_method,
-        {params: _run_params(self.params)}.merge(*_run_runtime_options(*dependencies)) # rubocop:disable Style/RedundantSelf
+        {params: _run_params(params.dup)}.merge(*_run_runtime_options(*dependencies))
       )
     end
 

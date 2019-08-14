@@ -1,4 +1,3 @@
-sudo: false
 language: ruby
 cache: bundler
 matrix:
@@ -6,15 +5,16 @@ matrix:
   - rvm: 2.4.1
     env: TEST_SUITE=rails4.2
     gemfile: test/rails4.2/Gemfile
+
   - rvm: 2.4.1
     env: TEST_SUITE=rails5.0
     gemfile: test/rails5.0/Gemfile
 
-  - rvm: 2.4.1
+  - rvm: 2.6.3
     env: TEST_SUITE=rails5.1
     gemfile: test/rails5.1/Gemfile
 
-  - rvm: 2.5.1
+  - rvm: 2.6.3
     gemfile: test/rails5.2/Gemfile
     script: cd test/rails5.2 && bundle install && bundle exec rake test && cd ../.. && bundle install && bundle exec rake rubocop
 

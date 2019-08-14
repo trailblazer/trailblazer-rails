@@ -13,3 +13,4 @@ test/**/*.log
 test/**/Gemfile.lock
 *.iml
 *.sqlite3
+.tool-versions

@@ -4,7 +4,7 @@ class Song::New < Trailblazer::Operation
 end
 
 class Song::Create < Trailblazer::Operation
-  step Nested(Song::New)
+  step Subprocess(Song::New)
   step Contract::Validate()
   step Contract::Persist()
 end
