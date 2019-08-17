@@ -1,0 +1,17 @@
+source "https://rubygems.org"
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem "actionpack", "~> 6.0.0"
+gem "activerecord", "~> 6.0.0"
+# Use sqlite3 as the database for Active Record
+gem "sqlite3"
+
+eval_gemfile("../../Gemfile")
+
+group :test do
+  gem "minitest-capybara"
+end
+
+gem "minitest-line"
+
+gem "byebug"
