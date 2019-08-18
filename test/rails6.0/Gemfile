@@ -1,22 +1,21 @@
 source 'https://rubygems.org'
 
-gem 'actionpack', '~> 4.2.10'
-gem 'activerecord', '~> 4.2.10'
+gem 'actionpack', '~> 6.0.0'
+gem 'activerecord', '~> 6.0.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '1.3.13'
-# Use SCSS for stylesheets
+gem 'sqlite3'
 
-gem "trailblazer" # ,       path: "../../../trailblazer"
+gem "trailblazer"
 gem "trailblazer-rails", path: "../../../trailblazer-rails"
 
 group :test do
-  gem "minitest-rails-capybara"
+  gem "minitest-capybara"
 end
 
 gem "cells-erb"
 gem "cells-rails"
 gem "trailblazer-cells"
 
-gem "minitest-line"
-
 gem "reform-rails"
+
+gem "byebug"
