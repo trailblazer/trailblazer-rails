@@ -15,8 +15,12 @@ matrix:
     gemfile: test/rails5.1/Gemfile
 
   - rvm: 2.6.3
+    env: TEST_SUITE=rails5.2
     gemfile: test/rails5.2/Gemfile
-    script: cd test/rails5.2 && bundle install && bundle exec rake test && cd ../.. && bundle install && bundle exec rake rubocop
+
+  - rvm: 2.6.3
+    env: TEST_SUITE=rails6.0
+    gemfile: test/rails6.0/Gemfile
 
 script: cd test/$TEST_SUITE && bundle install && bundle exec rake test
 
