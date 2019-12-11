@@ -1,3 +1,4 @@
+gem 'minitest-rails-capybara'
 require "minitest/rails/capybara" # loads Capybara, etc.
 
 module Trailblazer::Test

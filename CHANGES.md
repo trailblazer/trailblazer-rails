@@ -1,3 +1,6 @@
+# 2.2.0
+* move trailblazer-loader as optional dependency
+
 # 2.1.9
 
 * Drop support for Rails < 5.2

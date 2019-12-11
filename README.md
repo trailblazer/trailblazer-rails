@@ -30,8 +30,15 @@ Note that the 2.x version only runs with TRB >= 2.1.0.
 
 ## Setting flags
 
-* `config.trailblazer.enable_loader = false` to disable Trailblazer loader (default TRUE)
 * `config.trailblazer.enable_tracing = true` to enable tracing when using `run` (default FALSE)
+
+## Loader 
+
+To use the loader add the trailblazer-loader gem and require 'trailblazer-rails-loader'
+```ruby
+gem 'trailblazer-loader'
+gem 'trailblazer-rails', require: 'trailblazer-rails-loader'
+```
 
 ## License
 
