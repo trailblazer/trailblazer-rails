@@ -5,7 +5,7 @@ module Trailblazer
     module Loader
       extend ActiveSupport::Concern
 
-      included do # rubocop:disable Metrics/BlockLength
+      included do
         def self.load_concepts(app)
           load_for(app)
 
@@ -21,13 +21,13 @@ module Trailblazer
         end
 
         # Prepend model file, before the concept files like operation.rb get loaded.
-        ModelFile = lambda do |input, options|
+        ModelFile = ->(input, options) do
           model = "app/models/#{options[:name]}.rb"
           File.exist?(model) ? [model] + input : input
         end
 
         # Load all model files before any TRB files.
-        AllModelFiles = lambda do |input, options|
+        AllModelFiles = ->(input, options) do
           Dir.glob("#{options[:root]}/app/models/**/*.rb").sort + input
         end
 
