@@ -1,3 +1,8 @@
+# 2.1.9
+
+* Drop support for Rails < 5.2
+* Add Test for Rails 6.1
+
 # 2.1.7
 
 * Bug: Deprecation warning for use_loader always called (fixed)

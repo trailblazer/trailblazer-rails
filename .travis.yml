@@ -2,25 +2,17 @@ language: ruby
 cache: bundler
 matrix:
   include:
-  - rvm: 2.4.1
-    env: TEST_SUITE=rails4.2
-    gemfile: test/rails4.2/Gemfile
-
-  - rvm: 2.4.1
-    env: TEST_SUITE=rails5.0
-    gemfile: test/rails5.0/Gemfile
-
-  - rvm: 2.6.3
-    env: TEST_SUITE=rails5.1
-    gemfile: test/rails5.1/Gemfile
-
-  - rvm: 2.6.3
+  - rvm: 2.6.5
     env: TEST_SUITE=rails5.2
     gemfile: test/rails5.2/Gemfile
 
-  - rvm: 2.6.3
+  - rvm: 2.6.5
     env: TEST_SUITE=rails6.0
     gemfile: test/rails6.0/Gemfile
+
+  - rvm: 2.6.5
+    env: TEST_SUITE=rails6.1
+    gemfile: test/rails6.1/Gemfile
 
 script: cd test/$TEST_SUITE && bundle install && bundle exec rake test
 
