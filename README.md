@@ -16,7 +16,7 @@ Status](https://travis-ci.org/trailblazer/trailblazer-rails.svg)](https://travis
 * Minimalistic integration tests ("smoke tests") to test controller/operation wiring.
 * Rendering cells instead of an ActionView in a controller action.
 
-Please refer to the [full documentation for more](http://trailblazer.to/gems/trailblazer/2.0/rails.html).
+Please refer to the [full documentation for more](http://trailblazer.to/2.1/docs/trailblazer.html).
 
 ## Installation
 
