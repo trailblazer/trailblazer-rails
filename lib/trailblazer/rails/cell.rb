@@ -19,12 +19,13 @@ module Trailblazer::Rails::Controller::Cell
 
     def cell(constant, model, **options)
       cell_options = options.reverse_merge(options_for_cell(model, **options))
+
       super(constant, model, cell_options)
     end
 
     # Override this to customize what options are passed into the cell constructor.
     # E.g. `{layout: Song::Cell::Layout}`
-    def options_for_cell(model, options)
+    def options_for_cell(model, **options)
       {}
     end
   end
