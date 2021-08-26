@@ -15,7 +15,7 @@ class CellsController < ApplicationController
     render cell(Artist::Cell::Dashboard, model, layout: Artist::Cell::DarkLayout), layout: false
   end
 
-  private def options_for_cell(model, **options)
+  private def options_for_cell(model, options)
     {
       layout: Artist::Cell::Layout
     }
