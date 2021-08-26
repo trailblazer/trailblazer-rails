@@ -11,4 +11,7 @@ Rails.application.routes.draw do
 
   get "args/with_args", controller: "args/with_args"
   get "params/with_args", controller: "params/with_args"
+
+  get "cells/with_layout", controller: "cells/with_layout"
+  get "cells/with_explicit_layout", controller: "cells/with_explicit_layout"
 end

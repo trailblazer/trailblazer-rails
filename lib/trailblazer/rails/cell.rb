@@ -1,9 +1,9 @@
 module Trailblazer::Rails::Controller::Cell
-  private # rubocop:disable Lint/UselessAccessModifier
+  private
 
   module Render
     def render(cell = nil, options = {}, *, &block)
-      return super unless cell.kind_of?(::Cell::ViewModel) # rubocop:disable Style/ClassCheck
+      return super unless cell.kind_of?(::Cell::ViewModel)
 
       render_cell(cell, options)
     end
@@ -15,6 +15,17 @@ module Trailblazer::Rails::Controller::Cell
       content = cell.()
 
       render({html: content}.merge(options))
+    end
+
+    def cell(constant, model, **options)
+      cell_options = options.reverse_merge(options_for_cell(model, **options))
+      super(constant, model, cell_options)
+    end
+
+    # Override this to customize what options are passed into the cell constructor.
+    # E.g. `{layout: Song::Cell::Layout}`
+    def options_for_cell(model, options)
+      {}
     end
   end
 
