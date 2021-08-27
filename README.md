@@ -8,6 +8,10 @@
 Status](https://travis-ci.org/trailblazer/trailblazer-rails.svg)](https://travis-ci.org/trailblazer/trailblazer-rails)
 [![Gem Version](https://badge.fury.io/rb/trailblazer-rails.svg)](http://badge.fury.io/rb/trailblazer-rails)
 
+## Endpoint
+
+This gem is slowly being superseded by TRB's [`endpoint` gem](https://trailblazer.to/2.1/docs/endpoint.html). Endpoints are "controller operations" that invoke your business logic operation. They are much easier to use and customize and are explained in part II of the [BUILDALIB book](https://leanpub.com/buildalib).
+
 ## Overview
 
 `trailblazer-rails` helps you with the following.
