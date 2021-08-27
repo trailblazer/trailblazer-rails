@@ -20,7 +20,7 @@ This gem is slowly being superseded by TRB's [`endpoint` gem](https://trailblaze
 * Minimalistic integration tests ("smoke tests") to test controller/operation wiring.
 * Rendering cells instead of an ActionView in a controller action.
 
-Please refer to the [full documentation for more](http://trailblazer.to/gems/trailblazer/2.0/rails.html).
+Please refer to the [full documentation for more](http://trailblazer.to/2.1/docs/trailblazer.html).
 
 ## Installation
 
