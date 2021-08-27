@@ -1,6 +1,7 @@
 # 2.2.0
 
 * Allow passing ctx variables to `Controller#run`.
+* Introduce `Controller#options_for_cell` to customize cell options such as `:layout` on the controller level.
 
 # 2.1.9
 
