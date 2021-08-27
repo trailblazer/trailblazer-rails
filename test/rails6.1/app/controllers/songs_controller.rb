@@ -20,4 +20,10 @@ class SongsController < ApplicationController
 
     @class = @model.class
   end
+
+  def with_variables
+    run Params::WithVariables, controller_name: self.class.to_s
+
+    render html: %{<h1>#{@model.inspect}</h1>}.html_safe
+  end
 end

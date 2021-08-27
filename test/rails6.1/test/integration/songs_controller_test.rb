@@ -24,4 +24,9 @@ class SongsControllerTest < Minitest::Capybara::Spec
     visit "/songs/new_with_result"
     page.must_have_css "h1", visible: "Song"
   end
+
+  it "with_variables" do
+    visit "/params/with_variables"
+    assert_equal %{<h1>"SongsController"</h1>}, page.body
+  end
 end

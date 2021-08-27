@@ -1,3 +1,7 @@
+# 2.2.0
+
+* Allow passing ctx variables to `Controller#run`.
+
 # 2.1.9
 
 * Drop support for Rails < 5.2

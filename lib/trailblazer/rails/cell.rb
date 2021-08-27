@@ -30,5 +30,5 @@ module Trailblazer::Rails::Controller::Cell
     end
   end
 
-  include Render unless method_defined?(:render_cell)
+  include Render unless method_defined?(:render_cell) # FIXME: this will be removed soon.
 end
