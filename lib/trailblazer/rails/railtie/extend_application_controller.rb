@@ -7,7 +7,7 @@ module Trailblazer
 
       included do
         initializer "trailblazer.application_controller", before: "finisher_hook" do
-          reloader_class.to_prepare do
+          ActiveSupport::Reloader.to_prepare do
             ActiveSupport.on_load(:action_controller) do |app|
               Trailblazer::Railtie.extend_application_controller!(app)
             end
