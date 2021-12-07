@@ -9,3 +9,7 @@ gem "reform-rails"
 gem "trailblazer"
 gem "trailblazer-cells"
 gem "trailblazer-loader"
+gem "sqlite3"
+gem "minitest-capybara"
+
+gem "appraisal"
