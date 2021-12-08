@@ -2,7 +2,7 @@ PATH
   remote: ..
   specs:
     trailblazer-rails (2.1.8)
-      railties (>= 6.0.0)
+      railties (>= 5.2.0)
       trailblazer (>= 2.1.0, < 2.2.0)
 
 GEM
