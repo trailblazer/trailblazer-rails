@@ -1,5 +1,6 @@
 require "bundler/gem_tasks"
 require "rake/testtask"
+ENV["RAILS_ENV"] = "test"
 
 Rake::TestTask.new(:test) do |t|
   t.libs << "test"
@@ -7,11 +8,10 @@ Rake::TestTask.new(:test) do |t|
   t.test_files = FileList["test/**/*_test.rb"]
 end
 
-desc "Remove temporary files"
-task :clean do
-  `rm -rf *.gem doc pkg coverage test-reports`
-  %x(rm -f `find . -name '*.rbc'`)
-end
+
+require File.expand_path("test/dummy/config/application", __dir__)
+
+Rails.application.load_tasks
 
 desc "Running Tests"
-task default: %i[clean test]
+task default: ["db:create", :test]

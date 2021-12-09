@@ -3,15 +3,15 @@ require "test_helper"
 class ArtistsControllerTest < Minitest::Capybara::Spec
   it "cell: Artist::Cell::Dashboard" do
     visit "/artists/dashboard"
-    page.must_have_css "h1"
-    page.must_have_css "h2"
-    page.must_have_css "h1[theme='cute']"
+    page.has_css? "h1", text: "Dashboard"
+    page.has_css? "h2", text: "LAYOUT"
+    page.has_css? "h1[theme='cute']"
   end
 
   it "cell: Artist::Cell::Dashboard" do
     visit "/artists/dashboard/widget"
-    page.must_have_css "h1"
-    page.wont_have_css "h2"
+    page.has_css? "h1", text: "Dashboard"
+    page.has_no_css? "h2", text: "LAYOUT"
   end
 
   #---

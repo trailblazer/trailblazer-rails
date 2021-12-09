@@ -10,3 +10,9 @@ appraise "rails-7.0" do
     gem "actionpack", "~> 7.0.0.rc1"
     gem "activerecord", "~> 7.0.0.rc1"
 end
+
+appraise "rails-5.2" do
+    gem "actionpack", "~> 5.2.0"
+    gem "activerecord", "~> 5.2.0"
+    gem "sqlite3", "~> 1.3.8"
+end
