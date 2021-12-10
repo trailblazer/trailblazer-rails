@@ -14,4 +14,4 @@ require File.expand_path("test/dummy/config/application", __dir__)
 Rails.application.load_tasks
 
 desc "Running Tests"
-task default: ["db:create", :test]
+task default: :test
