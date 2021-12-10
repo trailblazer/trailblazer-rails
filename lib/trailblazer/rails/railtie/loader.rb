@@ -47,7 +47,7 @@ module Trailblazer
           end
 
           if config.trailblazer.enable_loader || config.trailblazer.use_loader
-            reloader_class.to_prepare do
+            ActiveSupport::Reloader.to_prepare do
               Trailblazer::Railtie.load_concepts(app)
             end
           end

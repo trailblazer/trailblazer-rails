@@ -25,7 +25,7 @@ module Trailblazer::Rails::Controller::Cell
 
     # Override this to customize what options are passed into the cell constructor.
     # E.g. `{layout: Song::Cell::Layout}`
-    def options_for_cell(model, options)
+    def options_for_cell(_model, _options)
       {}
     end
   end

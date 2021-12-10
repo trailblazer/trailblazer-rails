@@ -1,5 +1,5 @@
 module Trailblazer
   module Rails
-    VERSION = "2.1.8".freeze
+    VERSION = "2.2.0".freeze
   end
 end

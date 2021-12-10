@@ -37,7 +37,7 @@ module Trailblazer::Rails
     end
 
     def _run_operation_v21(operation, call_method, *dependencies, **variables)
-      operation.send(
+      operation.public_send(
         call_method,
         {params: _run_params(params.dup)}.
         merge(*_run_runtime_options(*dependencies)).
