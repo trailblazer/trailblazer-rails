@@ -1,6 +1,6 @@
 class ParamsController < ApplicationController
   def with_args
-    run Params::WithArgs
+    run Params::Operation::WithArgs
     render "args/with_args"
   end
 
