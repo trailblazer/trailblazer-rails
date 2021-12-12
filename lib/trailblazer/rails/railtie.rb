@@ -1,5 +1,4 @@
 require "rails/railtie"
-require "trailblazer/loader"
 require "trailblazer/rails/railtie/extend_application_controller"
 require "trailblazer/rails/railtie/loader"
 
