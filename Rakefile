@@ -8,10 +8,11 @@ Rake::TestTask.new(:test) do |t|
   t.test_files = FileList["test/**/*_test.rb"]
 end
 
-
-require File.expand_path("test/dummy/config/application", __dir__)
-
-Rails.application.load_tasks
+begin
+  require File.expand_path("test/dummy/config/application", __dir__)
+  Rails.application.load_tasks
+rescue LoadError
+end
 
 desc "Running Tests"
 task default: :test

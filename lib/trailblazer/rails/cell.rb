@@ -1,6 +1,4 @@
 module Trailblazer::Rails::Controller::Cell
-  private
-
   module Render
     def render(cell = nil, options = {}, *, &block)
       return super unless cell.kind_of?(::Cell::ViewModel)

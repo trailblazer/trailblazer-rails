@@ -1,17 +1,27 @@
 require "rails/railtie"
-require "trailblazer/loader"
-require "trailblazer/rails/railtie/extend_application_controller"
-require "trailblazer/rails/railtie/loader"
 
 module Trailblazer
   class Railtie < ::Rails::Railtie
     config.trailblazer = ActiveSupport::OrderedOptions.new
     ## Accept also an Array of controllers
     config.trailblazer.application_controller ||= "ActionController::Base"
-    config.trailblazer.enable_loader ||= true
     config.trailblazer.enable_tracing ||= false
 
-    include Loader
-    include ExtendApplicationController
+    initializer "trailblazer.application_controller", before: "finisher_hook" do
+      ActiveSupport::Reloader.to_prepare do
+        ActiveSupport.on_load(:action_controller) do |app|
+          Trailblazer::Railtie.extend_application_controller!(app)
+        end
+      end
+    end
+
+    def extend_application_controller!(app)
+      controllers = Array(::Rails.application.config.trailblazer.application_controller).map(&:to_s)
+      if controllers.include? app.to_s
+        app.send :include, Trailblazer::Rails::Controller
+        app.send :include, Trailblazer::Rails::Controller::Cell if defined?(::Cell)
+      end
+      app
+    end
   end
 end

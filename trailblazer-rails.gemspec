@@ -18,7 +18,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "railties", ">= 5.2.0"
   spec.add_dependency "trailblazer", ">= 2.1.0", "< 2.2.0"
 
-  spec.add_development_dependency "trailblazer-loader", ">= 0.1.0"
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "minitest"
   spec.add_development_dependency "rake"

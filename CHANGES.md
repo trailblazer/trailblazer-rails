@@ -1,3 +1,6 @@
+# 2.3.0
+* Remove loader support (no longer needed as zeitwerk is now a better alternative)
+
 # 2.2.0
 
 * Allow passing ctx variables to `Controller#run`.
