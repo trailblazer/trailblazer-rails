@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    trailblazer-rails (2.3.0)
+    trailblazer-rails (2.4.0)
       railties (>= 5.2.0)
       trailblazer (>= 2.1.0, < 2.2.0)
 
@@ -156,7 +156,7 @@ GEM
     uber (0.1.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.5.1)
+    zeitwerk (2.5.2)
 
 PLATFORMS
   x86_64-linux
@@ -179,4 +179,4 @@ DEPENDENCIES
   trailblazer-rails!
 
 BUNDLED WITH
-   2.2.22
+   2.2.33
