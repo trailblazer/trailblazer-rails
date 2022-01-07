@@ -1,3 +1,7 @@
+# 2.4.0
+* Remove legacy code belonging to the old `trailblazer-loader` gem.
+* Use ActionController::API in addition to ActionController::Base to add the `run` method.
+
 # 2.3.0
 * Remove loader support (no longer needed as zeitwerk is now a better alternative)
 

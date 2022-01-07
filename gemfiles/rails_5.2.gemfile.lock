@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    trailblazer-rails (2.3.0)
+    trailblazer-rails (2.4.0)
       railties (>= 5.2.0)
       trailblazer (>= 2.1.0, < 2.2.0)
 
@@ -180,4 +180,4 @@ DEPENDENCIES
   trailblazer-rails!
 
 BUNDLED WITH
-   2.2.22
+   2.2.33

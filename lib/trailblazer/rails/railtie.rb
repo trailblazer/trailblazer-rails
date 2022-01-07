@@ -4,14 +4,12 @@ module Trailblazer
   class Railtie < ::Rails::Railtie
     config.trailblazer = ActiveSupport::OrderedOptions.new
     ## Accept also an Array of controllers
-    config.trailblazer.application_controller ||= "ActionController::Base"
+    config.trailblazer.application_controller ||= %w[ActionController::Base ActionController::API]
     config.trailblazer.enable_tracing ||= false
 
     initializer "trailblazer.application_controller", before: "finisher_hook" do
-      ActiveSupport::Reloader.to_prepare do
-        ActiveSupport.on_load(:action_controller) do |app|
-          Trailblazer::Railtie.extend_application_controller!(app)
-        end
+      ActiveSupport.on_load(:action_controller) do |app|
+        Trailblazer::Railtie.extend_application_controller!(app)
       end
     end
 
