@@ -87,6 +87,8 @@ GEM
       capybara
       minitest (~> 5.0)
       rake
+    nokogiri (1.12.5-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
     public_suffix (4.0.6)
@@ -160,6 +162,7 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
+  x86_64-darwin-21
   x86_64-linux
 
 DEPENDENCIES
@@ -180,4 +183,4 @@ DEPENDENCIES
   trailblazer-rails!
 
 BUNDLED WITH
-   2.2.33
+   2.3.11
