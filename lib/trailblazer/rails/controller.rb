@@ -1,7 +1,7 @@
 module Trailblazer::Rails
   module Controller
     # TODO: deprecate {*dependencies}.
-    def run_v21(operation, *dependencies, **variables)
+    def run_v21(operation, *dependencies, **variables, &block)
       result = if Rails.application.config.trailblazer.enable_tracing
                  _run_operation_v21(operation, :trace, *dependencies, **variables).tap { |r| _operation_trace(r) }
                else
@@ -10,9 +10,15 @@ module Trailblazer::Rails
 
       _assign_trb_ivars(result)
 
-      yield(result) if result.success? && block_given?
-
       @_result = result
+
+      return if result.failure? || block.nil?
+
+      if block.arity.eql?(1)
+        yield(result)
+      else
+        yield(result, **result.to_hash)
+      end
     end
 
     alias run run_v21 unless method_defined?(:run)
