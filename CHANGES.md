@@ -1,3 +1,7 @@
+# 2.4.1
+
+* Pass keyword arguments to the success result block
+
 # 2.4.0
 * Remove legacy code belonging to the old `trailblazer-loader` gem.
 * Use ActionController::API in addition to ActionController::Base to add the `run` method.
