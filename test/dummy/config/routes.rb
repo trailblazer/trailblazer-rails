@@ -19,4 +19,7 @@ Rails.application.routes.draw do
 
   get "extractable_keywords/extract_one", controller: "extractable_keywords/extract_one"
   get "extractable_keywords/extract_all", controller: "extractable_keywords/extract_all"
+
+  get "songs/a/songs/new", controller: "songs_controller/a/songs", action: "new"
+  get "songs/a/songs/create", controller: "songs_controller/a/songs", action: "create"
 end

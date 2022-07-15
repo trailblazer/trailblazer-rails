@@ -12,13 +12,15 @@ module Trailblazer::Rails
 
       @_result = result
 
-      return if result.failure? || block.nil?
+      return result if result.failure? || block.nil?
 
       if block.arity.eql?(1)
         yield(result)
       else
         yield(result, **result.to_hash)
       end
+
+      result
     end
 
     alias run run_v21 unless method_defined?(:run)

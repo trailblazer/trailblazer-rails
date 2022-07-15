@@ -29,4 +29,23 @@ class SongsControllerTest < Minitest::Capybara::Spec
     visit "/params/with_variables"
     assert_equal %{<h1>"SongsController"</h1>}, page.body
   end
+
+  it "{#run} returns result" do
+    #@ success
+    visit "/songs/a/songs/new?success=true"
+    page.has_css? "h1", text: "I'm a form!"
+
+    visit "/songs/a/songs/new?"
+    page.has_css? "h1", text: "I'm a form!"
+  end
+
+  it "{#run} returns result and allows block" do
+    #@ success
+    visit "/songs/a/songs/create?success=true"
+    assert_equal page.current_url, "http://www.example.com/songs/1"
+
+    #@ block is not executed, form getting rerendered.
+    visit "/songs/a/songs/create?"
+    page.has_css? "h1", text: "I'm a form!"
+  end
 end

@@ -3,6 +3,49 @@ class SongsController < ApplicationController
     run Song::Operation::New
   end
 
+  module A
+    class SongsController < ApplicationController
+      module Song
+        module Operation
+          class New < Trailblazer::Operation
+            step :contract
+
+            def contract(ctx, params:, **)
+              ctx[:model] = Struct.new(:id).new(1)
+              ctx[:"contract.default"] = "I'm a form!"
+              params[:success] # allow to test both outcomes.
+            end
+          end
+
+          class Create < New
+          end
+        end
+      end
+
+      #:ctx
+      def new
+        ctx = run Song::Operation::New
+
+        @form = ctx[:"contract.default"]
+
+        render
+      end
+      #:ctx end
+
+      def create
+        _ctx = run Song::Operation::Create do |ctx|
+          # success!
+          return redirect_to song_path(ctx[:model].id) # don't forget the return.
+        end
+
+        # failure
+        @form = _ctx[:"contract.default"]
+
+        render
+      end
+    end
+  end # A
+
   def show
     run Song::Operation::Show
   end
