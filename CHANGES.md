@@ -1,6 +1,10 @@
+# 2.4.2
+
+* Fix a bug where `Controller#run` wouldn't return the ctx.
+
 # 2.4.1
 
-* Pass keyword arguments to the success result block
+* Pass keyword arguments to the success result block.
 
 # 2.4.0
 * Remove legacy code belonging to the old `trailblazer-loader` gem.
