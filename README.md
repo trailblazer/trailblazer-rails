@@ -36,6 +36,16 @@ Note that the 2.x version only runs with TRB >= 2.1.0.
 * `config.trailblazer.enable_loader = false` to disable Trailblazer loader (default TRUE)
 * `config.trailblazer.enable_tracing = true` to enable tracing when using `run` (default FALSE)
 
+## Testing
+
+If you feel like contributing, you can run the test suite per Rails version as follows.
+
+```
+$ BUNDLE_GEMFILE=gemfiles/rails_7.0.gemfile bundle exec rake db:create db:schema:load test
+```
+
+Successful merges will be rewarded with at least one beer!
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
