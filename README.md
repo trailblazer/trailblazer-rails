@@ -33,6 +33,8 @@ Note that the 2.x version only runs with TRB >= 2.1.0.
 
 ## Setting flags
 
+Before `trailblazer-rails` 2.3.0 you could activate or disable the `trailblazer-loader` gem. In versions >= 2.3.0 this component has been removed in favor of Rails autoloading.
+
 * `config.trailblazer.enable_loader = false` to disable Trailblazer loader (default TRUE)
 * `config.trailblazer.enable_tracing = true` to enable tracing when using `run` (default FALSE)
 
