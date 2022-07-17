@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   get "songs/a/songs/new", controller: "songs_controller/a/songs", action: "new"
   get "songs/a/songs/create", controller: "songs_controller/a/songs", action: "create"
   get "songs/b/songs/create", controller: "songs_controller/b/songs", action: "create"
+  get "songs/c/songs/create", controller: "songs_controller/c/songs", action: "create"
 end

@@ -48,6 +48,26 @@ class SongsController < ApplicationController
     end
   end # A
 
+  #@ block with kwargs
+  module C
+    class SongsController < ApplicationController
+      Song = A::SongsController::Song
+
+      #:block-kwargs
+      def create
+        _ctx = run Song::Operation::Create do |ctx, model:,**|
+          return redirect_to song_path(model.id) # see how model is available?
+        end
+
+        # failure
+        @form = _ctx[:"contract.default"]
+
+        render
+      end
+      #:block-kwargs end
+    end
+  end # c
+
   def show
     run Song::Operation::Show
   end
@@ -72,6 +92,7 @@ class SongsController < ApplicationController
     render html: %{<h1>#{@model.inspect}</h1>}.html_safe
   end
 
+  #@ invoke manually, no #run helper.
   module B
       Song = A::SongsController::Song
     #:manual

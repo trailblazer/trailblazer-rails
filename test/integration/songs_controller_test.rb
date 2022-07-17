@@ -49,6 +49,16 @@ class SongsControllerTest < Minitest::Capybara::Spec
     assert page.has_css? "h1", text: "I'm a form!"
   end
 
+  it "{#run} returns result and allows block with kwargs" do
+    #@ success
+    visit "/songs/c/songs/create?success=true"
+    assert_equal page.current_url, "http://www.example.com/songs/1"
+
+    #@ block is not executed, form getting rerendered.
+    visit "/songs/c/songs/create?"
+    assert page.has_css? "h1", text: "I'm a form!"
+  end
+
   it "you may invoke operations manually" do
     #@ success
     visit "/songs/b/songs/create?success=true"
