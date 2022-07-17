@@ -32,6 +32,7 @@ class SongsController < ApplicationController
       end
       #:ctx end
 
+      #:block
       def create
         _ctx = run Song::Operation::Create do |ctx|
           # success!
@@ -43,6 +44,7 @@ class SongsController < ApplicationController
 
         render
       end
+      #:block end
     end
   end # A
 
@@ -69,4 +71,25 @@ class SongsController < ApplicationController
 
     render html: %{<h1>#{@model.inspect}</h1>}.html_safe
   end
+
+  module B
+      Song = A::SongsController::Song
+    #:manual
+    class SongsController < ApplicationController
+      def create
+        result = Song::Operation::Create.(params: params) # manual invocation.
+        #~meths
+
+        if result.success?
+          redirect_to song_path(result[:model].id)
+        else # failure
+          @form = result[:"contract.default"]
+
+          render
+        end
+        #~meths end
+      end
+    end
+    #:manual end
+  end # B
 end
