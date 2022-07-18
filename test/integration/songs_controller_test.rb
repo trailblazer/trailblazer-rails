@@ -68,4 +68,24 @@ class SongsControllerTest < Minitest::Capybara::Spec
     visit "/songs/b/songs/create?"
     assert page.has_css? "h1", text: "I'm a form!"
   end
+
+  it "{#run} accepts runtime variables" do
+    visit "/songs/d/songs/create?"
+    assert page.has_css? "h1", text: "I'm a form!>>>1>>>>>>" # with "current user" concatenated.
+  end
+
+  it "{#run} accepts _run_options variables" do
+    visit "/songs/e/songs/create?"
+    assert page.has_css? "h1", text: "I'm a form!>>>1>>>>>>" # with "current user" concatenated.
+  end
+
+  it "{#run} accepts _run_options variables and runtime variables" do
+    visit "/songs/e/songs/patch?"
+    assert page.has_css? "h1", text: "I'm a form!>>>1>>>2>>>" # with "current user" and {session} concatenated.
+  end
+
+  it "{#run} accepts _run_options variables and run variables and run variables win" do
+    visit "/songs/e/songs/put?"
+    assert page.has_css? "h1", text: "I'm a form!>>>3>>>2>>>" # with "current user" and {session} concatenated.
+  end
 end

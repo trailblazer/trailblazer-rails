@@ -24,4 +24,8 @@ Rails.application.routes.draw do
   get "songs/a/songs/create", controller: "songs_controller/a/songs", action: "create"
   get "songs/b/songs/create", controller: "songs_controller/b/songs", action: "create"
   get "songs/c/songs/create", controller: "songs_controller/c/songs", action: "create"
+  get "songs/d/songs/create", controller: "songs_controller/d/songs", action: "create"
+  get "songs/e/songs/create", controller: "songs_controller/e/songs", action: "create"
+  get "songs/e/songs/patch",  controller: "songs_controller/e/songs", action: "patch" # not used for doc currently
+  get "songs/e/songs/put",    controller: "songs_controller/e/songs", action: "put"   # not used for doc currently
 end

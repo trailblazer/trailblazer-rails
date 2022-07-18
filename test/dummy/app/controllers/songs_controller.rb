@@ -113,4 +113,96 @@ class SongsController < ApplicationController
     end
     #:manual end
   end # B
+
+  #@ {#run} with variables
+  module D
+    class Song
+      module Operation
+        class Create < A::SongsController::Song::Operation::Create
+          fail :add_user # run after {#contract}.
+
+          def add_user(ctx, current_user:, session: nil, **)
+            ctx[:"contract.default"] = %{#{ctx[:"contract.default"]}>>>#{current_user}>>>#{session}>>>}
+          end
+        end
+      end
+    end
+
+
+    #:runtime-variables
+    class SongsController < ApplicationController
+      #~meths
+      def current_user; 1;  end
+      #~meths end
+      def create
+                                          # vvvvvvvvvvvvvvvvvvvvvvvvvv
+        _ctx = run Song::Operation::Create, current_user: current_user do |ctx, model:, **|
+          return redirect_to song_path(model.id)
+        end
+
+        @form = _ctx[:"contract.default"]
+
+        render
+      end
+    end
+    #:runtime-variables end
+  end # D
+
+  #@ {#run} with {#_run_options}
+  module E
+    class Song
+      module Operation
+        class Create < D::Song::Operation::Create
+        end
+      end
+    end
+
+    #:run-options
+    class SongsController < ApplicationController
+      private def _run_options(options)
+        options.merge(
+          current_user: current_user
+        )
+      end
+      #~body
+      #~meths
+      def current_user; 1;  end
+      #~meths end
+      #:run-options-create
+      def create
+        _ctx = run Song::Operation::Create do |ctx, model:, **|
+          return redirect_to song_path(model.id)
+        end
+
+        @form = _ctx[:"contract.default"]
+
+        render
+      end
+      #:run-options-create end
+
+      #@ we can pass options via #run and via #_run_options
+      def patch
+        _ctx = run Song::Operation::Create, session: 2 do |ctx, model:, **|
+          return redirect_to song_path(model.id)
+        end
+
+        @form = _ctx[:"contract.default"]
+
+        render :create
+      end
+
+      #@ we can pass options via #run and via #_run_options, and run options win.
+      def put
+        _ctx = run Song::Operation::Create, session: 2, current_user: 3 do |ctx, model:, **|
+          return redirect_to song_path(model.id)
+        end
+
+        @form = _ctx[:"contract.default"]
+
+        render :create
+      end
+      #~body end
+    end
+    #:run-options end
+  end # E
 end
