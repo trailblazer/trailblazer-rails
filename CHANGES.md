@@ -1,3 +1,7 @@
+# 2.4.3
+
+* Allow calling `#cell` without providing `model`, complying to cells-rails' `#cell` interface.
+
 # 2.4.2
 
 * Fix a bug where `Controller#run` wouldn't return the ctx.
