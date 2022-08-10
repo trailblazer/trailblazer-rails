@@ -2,7 +2,6 @@
 
 *Trailblazer in your Rails controllers.*
 
-[![TRB Newsletter](https://img.shields.io/badge/TRB-newsletter-lightgrey.svg)](http://trailblazer.to/newsletter/)
 ![Build
 Status](https://github.com/trailblazer/trailblazer-rails/actions/workflows/ci.yml/badge.svg?branch=master)
 [![Gem Version](https://badge.fury.io/rb/trailblazer-rails.svg)](http://badge.fury.io/rb/trailblazer-rails)
@@ -19,7 +18,7 @@ This gem is slowly being superseded by TRB's [`endpoint` gem](https://trailblaze
 * Minimalistic integration tests ("smoke tests") to test controller/operation wiring.
 * Rendering cells instead of an ActionView in a controller action.
 
-Please refer to the [full documentation for more](https://trailblazer.to/2.1/docs/trailblazer.html#trailblazer-rails).
+Please refer to the [full documentation for more](https://trailblazer.to/2.1/docs/rails.html).
 
 ## Installation
 
