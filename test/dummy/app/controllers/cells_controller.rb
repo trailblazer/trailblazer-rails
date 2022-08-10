@@ -15,6 +15,11 @@ class CellsController < ApplicationController
     render cell(Artist::Cell::Dashboard, model, layout: Artist::Cell::DarkLayout), layout: false
   end
 
+  #@ model-less, model can be skipped.
+  def new
+    render cell(Artist::Cell::New)
+  end
+
   private
 
   def options_for_cell(_model, _options)

@@ -15,10 +15,10 @@ module Trailblazer::Rails::Controller::Cell
       render({html: content}.merge(options))
     end
 
-    def cell(constant, model, options={})
+    def cell(constant, model=nil, options={})
       cell_options = options.reverse_merge(options_for_cell(model, options))
 
-      super(constant, model, cell_options)
+      super(constant, model, cell_options) # From cells-rails gem.
     end
 
     # Override this to customize what options are passed into the cell constructor.

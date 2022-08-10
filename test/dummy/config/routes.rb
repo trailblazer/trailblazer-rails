@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "cells/with_layout", controller: "cells/with_layout"
   get "cells/without_layout", controller: "cells/without_layout"
   get "cells/with_explicit_layout", controller: "cells/with_explicit_layout"
+  get "cells/new", controller: "cells/new"
 
   get "extractable_keywords/extract_one", controller: "extractable_keywords/extract_one"
   get "extractable_keywords/extract_all", controller: "extractable_keywords/extract_all"
