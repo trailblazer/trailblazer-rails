@@ -23,7 +23,7 @@ module Song::Operation
         return handler_signal, [ctx, flow_options]
       end
     end
-    #:my_transaction
+    #:my_transaction end
 
     step :find_model # you could use Model()
     step Wrap(MyTransaction) {
