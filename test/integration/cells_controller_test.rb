@@ -1,4 +1,5 @@
 require "test_helper"
+require 'minitest/capybara'
 
 class CellsControllerTest < Minitest::Capybara::Spec
   it "" do

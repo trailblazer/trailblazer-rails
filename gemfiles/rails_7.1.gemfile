@@ -2,16 +2,15 @@
 
 source "https://rubygems.org"
 
+gem "appraisal"
+gem "minitest-capybara"
 gem "cells-erb"
 gem "cells-rails"
 gem "reform-rails"
 gem "trailblazer"
 gem "trailblazer-cells"
-gem "trailblazer-loader"
-gem "sqlite3", "~> 1.3.8"
-gem "minitest-capybara"
-gem "appraisal"
-gem "actionpack", "~> 5.2.0"
-gem "activerecord", "~> 5.2.0"
+gem "actionpack", "~> 7.0.0"
+gem "activerecord", "~> 7.0.0"
+gem "sqlite3", "~> 1.4.0"
 
 gemspec path: "../"

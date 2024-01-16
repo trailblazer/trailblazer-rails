@@ -1,4 +1,5 @@
 require "test_helper"
+require 'minitest/capybara'
 
 class SongsControllerTest < Minitest::Capybara::Spec
   it "new" do
