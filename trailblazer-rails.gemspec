@@ -1,6 +1,4 @@
-lib = File.expand_path("lib", __dir__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "trailblazer/rails/version"
+require_relative "lib/trailblazer/rails/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "trailblazer-rails"
@@ -21,4 +19,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "minitest"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "capybara"
+  spec.add_development_dependency "minitest-trailblazer"
 end

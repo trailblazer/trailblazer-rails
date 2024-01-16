@@ -1,4 +1,5 @@
 require "test_helper"
+require 'minitest/capybara'
 
 class ArtistsControllerTest < Minitest::Capybara::Spec
   it "cell: Artist::Cell::Dashboard" do
