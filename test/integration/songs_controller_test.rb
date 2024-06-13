@@ -2,6 +2,22 @@ require "test_helper"
 require 'minitest/capybara'
 
 class SongsControllerTest < Minitest::Capybara::Spec
+  it 'can trace' do
+    # Capture the standard output
+    stdout = StringIO.new
+    original_stdout = $stdout
+    $stdout = stdout
+    Rails.application.config.trailblazer.enable_tracing = true
+    visit "/songs/new"
+    # Assert that the output contains the expected string
+    assert_equal "Song::Operation::New\n|-- \e[32mStart.default\e[0m\n|-- \e[32mmodel.build\e[0m\n|-- \e[32mcontract.build\e[0m\n`-- End.success\n",
+      stdout.string
+
+  ensure
+    $stdout = original_stdout
+    Rails.application.config.trailblazer.enable_tracing = false
+  end
+
   it "new" do
     visit "/songs/new"
     assert page.has_css? "form.new_song[action='/songs']"

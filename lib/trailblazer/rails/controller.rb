@@ -3,7 +3,7 @@ module Trailblazer::Rails
     # TODO: deprecate {*dependencies}.
     def run_v21(operation, *dependencies, **variables, &block)
       result = if Rails.application.config.trailblazer.enable_tracing
-                 _run_operation_v21(operation, :trace, *dependencies, **variables).tap { |r| _operation_trace(r) }
+                 _run_operation_v21(operation, :wtf?, *dependencies, **variables)
                else
                  _run_operation_v21(operation, :call, *dependencies, **variables)
                end
@@ -51,10 +51,6 @@ module Trailblazer::Rails
         merge(*_run_runtime_options(*dependencies)).
         merge(variables)
       )
-    end
-
-    def _operation_trace(result)
-      puts result.wtf?
     end
 
     def _assign_trb_ivars(result)
