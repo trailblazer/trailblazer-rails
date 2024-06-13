@@ -1,7 +1,7 @@
 require "test_helper"
 require "trailblazer/activity/testing"
 
-class SongOperationTest < Minitest::TrailblazerSpec
+class SongOperationTest < Minitest::Spec
 
   it "what" do
     song = Song.create(title: "Bright Eyes")
