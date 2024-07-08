@@ -1,3 +1,7 @@
+# 2.4.4
+
+* Remove a deprecation warning when tracing.
+
 # 2.4.3
 
 * Allow calling `#cell` without providing `model`, complying to cells-rails' `#cell` interface.
