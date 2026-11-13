@@ -2,11 +2,11 @@ module Song::Operation
   class Upload < Trailblazer::Operation
     #:my_transaction
     class MyTransaction
-      def self.call((ctx, flow_options), **)
+      def self.call(ctx, flow_options, signal, **circuit_options)
         handler_signal = nil # this is the signal we decide to return from Wrap().
 
         ActiveRecord::Base.transaction do
-          signal, (ctx, flow_options) = yield # call the Wrap block
+          ctx, flow_options, signal = yield(ctx, flow_options, signal, **circuit_options) # call the Wrap block
 
           # It's now up to us to interpret the wrapped activity's outcome.
           terminus_semantic = signal.to_h[:semantic]
@@ -20,7 +20,7 @@ module Song::Operation
           end
         end # transaction
 
-        return handler_signal, [ctx, flow_options]
+        return ctx, flow_options, handler_signal
       end
     end
     #:my_transaction end
@@ -37,7 +37,7 @@ module Song::Operation
       ctx[:model] = Song.find_by(id: params[:id])
     end
 
-    include Trailblazer::Activity::Testing.def_steps(:upload, :notify)
+    include Trailblazer::Core.def_steps(:upload, :notify)
 
     def update_model(ctx, model:, seq:, **)
       seq << :update_model

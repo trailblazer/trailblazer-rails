@@ -3,3 +3,5 @@ require "rails/test_help"
 
 require "minitest/autorun"
 require "capybara/rails"
+
+require "trailblazer/core"
