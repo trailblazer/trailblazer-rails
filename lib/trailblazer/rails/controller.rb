@@ -58,7 +58,7 @@ module Trailblazer::Rails
 
     def _assign_trb_ivars(result)
       @model = result[:model]
-      @form  = _wrap_with_trb_form(result["contract.default"], @model.class)
+      @form  = _wrap_with_trb_form(result[:"contract.default"], @model.class)
     end
 
     def _wrap_with_trb_form(form, model)
