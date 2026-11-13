@@ -1,6 +1,7 @@
 module Trailblazer::Rails
   module Controller
     # TODO: deprecate {*dependencies}.
+    # TODO: use trailblazer-invoke/matcher
     def run_v21(operation, *dependencies, **variables, &block)
       result = if Rails.application.config.trailblazer.enable_tracing
                  _run_operation_v21(operation, :wtf?, *dependencies, **variables)
@@ -17,7 +18,7 @@ module Trailblazer::Rails
       if block.arity.eql?(1)
         yield(result)
       else
-        yield(result, **result.to_hash)
+        yield(result, **result.to_h)
       end
 
       result
@@ -35,7 +36,9 @@ module Trailblazer::Rails
 
     # This is where we can inject Dry.RB containers and the like via dependencies.
     def _run_runtime_options(ctx = {}, *dependencies)
-      [_run_options(ctx), *dependencies]
+      # [
+        _run_options(ctx)#,
+        # *dependencies]
     end
 
     # Override this to inject dependencies such as "current_user"
@@ -47,9 +50,9 @@ module Trailblazer::Rails
     def _run_operation_v21(operation, call_method, *dependencies, **variables)
       operation.public_send(
         call_method,
-        {params: _run_params(params.dup)}.
-        merge(*_run_runtime_options(*dependencies)).
-        merge(variables)
+        params: _run_params(params.dup),
+        **_run_runtime_options(*dependencies),
+        **variables,
       )
     end
 

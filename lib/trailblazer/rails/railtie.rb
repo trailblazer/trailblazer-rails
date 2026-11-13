@@ -27,6 +27,20 @@ module Trailblazer
         topology.config.builder = builder
         topology.include helpers_module
       end
+
+      [
+      # Acti[Trailblazer::Activity::FastTrack,  # DISCUSS: remove?
+        Trailblazer::Operation # we need to add this because we're using :adds, so both normalizers get updated.
+      ].each do |topology|
+        _, _, builder, helpers_module = Trailblazer::Activity::DSL::Topology.build(
+          builder: topology.config.builder,
+          default_options: {},
+          **Trailblazer::Macro::Contract::TOPOLOGY_BUILD_OPTIONS # :helpers and :adds
+        )
+
+        topology.config.builder = builder
+        topology.include helpers_module
+      end
     end
 
     def extend_application_controller!(app)

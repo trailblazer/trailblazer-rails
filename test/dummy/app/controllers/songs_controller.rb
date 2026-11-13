@@ -113,9 +113,10 @@ class SongsController < ApplicationController
     class Song
       module Operation
         class Create < A::SongsController::Song::Operation::Create
-          fail :add_user # run after {#contract}.
+          left :add_user # run after {#contract}.
 
           def add_user(ctx, current_user:, session: nil, **)
+            # raise this.inspect
             ctx[:"contract.default"] = %{#{ctx[:"contract.default"]}>>>#{current_user}>>>#{session}>>>}
           end
         end
