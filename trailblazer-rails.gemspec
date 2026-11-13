@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "railties", ">= 6.0.0"
-  spec.add_dependency "trailblazer", ">= 3.0.0", "< 3.1.0"
+  spec.add_dependency "trailblazer"#, ">= 3.0.0", "< 3.1.0"
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "minitest", "~> 5.0"
