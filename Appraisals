@@ -1,29 +1,5 @@
 # frozen_string_literal: true
 
-appraise "rails-7.2" do
-  gem "actionpack", "~> 7.2.0"
-  gem "activerecord", "~> 7.2.0"
-  gem "railties", "~> 7.2.0"
-  gem "logger"
-  gem "ostruct"
-  gem "minitest-capybara"
-  gem "minitest-line"
-  gem "cells-erb"
-  gem "cells-rails"
-  gem "trailblazer-cells"
-  gem "reform-rails", github: "trailblazer/reform-rails"
-  gem "trailblazer", github: "trailblazer/trailblazer"
-  gem "trailblazer-circuit", github: "trailblazer/trailblazer-circuit"
-  gem "trailblazer-activity", github: "trailblazer/trailblazer-activity"
-  gem "trailblazer-operation", github: "trailblazer/trailblazer-operation"
-  gem "trailblazer-developer", github: "trailblazer/trailblazer-developer"
-  gem "trailblazer-core-utils", github: "trailblazer/trailblazer-core-utils"
-  gem "trailblazer-macro", github: "trailblazer/trailblazer-macro"
-  gem "trailblazer-macro-contract", github: "trailblazer/trailblazer-macro-contract"
-  gem "trailblazer-activity-variable-mapping", github: "trailblazer/trailblazer-activity-variable-mapping"
-  gem "trailblazer-activity-dsl", github: "trailblazer/trailblazer-activity-dsl"
-  gem "sqlite3", "~> 2.1"
-end
 
 appraise "rails-8.0" do
   gem "actionpack", "~> 8.0.0"
