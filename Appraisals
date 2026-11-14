@@ -6,7 +6,6 @@ appraise "rails-8.0" do
   gem "activerecord", "~> 8.0.0"
   gem "railties", "~> 8.0.0"
   gem "logger"
-  gem "ostruct"
   gem "minitest-capybara"
   gem "minitest-line"
   gem "cells-erb"
@@ -31,7 +30,6 @@ appraise "rails-8.1" do
   gem "activerecord", "~> 8.1.0"
   gem "railties", "~> 8.1.0"
   gem "logger"
-  gem "ostruct"
   gem "minitest-capybara"
   gem "minitest-line"
   gem "cells-erb"
@@ -54,7 +52,6 @@ end
 appraise "rails-edge" do
   gem "rails", github: "rails/rails", branch: "main"
   gem "logger"
-  gem "ostruct"
   gem "minitest-capybara"
   gem "minitest-line"
   gem "cells-erb"
