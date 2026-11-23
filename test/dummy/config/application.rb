@@ -22,9 +22,6 @@ module TrailblazerTestApp
     config.action_controller.allow_forgery_protection = false
     config.active_support.test_order = :random
     config.active_support.deprecation = :stderr
-    if Rails.gem_version < Gem::Version.new("6.0")
-      config.active_record.sqlite3.represent_boolean_as_integer = true
-    end
     Rails.backtrace_cleaner.remove_silencers!
   end
 end
